@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=yes">
+		
+		<title>Glossary tester</title>
+		<link rel="shortcut icon" href="/favicon.ico">
+		
+		<link rel="stylesheet" href="/css/w3.css">
+		<link rel="stylesheet" href="/css/default.css">
+	
+	</head>
+    
+    <body>
+    
+        <div class="menu">
+
+            <a href="/"><img src="/img/home.png"></a>
+            <a href="/manage"><img src="/img/manage.png"></a>
+            <a href="/practice"><img src="/img/practice.png"></a>
+            <a href="/tests"><img src="/img/test.png"></a>
+
+        </div>
+
+        <div class="ingress">
+
+            <h1>Manage glossary</h1>
+            <p>Add your words, delete words you already know or clear the word list and start over.</p>
+
+        </div>
+
+        <div class="addWords center">
+
+            <p id="form">
+                <input type="text" name="language1" placeholder="Norwegian" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="language1" onKeyDown="if(event.keyCode==13){document.getElementById('language2').focus();}">
+                 = 
+                <input type="text" name="language2" placeholder="English" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="language2" onKeyDown="if(event.keyCode==13) addWord();">
+                <br>
+                <button onclick="addWord();" style="margin: 20px;">Add word</button>
+            </p>
+
+        </div>
+
+        <h2 class="center">Your words:</h2>
+
+        <div class="wordTable center">
+
+            <table class="center" id="table">
+                
+            </table>
+
+            <button class="center" id="deleteAllWords" onclick="deleteAllWords();">Clear word list</button>
+
+        </div>
+
+        <script src="manage.js"></script>
+        
+    </body>
+
+</html>
