@@ -20,9 +20,9 @@ var wordsLeft = 0;
 var correctWords = 0;
 var wrongWords = 0;
 
-var wordString = localStorage.getItem("wordList");
-var wordArray = wordString.split("&");
-var newWordArray = wordString.split("&");
+var wordString;
+var wordArray;
+var newWordArray;
 
 function showNextWord() {
     if (wordsLeft > 0) {
@@ -102,7 +102,24 @@ function startNewRound() {
 }
 
 function onLoad() {
-    startNewRound();
+
+    if (localStorage.getItem("wordList") !== null) {
+        wordString = localStorage.getItem("wordList");
+        wordArray = wordString.split("&");
+        newWordArray = wordString.split("&");
+        
+        startNewRound();
+    }
+    else {
+        var divNode = document.getElementById("practice");
+        while (divNode.firstChild) {
+            divNode.removeChild(divNode.firstChild);
+        }
+        
+        var node = document.createElement("P");
+        node.innerHTML = 'The word list is empty. <a class="link" href="/manage">Go add some words!</a>';
+        document.getElementById("practice").appendChild(node);
+    }
 }
 
 onLoad();
