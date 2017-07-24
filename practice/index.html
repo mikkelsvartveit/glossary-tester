@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+    
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=yes">
+
+        <title>Glossary tester</title>
+        <link rel="shortcut icon" href="/favicon.ico">
+
+        <link rel="stylesheet" href="/css/w3.css">
+        <link rel="stylesheet" href="/css/default.css">
+        
+    </head>
+    
+    <body>
+        
+        <div class="ingress">
+        
+            <h1>Practice</h1>
+        
+        </div>
+        
+        <h2>Round <span id="round">0</span></h2>
+        
+        <div class="content wordcounter">
+        
+            <div>
+                <span><b>Words left: </b></span>
+                <span id="wordsLeft">0</span>
+            </div>
+            
+            <div>
+                <span><b>Words correct: </b></span>
+                <span id="correctWords">0</span>
+            </div>
+            
+            <div>
+                <span><b>Words wrong: </b></span>
+                <span id="wrongWords">0</span>
+            </div>
+            
+        </div>
+        
+        <br>
+        
+        <div class="center" id="practice">
+        
+                <p class="word">Translate <b id="wordToTranslate"></b></p>
+                <input type="text" name="practice" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="practiceForm" onKeyDown="if(event.keyCode==13) enterWord();">
+                <button onclick="enterWord();">Enter</button>
+            
+        </div>
+        
+        <div id="correctComment">
+            <p class="correct">Correct!</p>
+        </div>
+        
+        <div id="wrongComment">
+            <p class="false">Wrong!</p>
+            <p>The correct word was <b id="correctWordWas"></b></p>
+        </div>
+    
+        <script src="practice.js"></script>
+        
+    </body>
+    
+</html>
