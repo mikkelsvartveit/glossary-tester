@@ -30,8 +30,10 @@ function showNewTest() {
 
             var bothWords = wordArray[i];
             var word = bothWords.split(":");
+            
+            var lang = localStorage.getItem("lang2");
 
-            var str = 'Translate <strong>' + word[0] + '</strong> to English: <br><input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="' + i + '">';
+            var str = 'Translate <strong>' + word[0] + '</strong> to <span>' + lang + '</span><br><input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="' + i + '">';
 
             node.innerHTML = str;
             document.getElementById("takeTest").appendChild(node);

@@ -14,18 +14,26 @@ function numberOfWords() {
     return number;
 }
 
-// This function clears and reloads the word table, with data from the local storage
+// This function clears and reloads the word table, with data from the local storage.
 function loadWordList() {
+    if (localStorage.getItem("lang1")) {
+        var lang1 = localStorage.getItem("lang1");
+        document.getElementById("language1").setAttribute("placeholder", lang1);
+        document.getElementById("langSelect1").value = lang1;
+    }
+    
+    if (localStorage.getItem("lang2")) {
+        var lang2 = localStorage.getItem("lang2");
+        document.getElementById("language2").setAttribute("placeholder", lang2);
+        document.getElementById("langSelect2").value = lang2;
+    }
+    
     var tableNode = document.getElementById("table");
-    while (tableNode.firstChild) {
-        tableNode.removeChild(tableNode.firstChild);
+    while (tableNode.childElementCount > 1) {
+        tableNode.removeChild(tableNode.lastChild);
     }
     
     if (numberOfWords() > 0) {
-        var languageNode = document.createElement("TR");
-        languageNode.innerHTML = "<th>Norwegian</th><th>English</th>"
-        tableNode.appendChild(languageNode);
-
         var wordString = localStorage.getItem("wordList");
         var wordArray = wordString.split("&");
 
@@ -42,11 +50,19 @@ function loadWordList() {
             document.getElementById("table").appendChild(node);
         }
     }
-    else {
-        node = document.createElement("P");
-        node.innerHTML = "The word list is empty. Go add some words!";
-        document.getElementById("table").appendChild(node);
+}
+
+function changeLanguage(languageToChange) {
+    if (languageToChange == 1) {
+        var lang = document.getElementById("langSelect1").value;
+        localStorage.setItem("lang1", lang);
     }
+    else if (languageToChange == 2) {
+        var lang = document.getElementById("langSelect2").value;
+        localStorage.setItem("lang2", lang);
+    }
+    
+    loadWordList();
 }
 
 // This function runs when the user clicks the "Add word" button
@@ -123,10 +139,6 @@ function deleteAllWords() {
         localStorage.removeItem("wordList");
         loadWordList();
     }
-}
-
-function showCookies() {
-    alert(localStorage.wordList);
 }
 
 // Load the word table when the page loads

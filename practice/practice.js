@@ -103,10 +103,15 @@ function startNewRound() {
 
 function onLoad() {
 
-    if (localStorage.getItem("wordList") !== null) {
+    if (localStorage.getItem("wordList")) {
         wordString = localStorage.getItem("wordList");
         wordArray = wordString.split("&");
         newWordArray = wordString.split("&");
+        
+        var lang = localStorage.getItem("lang2");
+        if (lang != "Other") {
+            document.getElementById("lang").innerHTML = lang;
+        }
         
         startNewRound();
     }

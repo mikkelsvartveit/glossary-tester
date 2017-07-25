@@ -22,10 +22,13 @@ function showLastTestResult() {
         var correctWords = resultArray[0];
         var totalWords = resultArray[1];
         
-        resultComment = 'In your last test, you got ' + correctWords + ' of ' + totalWords + ' words right. <a href="/tests/last-test" class="link">Show details</a>.';
+        document.getElementById("correctWords").innerHTML = correctWords;
+        document.getElementById("totalWords").innerHTML = totalWords;
+        
+        document.getElementById("lastTestComment").style.display = "block";
     }
     else {
-        resultComment = 'You have not completed any tests yet. When you take a test, the result will show up here.';
+        document.getElementById("noTestComment").style.display = "block";
     }
     
     node.innerHTML = resultComment;

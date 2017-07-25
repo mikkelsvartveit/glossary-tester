@@ -208,3 +208,11 @@ input {
 .word {
     font-size: 20px;
 }
+
+#lastTestComment {
+    display: none;
+}
+
+#noTestComment {
+    display: none;
+}
