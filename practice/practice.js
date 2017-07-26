@@ -109,9 +109,10 @@ function onLoad() {
         newWordArray = wordString.split("&");
         
         var lang = localStorage.getItem("lang2");
-        if (lang != "Other") {
-            document.getElementById("lang").innerHTML = lang;
+        if (lang == "Other") {
+            lang = localStorage.getItem("otherLang2");
         }
+        document.getElementById("lang").innerHTML = lang;
         
         startNewRound();
     }
