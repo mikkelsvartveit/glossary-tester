@@ -1,7 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=yes">
 
-<link rel="stylesheet" href="/css/w3.css">
 <link rel="stylesheet" href="/css/default.css">
 
 <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
