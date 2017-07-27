@@ -23,7 +23,7 @@
 
         </div>
         
-        <p><a class="link" href="/de">German version</a></p>
+        <!-- <p><a class="link" href="/de">German version</a></p> -->
 
         <div class="row">
 
