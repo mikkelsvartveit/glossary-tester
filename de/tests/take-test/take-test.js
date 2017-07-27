@@ -31,9 +31,15 @@ function showNewTest() {
             var bothWords = wordArray[i];
             var word = bothWords.split(":");
             
-            var lang = localStorage.getItem("lang2");
-            if (lang == "Other") {
-                lang = localStorage.getItem("otherLang2");
+            var lang;
+            if (localStorage.getItem("lang2")) {
+                lang = localStorage.getItem("lang2");
+                if (lang == "Other") {
+                    lang = localStorage.getItem("otherLang2");
+                }
+            }
+            else {
+                lang = "your learning language";
             }
             
             var str = 'Translate <strong>' + word[0] + '</strong> to <span>' + lang + '</span><br><input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="' + i + '">';

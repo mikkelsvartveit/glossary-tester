@@ -108,10 +108,16 @@ function onLoad() {
         wordArray = wordString.split("&");
         newWordArray = wordString.split("&");
         
-        var lang = localStorage.getItem("lang2");
-        if (lang == "Other") {
-            lang = localStorage.getItem("otherLang2");
-        }
+        var lang;
+            if (localStorage.getItem("lang2")) {
+                lang = localStorage.getItem("lang2");
+                if (lang == "Other") {
+                    lang = localStorage.getItem("otherLang2");
+                }
+            }
+            else {
+                lang = "your learning language";
+            }
         document.getElementById("lang").innerHTML = lang;
         
         startNewRound();
