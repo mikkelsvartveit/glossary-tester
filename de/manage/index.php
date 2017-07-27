@@ -4,27 +4,23 @@
 
     <head>
 	
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=yes">
-		
-		<title>Glossar Tester</title>
-		<link rel="shortcut icon" href="/favicon.ico">
-		
-		<link rel="stylesheet" href="/css/w3.css">
-		<link rel="stylesheet" href="/css/default.css">
+		<title>Glossary tester</title>
+        
+        <?php 
+           $path = $_SERVER['DOCUMENT_ROOT'];
+           $path .= "/de/php/head.php";
+           include_once($path);
+        ?>
 	
 	</head>
     
     <body>
     
-        <div class="menu">
-
-            <a href="/Tysk"><img src="/img/home.png"></a>
-            <a href="/Tysk/manage"><img src="/img/manage.png"></a>
-            <a href="/Tysk/practice"><img src="/img/practice.png"></a>
-            <a href="/Tysk/tests"><img src="/img/test.png"></a>
-
-        </div>
+        <?php 
+           $path = $_SERVER['DOCUMENT_ROOT'];
+           $path .= "/de/php/menu.php";
+           include_once($path);
+        ?>
 
         <div class="ingress">
 
