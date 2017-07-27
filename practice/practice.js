@@ -96,7 +96,7 @@ function startNewRound() {
         
         var node = document.createElement("P");
         node.setAttribute("class", "word");
-        node.innerHTML = "Practice completed!";
+        node.innerHTML = "Praxis abgeschlossen!";
         document.getElementById("practice").appendChild(node);
     }
 }
@@ -111,7 +111,7 @@ function onLoad() {
         var lang;
             if (localStorage.getItem("lang2")) {
                 lang = localStorage.getItem("lang2");
-                if (lang == "Other") {
+                if (lang == "Andere") {
                     lang = localStorage.getItem("otherLang2");
                 }
             }
@@ -129,7 +129,7 @@ function onLoad() {
         }
         
         var node = document.createElement("P");
-        node.innerHTML = 'The word list is empty. <a class="link" href="/manage">Go add some words!</a>';
+        node.innerHTML = 'Das Wort Liste ist leer. <a class="link" href="/manage">Gehen fügen Sie einige Worte!</a>';
         document.getElementById("practice").appendChild(node);
     }
 }

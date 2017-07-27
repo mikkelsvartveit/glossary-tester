@@ -25,7 +25,7 @@ function showLastResult() {
             
         }
         else {
-            node.innerHTML = translationArray[i] + ' = <b class="false">' + answerArray[i] + '</b> (correct answer was <b>' + correctArray[i] + '</b>)';
+            node.innerHTML = translationArray[i] + ' = <b class="false">' + answerArray[i] + '</b> (Die richtige Antwort war <b>' + correctArray[i] + '</b>)';
         }
         
         document.getElementById("testResult").appendChild(node);
@@ -37,19 +37,19 @@ function showLastResult() {
     var resultComment;
     
     if (percentageCorrect == 100) {
-        resultComment = "Wow, great job! You got all of your words right!";
+        resultComment = "Wow, super Arbeit!!! Du hast alle deine Worten Recht!";
     }
     else if (percentageCorrect >= 75) {
-        resultComment = "Well done! You got " + numberOfCorrectWords + " of " + numberOfWords + " words right.";
+        resultComment = "Gut gemacht! Du bekam " + numberOfCorrectWords + " auf " + numberOfWords + " richtigen Worte.";
     }
     else if (percentageCorrect >= 50) {
-        resultComment = "Not bad. You got " + numberOfCorrectWords + " of " + numberOfWords + " words right.";
+        resultComment = "Nicht schlecht. Du bekam " + numberOfCorrectWords + " auf " + numberOfWords + " richtigen Worte.";
     }
     else if (percentageCorrect >= 30){
-        resultComment = "Go practice some more. You got " + numberOfCorrectWords + " of " + numberOfWords + " words right.";
+        resultComment = "Gehen du der Praxis einige mehr. Du bekam " + numberOfCorrectWords + " auf " + numberOfWords + " richtigen Worte.";
     }
     else {
-        resultComment = "Ouch! You got " + numberOfCorrectWords + " of " + numberOfWords + " words right.";
+        resultComment = "AUA! Du bekam " + numberOfCorrectWords + " auf " + numberOfWords + " richtigen Worte.";
     }
     
     node.innerHTML = resultComment;

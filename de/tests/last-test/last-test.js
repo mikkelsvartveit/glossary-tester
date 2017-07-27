@@ -25,7 +25,7 @@ function showLastResult() {
             
         }
         else {
-            node.innerHTML = translationArray[i] + ' = <b class="false">' + answerArray[i] + '</b> (correct answer was <b>' + correctArray[i] + '</b>)';
+            node.innerHTML = translationArray[i] + ' = <b class="false">' + answerArray[i] + '</b> (Die richtige Antwort war <b>' + correctArray[i] + '</b>)';
         }
         
         document.getElementById("testResult").appendChild(node);
@@ -34,7 +34,7 @@ function showLastResult() {
     var percentageCorrect = (numberOfCorrectWords / numberOfWords) * 100;
     
     var node = document.createElement("P");
-    var resultComment = "On your last test, you got " + numberOfCorrectWords + " of " + numberOfWords + " words right.";
+    var resultComment = "Auf deine letzten test, hast du " + numberOfCorrectWords + " auf " + numberOfWords + " richtigen Worte.";
     
     node.innerHTML = resultComment;
     document.getElementById("testScore").appendChild(node);

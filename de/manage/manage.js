@@ -1,5 +1,5 @@
 // Enter supported languages here, seperated by comma and space
-var languages = "English, Spanish, German, French, Italian, Dutch, Portuguese, Norwegian, Swedish, Danish, Arabic, Hindi, Russian, Chinese, Japanese";
+var languages = "Englisch, Spanisch, Deutsch, Französisch, Italienisch, Niederländisch, Portugiesisch, Norwegisch, Schwedisch, Dänisch, Arabisch, Hindi, Russisch, Chinesisch, Japanisch";
 
 // This function returns the total number of words in the list
 function numberOfWords() {
@@ -68,7 +68,7 @@ function loadLanguages() {
         var lang = localStorage.getItem("lang1");
         var otherLang;
         
-        if(lang == "Other") {
+        if(lang == "Andere") {
             otherLang = localStorage.getItem("otherLang1");
             node = document.createElement("OPTION");
             node.innerHTML = otherLang;
@@ -88,7 +88,7 @@ function loadLanguages() {
         var lang = localStorage.getItem("lang2");
         var otherLang;
         
-        if(lang == "Other") {
+        if(lang == "Andere") {
             otherLang = localStorage.getItem("otherLang2");
             node = document.createElement("OPTION");
             node.innerHTML = otherLang;
@@ -133,7 +133,7 @@ function changeLanguage(languageToChange) {
         localStorage.setItem("lang2", lang);
         
         if (lang == "Other") {
-            var otherLang = prompt("Type in your language:");
+            var otherLang = prompt("Geben du in deine Sprache:");
             localStorage.setItem("otherLang2", otherLang);
             
             otherLang = localStorage.getItem("otherLang2");
@@ -171,7 +171,7 @@ function addWord() {
     
     // If any of the text fields are empty, display an error message
     if (document.getElementById("language1").value == "" || document.getElementById("language2").value == "") {
-        window.alert("Enter a word in both text fields!");
+        window.alert("Geben du ein Wort im beide text-Felder!");
     }
     
     // Else, add the inputted word to the word list
@@ -220,7 +220,7 @@ function deleteWord(index) {
 
 // This function runs when the user clicks the "Clear word list" button
 function deleteAllWords() {
-    var prompt = confirm("Are you sure you want to delete all the words?");
+    var prompt = confirm("Bist du sicher, dass du möchtest, löschst du alle Wörter?");
     
     if (prompt == true) {
         localStorage.removeItem("wordList");

@@ -42,7 +42,7 @@ function showNewTest() {
                 lang = "your learning language";
             }
             
-            var str = 'Translate <strong>' + word[0] + '</strong> to <span>' + lang + '</span><br><input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="' + i + '">';
+            var str = 'Übersetzen <strong>' + word[0] + '</strong> auf <span>' + lang + '</span><br><input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="' + i + '">';
 
             node.innerHTML = str;
             document.getElementById("takeTest").appendChild(node);
@@ -55,7 +55,7 @@ function showNewTest() {
     }
     else {
         var node = document.createElement("P");
-        var str = 'The word list is empty. Go <a class="link" href="/manage">here</a> to add some words!';
+        var str = 'Das Wort Liste ist leer. Go <a class="link" href="/manage">here</a> fügen Sie einige Worte!';
         node.innerHTML = str;
         document.getElementById("takeTest").appendChild(node);
     }
