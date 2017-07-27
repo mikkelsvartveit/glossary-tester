@@ -24,7 +24,7 @@
         
         <div class="ingress">
         
-            <h1>Glossary tests</h1>
+            <h1>Glossar Test</h1>
             <p>Siehst du deine letzte test-Ergebnis, oder startest du einen neuen test.</p>
         
         </div>
