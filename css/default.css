@@ -18,9 +18,35 @@ body {
     font-family: opensans;
 }
 
+p, select, button, input {
+    font-size: 16px;
+}
+
+h1 {
+	font-family: raleway;
+	font-size: 40px;
+    font-weight: normal;
+    margin-top: 20px;
+    left: 0px;
+}   
+
+h2 {
+    font-size: 30px;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: normal;
+}
+
 a {
     text-decoration: none;
     color: black;
+}
+
+select {
+    font-weight: bold;
 }
 
 .link {
@@ -50,15 +76,8 @@ a {
     margin-bottom: 30px;
 }
 
-.ingress h1 {
-	font-family: raleway;
-	font-size: 40px;
-    margin-top: 20px;
-    left: 0px;
-}
-
 .ingress p {
-	font-size: 16px;
+	font-size: 18px;
 	margin: 0px;
 }
 
@@ -104,7 +123,7 @@ a {
     height: auto;
     float: left;
     text-align: center;
-    padding: 20px;
+    padding: 20px 0;
 }
 
 @media (min-width: 1000px) {
@@ -116,7 +135,7 @@ a {
 .card {
     display: block;
     position: relative;
-    width: 80%;
+    width: 70%;
     margin: auto;
     padding: 10px;
     border-radius: 10px;
