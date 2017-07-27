@@ -1,3 +1,6 @@
+// Enter supported languages here, seperated by comma and space
+var languages = "English, Spanish, German, French, Italian, Dutch, Portuguese, Norwegian, Swedish, Danish, Arabic, Hindi, Russian, Chinese, Japanese";
+
 // This function returns the total number of words in the list
 function numberOfWords() {
     var number;
@@ -16,18 +19,6 @@ function numberOfWords() {
 
 // This function clears and reloads the word table, with data from the local storage.
 function loadWordList() {
-    if (localStorage.getItem("lang1")) {
-        var lang1 = localStorage.getItem("lang1");
-        document.getElementById("language1").setAttribute("placeholder", lang1);
-        document.getElementById("langSelect1").value = lang1;
-    }
-    
-    if (localStorage.getItem("lang2")) {
-        var lang2 = localStorage.getItem("lang2");
-        document.getElementById("language2").setAttribute("placeholder", lang2);
-        document.getElementById("langSelect2").value = lang2;
-    }
-    
     var tableNode = document.getElementById("table");
     while (tableNode.childElementCount > 1) {
         tableNode.removeChild(tableNode.lastChild);
@@ -45,9 +36,71 @@ function loadWordList() {
             word = bothWords.split(":");
             // Create a new <tr> element (row) with the words and add it to the table
             node = document.createElement("TR");
-            str = '<td>' + word[0] + '</td><td>' + word[1] + '<button class="deleteWordButton max-scale" onclick="deleteWord(' + i + ')">x</button></td>';
+            str = '<td>' + word[0] + '</td><td>' + word[1] + '<button class="deleteWordButton max-scale" onclick="deleteWord(' + i + ')"></button></td>';
             node.innerHTML = str;
             document.getElementById("table").appendChild(node);
+        }
+    }
+}
+
+function loadLanguages() {
+    
+    var languageArray = languages.split(", ");
+    languageArray.sort();
+    
+    for (var i = 0; i < languageArray.length; i++) {
+        var node = document.createElement("OPTION");
+        node.setAttribute("value", languageArray[i]);
+        node.innerHTML = languageArray[i];
+        var otherElement = document.getElementById("other1");
+        otherElement.parentNode.insertBefore(node, otherElement);
+    }
+    
+    for (var i = 0; i < languageArray.length; i++) {
+        var node = document.createElement("OPTION");
+        node.setAttribute("value", languageArray[i]);
+        node.innerHTML = languageArray[i];
+        var otherElement = document.getElementById("other2");
+        otherElement.parentNode.insertBefore(node, otherElement);
+    }
+    
+    if (localStorage.getItem("lang1")) {
+        var lang = localStorage.getItem("lang1");
+        var otherLang;
+        
+        if(lang == "Other") {
+            otherLang = localStorage.getItem("otherLang1");
+            node = document.createElement("OPTION");
+            node.innerHTML = otherLang;
+            node.setAttribute("value", otherLang);
+            document.getElementById("langSelect1").appendChild(node);
+            
+            document.getElementById("language1").setAttribute("placeholder", otherLang);
+            document.getElementById("langSelect1").value = otherLang;
+        }
+        else {
+            document.getElementById("langSelect1").value = lang;
+            document.getElementById("language1").setAttribute("placeholder", lang);
+        }
+    }
+    
+    if (localStorage.getItem("lang2")) {
+        var lang = localStorage.getItem("lang2");
+        var otherLang;
+        
+        if(lang == "Other") {
+            otherLang = localStorage.getItem("otherLang2");
+            node = document.createElement("OPTION");
+            node.innerHTML = otherLang;
+            node.setAttribute("value", otherLang);
+            document.getElementById("langSelect2").appendChild(node);
+            
+            document.getElementById("language2").setAttribute("placeholder", otherLang);
+            document.getElementById("langSelect2").value = otherLang;
+        }
+        else {
+            document.getElementById("langSelect2").value = lang;
+            document.getElementById("language2").setAttribute("placeholder", lang);
         }
     }
 }
@@ -55,14 +108,26 @@ function loadWordList() {
 function changeLanguage(languageToChange) {
     if (languageToChange == 1) {
         var lang = document.getElementById("langSelect1").value;
+        
+        if (lang == "Other") {
+            var otherLang = prompt("Type in your language:");
+            localStorage.setItem("otherLang1", otherLang);
+        }
+        
         localStorage.setItem("lang1", lang);
     }
     else if (languageToChange == 2) {
         var lang = document.getElementById("langSelect2").value;
+        
+        if (lang == "Other") {
+            var otherLang = prompt("Type in your language:");
+            localStorage.setItem("otherLang2", otherLang);
+        }
+        
         localStorage.setItem("lang2", lang);
     }
     
-    loadWordList();
+    loadLanguages();
 }
 
 // This function runs when the user clicks the "Add word" button
@@ -142,4 +207,5 @@ function deleteAllWords() {
 }
 
 // Load the word table when the page loads
+loadLanguages();
 loadWordList();

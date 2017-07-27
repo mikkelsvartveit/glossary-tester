@@ -33,9 +33,9 @@ function showNewTest() {
             
             var lang = localStorage.getItem("lang2");
             if (lang == "Other") {
-                lang = "your learning language"
+                lang = localStorage.getItem("otherLang2");
             }
-
+            
             var str = 'Translate <strong>' + word[0] + '</strong> to <span>' + lang + '</span><br><input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="' + i + '">';
 
             node.innerHTML = str;

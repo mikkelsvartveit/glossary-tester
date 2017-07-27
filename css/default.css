@@ -163,15 +163,16 @@ input {
     padding: 0;
     margin-left: 10px;
     
-    font-size: 12px;
+    font-size: 15px;
     font-weight: bold;
-    color: white;
+    color: grey;
     
-    background-color: red;
+    background: url(/img/x.png) no-repeat;
+    background-size: 100% 100%;
     
     border-style: solid;
     border-color: black;
-    border-width: 1px;
+    border-width: 0px;
     border-radius: 100px;
     
     transition: all .1s ease-in-out;
