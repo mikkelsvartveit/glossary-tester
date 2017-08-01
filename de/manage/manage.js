@@ -111,7 +111,7 @@ function changeLanguage(languageToChange) {
         localStorage.setItem("lang1", lang);
         
         if (lang == "Other") {
-            var otherLang = prompt("Type in your language:");
+            var otherLang = prompt("You type in your language:");
             localStorage.setItem("otherLang1", otherLang);
             
             otherLang = localStorage.getItem("otherLang1");
