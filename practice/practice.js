@@ -96,7 +96,7 @@ function startNewRound() {
         
         var node = document.createElement("P");
         node.setAttribute("class", "word");
-        node.innerHTML = "Praxis abgeschlossen!";
+        node.innerHTML = "Practice completed!";
         document.getElementById("practice").appendChild(node);
     }
 }
@@ -129,7 +129,7 @@ function onLoad() {
         }
         
         var node = document.createElement("P");
-        node.innerHTML = 'Das Wort Liste ist leer. <a class="link" href="/manage">Gehen fügen Sie einige Worte!</a>';
+        node.innerHTML = 'The word list is empty. <a class="link" href="/manage">Go add some words!</a>';
         document.getElementById("practice").appendChild(node);
     }
 }
