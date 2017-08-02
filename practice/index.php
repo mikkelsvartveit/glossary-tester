@@ -52,11 +52,16 @@
         
         <br>
         
-        <div class="center" id="practice">
-        
-                <p class="word">Translate <b id="wordToTranslate"></b> to <span id="lang">your learning language</span></p>
+        <div class="center">
+            
+            <div id="practice">
+                <p class="word">Translate <b id="wordToTranslate"></b> to <span id="lang">your language</span></p>
                 <input type="text" name="practice" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="practiceForm" onKeyDown="if(event.keyCode==13) enterWord();">
                 <button onclick="enterWord();">Enter</button>
+            </div>
+        
+            <p id="practiceCompleted" class="word hidden">Practice completed!</p>
+            <p id="noWords" class="hidden">The word list is empty. <a class="link" href="/manage">Go add some words!</a></p>
             
         </div>
         
@@ -69,7 +74,7 @@
             <p>The correct word was <b id="correctWordWas"></b></p>
         </div>
     
-        <script src="practice.js"></script>
+        <script src="/scripts/practice.js"></script>
         
     </body>
     

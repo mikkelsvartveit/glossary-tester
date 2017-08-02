@@ -1,5 +1,5 @@
 // Enter supported languages here, seperated by comma and space
-var languages = "English, Spanish, German, French, Italian, Dutch, Portuguese, Norwegian, Swedish, Danish, Arabic, Hindi, Russian, Chinese, Japanese";
+var languages = "English, Español, Deutsch, Français, Italiano, Nederlands, Português, Norsk, Svenska, Dansk, عربى, हिंदी, русский, 中文, 日本語";
 
 // This function returns the total number of words in the list
 function numberOfWords() {

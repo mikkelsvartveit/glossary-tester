@@ -24,40 +24,37 @@ function showNewTest() {
         var wordString = localStorage.getItem("wordList");
         // Create an array with all the words.
         var wordArray = wordString.split("&");
+        
+        document.getElementById("submitTest").style.display = "block";
 
         for (var i = 0; i < numberOfWords(); i++) {
-            var node = document.createElement("P");
+            var cloneNode = document.getElementById("sampleElement").cloneNode(true);
+
+            var wordNode = cloneNode.getElementsByClassName("word1")[0];
+            var langNode = cloneNode.getElementsByClassName("lang")[0];
+            var inputNode = cloneNode.getElementsByClassName("input")[0];
 
             var bothWords = wordArray[i];
             var word = bothWords.split(":");
             
-            var lang;
             if (localStorage.getItem("lang2")) {
-                lang = localStorage.getItem("lang2");
+                var lang = localStorage.getItem("lang2");
                 if (lang == "Other") {
                     lang = localStorage.getItem("otherLang2");
                 }
             }
-            else {
-                lang = "your learning language";
-            }
             
-            var str = 'Translate <strong>' + word[0] + '</strong> to <span>' + lang + '</span><br><input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="' + i + '">';
+            cloneNode.style.display = "block";
+            
+            wordNode.innerHTML = word[0];
+            langNode.innerHTML = lang;
+            inputNode.setAttribute("id", i);
 
-            node.innerHTML = str;
-            document.getElementById("takeTest").appendChild(node);
+            document.getElementById("takeTest").appendChild(cloneNode);
         }
-        
-        var buttonNode = document.createElement("BUTTON");
-        buttonNode.setAttribute("onclick", "submitTest()");
-        buttonNode.innerHTML = "Submit test";
-        document.getElementById("takeTest").appendChild(buttonNode);
     }
     else {
-        var node = document.createElement("P");
-        var str = 'The word list is empty. Go <a class="link" href="/manage">here</a> to add some words!';
-        node.innerHTML = str;
-        document.getElementById("takeTest").appendChild(node);
+        document.getElementById("noWords").style.display = "block";
     }
 }
 

@@ -68,7 +68,7 @@ function loadLanguages() {
         var lang = localStorage.getItem("lang1");
         var otherLang;
         
-        if(lang == "Andere") {
+        if(lang == "Other") {
             otherLang = localStorage.getItem("otherLang1");
             node = document.createElement("OPTION");
             node.innerHTML = otherLang;
@@ -88,7 +88,7 @@ function loadLanguages() {
         var lang = localStorage.getItem("lang2");
         var otherLang;
         
-        if(lang == "Andere") {
+        if(lang == "Other") {
             otherLang = localStorage.getItem("otherLang2");
             node = document.createElement("OPTION");
             node.innerHTML = otherLang;

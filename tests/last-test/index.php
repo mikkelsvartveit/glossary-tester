@@ -30,17 +30,17 @@
         
         <div id="testScore">
         
-            <!-- Javascript goes here -->
+            <p id="resultComment">On your last test, you got <span id="correctWords"></span> of <span id="totalWords"></span> words right.</p>
             
         </div>
         
         <div class="content" id="testResult">
         
-            <!-- Javascript goes here -->
+            <p id="sampleElement" class="hidden"><span class="originalWord"></span> = <span class="answer"></span><span class="correctComment hidden"> (correct answer was <b class="correctWord"></b>)</span></p>
             
         </div>
         
-        <script src="last-test.js"></script>
+        <script src="/scripts/last-test.js"></script>
     
     </body>
 

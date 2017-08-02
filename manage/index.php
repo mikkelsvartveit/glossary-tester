@@ -67,7 +67,7 @@
 
         </div>
 
-        <script src="manage.js"></script>
+        <script src="/scripts/manage.js"></script>
         
     </body>
 

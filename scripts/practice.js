@@ -57,7 +57,7 @@ function enterWord() {
         newWordArray.splice(index, 1);
     }
     else {
-        // Displays the "Wrong!" message for 1 second
+        // Displays the "Wrong!" message for 3 seconds
         document.getElementById("correctWordWas").innerHTML = correctWord;
         document.getElementById("wrongComment").style.display = "block";
         window.setTimeout(function() {document.getElementById("wrongComment").style.display = "none"}, 3000);
@@ -94,10 +94,7 @@ function startNewRound() {
             divNode.removeChild(divNode.firstChild);
         }
         
-        var node = document.createElement("P");
-        node.setAttribute("class", "word");
-        node.innerHTML = "Practice completed!";
-        document.getElementById("practice").appendChild(node);
+        document.getElementById("practiceCompleted").style.display = "block";
     }
 }
 
@@ -109,28 +106,19 @@ function onLoad() {
         newWordArray = wordString.split("&");
         
         var lang;
-            if (localStorage.getItem("lang2")) {
-                lang = localStorage.getItem("lang2");
-                if (lang == "Andere") {
-                    lang = localStorage.getItem("otherLang2");
-                }
+        if (localStorage.getItem("lang2")) {
+            lang = localStorage.getItem("lang2");
+            if (lang == "Other") {
+                lang = localStorage.getItem("otherLang2");
             }
-            else {
-                lang = "your learning language";
-            }
-        document.getElementById("lang").innerHTML = lang;
+            document.getElementById("lang").innerHTML = lang;
+        }
         
         startNewRound();
     }
     else {
-        var divNode = document.getElementById("practice");
-        while (divNode.firstChild) {
-            divNode.removeChild(divNode.firstChild);
-        }
-        
-        var node = document.createElement("P");
-        node.innerHTML = 'The word list is empty. <a class="link" href="/manage">Go add some words!</a>';
-        document.getElementById("practice").appendChild(node);
+        document.getElementById("practice").style.display = "none";
+        document.getElementById("noWords").style.display = "block";
     }
 }
 

@@ -50,7 +50,7 @@
         
         </div>
         
-        <script src="tests.js"></script>
+        <script src="/scripts/tests.js"></script>
     
     </body>
 
