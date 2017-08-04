@@ -36,7 +36,13 @@
         
         <div class="content" id="testResult">
         
-            <p id="sampleElement" class="hidden"><span class="originalWord"></span> = <span class="answer"></span><span class="correctComment hidden"> (correct answer was <b class="correctWord"></b>)</span></p>
+            <p id="sampleElement" class="hidden">
+                <span class="originalWord"></span> = 
+                <span class="answer"></span>
+                <span class="correctComment hidden"> (correct answer was 
+                    <b class="correctWord"></b>)
+                </span>
+            </p>
             
         </div>
         

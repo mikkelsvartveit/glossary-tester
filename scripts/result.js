@@ -16,44 +16,54 @@ function showLastResult() {
     var answerArray = answerString.split(",");
     var numberOfCorrectWords = 0;
     
-    for (i = 0; i < correctArray.length; i++) {
-        var node = document.createElement("P");
+    for (i = 0; i < numberOfWords; i++) {
+        var cloneNode = document.getElementById("sampleElement").cloneNode(true);
+        var originalWordNode = cloneNode.getElementsByClassName("originalWord")[0];
+        var answerNode = cloneNode.getElementsByClassName("answer")[0];
         
-        if (answerArray[i].toLowerCase() == correctArray[i].toLowerCase()) {
-            node.innerHTML = translationArray[i] + ' = <b class="correct">' + correctArray[i] + '</b>';
+        originalWordNode.innerHTML = translationArray[i];
+        answerNode.innerHTML = answerArray[i];
+        
+        if(answerArray[i].toLowerCase() == correctArray[i].toLowerCase()) {
+            answerNode.setAttribute("class", "answer correct");
             numberOfCorrectWords++;
-            
         }
         else {
-            node.innerHTML = translationArray[i] + ' = <b class="false">' + answerArray[i] + '</b> (correct answer was <b>' + correctArray[i] + '</b>)';
+            answerNode.setAttribute("class", "answer false");
+            var correctCommentNode = cloneNode.getElementsByClassName("correctComment")[0];
+            var correctWordNode = cloneNode.getElementsByClassName("correctWord")[0];
+            
+            correctCommentNode.style.display = "block";
+            correctWordNode.innerHTML = correctArray[i];
         }
         
-        document.getElementById("testResult").appendChild(node);
+        cloneNode.style.display = "block";
+        document.getElementById("testResult").appendChild(cloneNode);
     }
+    
+    document.getElementById("correctWords").innerHTML = numberOfCorrectWords;
+    document.getElementById("totalWords").innerHTML = numberOfWords;
     
     var percentageCorrect = (numberOfCorrectWords / numberOfWords) * 100;
-    
-    var node = document.createElement("P");
-    var resultComment;
+    var comment;
     
     if (percentageCorrect == 100) {
-        resultComment = "Wow, great job! You got all of your words right!";
+        comment = document.getElementById("100percent");
     }
     else if (percentageCorrect >= 75) {
-        resultComment = "Well done! You got " + numberOfCorrectWords + " of " + numberOfWords + " words right.";
+        comment = document.getElementById("75plus");
     }
     else if (percentageCorrect >= 50) {
-        resultComment = "Not bad. You got " + numberOfCorrectWords + " of " + numberOfWords + " words right.";
+        comment = document.getElementById("50plus");
     }
     else if (percentageCorrect >= 30){
-        resultComment = "Go practice some more. You got " + numberOfCorrectWords + " of " + numberOfWords + " words right.";
+        comment = document.getElementById("30plus");
     }
     else {
-        resultComment = "Ouch! You got " + numberOfCorrectWords + " of " + numberOfWords + " words right.";
+        comment = document.getElementById("under30");
     }
     
-    node.innerHTML = resultComment;
-    document.getElementById("testScore").appendChild(node);
+    comment.style.display = "block";
 }
 
 showLastResult();
