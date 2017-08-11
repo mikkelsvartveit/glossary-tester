@@ -22,8 +22,6 @@
             <p>Are you tired of learning glossary? Glossary Tester makes learning glossary easy and fun!</p>
 
         </div>
-        
-        <!-- <p><a class="link" href="/de">German version</a></p> -->
 
         <div class="row">
 
