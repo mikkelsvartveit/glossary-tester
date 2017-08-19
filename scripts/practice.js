@@ -1,37 +1,35 @@
+var round = 0,
+    counter = 0,
+    wordsLeft = 0,
+    correctWords = 0,
+    wrongWords = 0,
+
+    wordString,
+    wordArray,
+    newWordArray;
+
 // This function returns the total number of words in the list
 function numberOfWords() {
     var number;
-    
+
     if (localStorage.getItem("wordList")) {
-        var wordString = localStorage.getItem("wordList");
-        var wordArray = wordString.split("&");
+        var wordString = localStorage.getItem("wordList"),
+            wordArray = wordString.split("&");
         number = wordArray.length;
-    }
-    else {
+    } else {
         number = 0;
     }
-    
+
     return number;
 }
 
-var round = 0;
-var counter = 0;
-var wordsLeft = 0;
-var correctWords = 0;
-var wrongWords = 0;
-
-var wordString;
-var wordArray;
-var newWordArray;
-
 function showNextWord() {
     if (wordsLeft > 0) {
-        var bothWords = wordArray[counter];
-        var word = bothWords.split(":");
+        var bothWords = wordArray[counter],
+            word = bothWords.split(":");
 
         document.getElementById("wordToTranslate").innerHTML = word[0];
-    }
-    else {
+    } else {
         startNewRound();
     }
 }
@@ -39,28 +37,31 @@ function showNextWord() {
 function enterWord() {
     document.getElementById("correctComment").style.display = "none";
     document.getElementById("wrongComment").style.display = "none";
-    
-    var inputWord = document.getElementById("practiceForm").value;
 
-    var bothWords = wordArray[counter];
-    var word = bothWords.split(":");
-    var correctWord = word[1];
+    var inputWord = document.getElementById("practiceForm").value,
 
-    if (inputWord.toLowerCase() == correctWord.toLowerCase()) {
+        bothWords = wordArray[counter],
+        word = bothWords.split(":"),
+        correctWord = word[1];
+
+    if (inputWord.toLowerCase() === correctWord.toLowerCase()) {
         // Displays the "Correct!" message for 1 second
         document.getElementById("correctComment").style.display = "block";
-        window.setTimeout(function() {document.getElementById("correctComment").style.display = "none"}, 1000);
+        window.setTimeout(function () {
+            document.getElementById("correctComment").style.display = "none";
+        }, 1000);
 
         document.getElementById("correctWords").innerHTML = ++correctWords;
 
         var index = newWordArray.indexOf(bothWords);
         newWordArray.splice(index, 1);
-    }
-    else {
+    } else {
         // Displays the "Wrong!" message for 3 seconds
         document.getElementById("correctWordWas").innerHTML = correctWord;
         document.getElementById("wrongComment").style.display = "block";
-        window.setTimeout(function() {document.getElementById("wrongComment").style.display = "none"}, 3000);
+        window.setTimeout(function () {
+            document.getElementById("wrongComment").style.display = "none";
+        }, 3000);
 
         document.getElementById("wrongWords").innerHTML = ++wrongWords;
     }
@@ -74,26 +75,25 @@ function enterWord() {
 
 function startNewRound() {
     wordArray = newWordArray.slice(0);
-    
+
     counter = 0;
     wordsLeft = wordArray.length;
     correctWords = 0;
     wrongWords = 0;
-    
+
     if (wordsLeft > 0) {
         document.getElementById("wordsLeft").innerHTML = wordsLeft;
         document.getElementById("correctWords").innerHTML = correctWords;
         document.getElementById("wrongWords").innerHTML = wrongWords;
-        
+
         document.getElementById("round").innerHTML = ++round;
         showNextWord();
-    }
-    else {
+    } else {
         var divNode = document.getElementById("practice");
         while (divNode.firstChild) {
             divNode.removeChild(divNode.firstChild);
         }
-        
+
         document.getElementById("practiceCompleted").style.display = "block";
     }
 }
@@ -104,19 +104,18 @@ function onLoad() {
         wordString = localStorage.getItem("wordList");
         wordArray = wordString.split("&");
         newWordArray = wordString.split("&");
-        
+
         var lang;
         if (localStorage.getItem("lang2")) {
             lang = localStorage.getItem("lang2");
-            if (lang == "Other") {
+            if (lang === "Other") {
                 lang = localStorage.getItem("otherLang2");
             }
             document.getElementById("lang").innerHTML = lang;
         }
-        
+
         startNewRound();
-    }
-    else {
+    } else {
         document.getElementById("practice").style.display = "none";
         document.getElementById("noWords").style.display = "block";
     }

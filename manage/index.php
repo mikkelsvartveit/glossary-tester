@@ -2,73 +2,72 @@
 
 <html>
 
-    <head>
-	
-		<title>Glossary tester</title>
-        
-        <?php 
-           $path = $_SERVER['DOCUMENT_ROOT'];
-           $path .= "/php/head.php";
-           include_once($path);
-        ?>
-	
-	</head>
-    
-    <body>
-    
-        <?php 
-           $path = $_SERVER['DOCUMENT_ROOT'];
-           $path .= "/php/menu.php";
-           include_once($path);
-        ?>
+<head>
 
-        <div class="ingress">
+    <title>Glossary tester</title>
 
-            <h1>Manage glossary</h1>
-            <p>Add your words, delete words you already know or clear the word list and start over.</p>
+    <?php
+       $path = $_SERVER['DOCUMENT_ROOT'];
+       $path .= "/php/head.php";
+       include_once($path);
+    ?>
 
-        </div>
+</head>
 
-        <div class="addWords center">
+<body>
 
-            <p id="form">
-                <input type="text" name="language1" placeholder="Your language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="language1" onKeyDown="if(event.keyCode==13){document.getElementById('language2').focus();}">
-                 = 
-                <input type="text" name="language2" placeholder="Learning language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="language2" onKeyDown="if(event.keyCode==13) addWord();">
-                <br>
-                <button onclick="addWord();" style="margin: 20px;">Add word</button>
-            </p>
+    <?php
+       $path = $_SERVER['DOCUMENT_ROOT'];
+       $path .= "/php/menu.php";
+       include_once($path);
+    ?>
 
-        </div>
+    <div class="ingress">
 
-        <h2 class="center">Your words</h2>
+        <h1>Manage glossary</h1>
+        <p>Add your words, delete words you already know or clear the word list and start over.</p>
 
-        <div class="wordTable center">
+    </div>
 
-            <table class="center" id="table">
-                <th>
-                    <select id="langSelect1" onchange="changeLanguage(1);">
+    <div class="addWords center">
+
+        <p id="form">
+            <input type="text" name="language1" placeholder="Your language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="language1" onKeyDown="if(event.keyCode==13){document.getElementById('language2').focus();}"> =
+            <input type="text" name="language2" placeholder="Learning language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="language2" onKeyDown="if(event.keyCode==13) addWord();">
+            <br>
+            <button onclick="addWord();" style="margin: 20px;">Add word</button>
+        </p>
+
+    </div>
+
+    <h2 class="center">Your words</h2>
+
+    <div class="wordTable center">
+
+        <table class="center" id="table">
+            <th>
+                <select id="langSelect1" onchange="changeLanguage(1);">
                         <option value="none" selected disabled>--Select--</option>
                         <option value="Other" id="other1">--Other--</option>
                     </select>
-                </th>
-                
-                <th>
-                    <select id="langSelect2" onchange="changeLanguage(2);">
+            </th>
+
+            <th>
+                <select id="langSelect2" onchange="changeLanguage(2);">
                         <option value="none" selected disabled>--Select--</option>
                         <option value="Other" id="other2">--Other--</option>
                     </select>
-                </th>
-            </table>
+            </th>
+        </table>
 
-            <button class="center" id="deleteAllWords" onclick="deleteAllWords();">Clear word list</button>
-            
-            <p>Hint: Click on the dropdown lists to change your language!</p>
+        <button class="center" id="deleteAllWords" onclick="deleteAllWords();">Clear word list</button>
 
-        </div>
+        <p>Hint: Click on the dropdown lists to change your language!</p>
 
-        <script src="/scripts/manage.js"></script>
-        
-    </body>
+    </div>
+
+    <script src="/scripts/manage.js"></script>
+
+</body>
 
 </html>
