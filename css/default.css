@@ -16,6 +16,7 @@ body {
 
 * {
     font-family: opensans;
+    font-weight: normal;
 }
 
 p, select, button, input {
@@ -27,7 +28,6 @@ h1 {
 	font-size: 40px;
     font-weight: normal;
     margin-top: 20px;
-    left: 0px;
 }   
 
 h2 {
@@ -40,6 +40,10 @@ h3 {
     font-weight: normal;
 }
 
+b, .bold {
+    font-weight: bold;
+}
+
 a {
     text-decoration: none;
     color: black;
@@ -47,6 +51,26 @@ a {
 
 select {
     font-weight: bold;
+}
+
+input {
+    width: 100%;
+    max-width: 300px;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 6px;
+    background-color: white;
+}
+
+.word {
+    font-size: 20px;
+}
+
+.hidden {
+    display: none;
 }
 
 .link {
@@ -81,30 +105,11 @@ select {
 	margin: 0px;
 }
 
-.correct {
-    color: green;
-    font-weight: bold;
-}
-
-.false {
-    color: red;
-    font-weight: bold;
-}
-
 .content {
     text-align: left;
     width: auto;
     max-width: 500px;
     display: inline-block;
-}
-
-#testScore {
-    margin-bottom: 30px;
-}
-
-#testScore p {
-    font-size: 110%;
-    font-weight: bolder;
 }
 
 .center {
@@ -158,21 +163,19 @@ select {
     background-color: #CEF6D8;
 }
 
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 6px;
-    background-color: white;
-}
-
 .form {
     width: 45%;
     max-width: 200px;
 }
 
-input {
-    width: 100%;
-    max-width: 300px;
+.correct {
+    color: green;
+    font-weight: bold;
+}
+
+.false {
+    color: red;
+    font-weight: bold;
 }
 
 .deleteWordButton {
@@ -194,12 +197,6 @@ input {
     transition: all .1s ease-in-out;
 }
 
-.feedbackIcon {
-    height: 20px;
-    width: 20px;
-    margin-left: 5px;
-}
-
 .min-scale:hover {
     transform: scale(1.1);
 }
@@ -208,35 +205,19 @@ input {
     transform: scale(1.2);
 }
 
+#testScore {
+    margin-bottom: 30px;
+}
+
+#testScore p {
+    font-size: 110%;
+    font-weight: bolder;
+}
+
 #deleteAllWords {
     margin-top: 30px;
 }
 
-#correctComment {
-    display: none;
+#correctComment, #wrongComment {
     font-size: 20px;
-}
-
-#wrongComment {
-    display: none;
-    font-size: 20px;
-}
-
-.word {
-    font-size: 20px;
-}
-
-#lastTestComment {
-    display: none;
-}
-
-#noTestComment {
-    display: none;
-}
-
-.hidden {
-    display: none;
-}
-.bold {
-    font-weight: bold;
 }

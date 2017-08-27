@@ -25,7 +25,7 @@
     <div class="ingress">
 
         <h1>Practice</h1>
-        <p>This is the practice section. When you practice, each word will get repeated until you get it right.</p>
+        <p>This is the practice section. When you practice, each word will get repeated until you get it right. </p>
 
     </div>
 
@@ -65,11 +65,11 @@
 
     </div>
 
-    <div id="correctComment">
+    <div id="correctComment" class="hidden">
         <p class="correct">Correct!</p>
     </div>
 
-    <div id="wrongComment">
+    <div id="wrongComment" class="hidden">
         <p class="false">Wrong!</p>
         <p>The correct word was <b id="correctWordWas"></b></p>
     </div>

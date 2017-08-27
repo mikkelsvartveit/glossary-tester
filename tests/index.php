@@ -35,8 +35,8 @@
 
             <h2>Last test result</h2>
 
-            <p id="lastTestComment">In your last test, you got <span id="correctWords"></span> of <span id="totalWords"></span> words right. <a href="/tests/last-test" class="link">Show details</a>.</p>
-            <p id="noTestComment">You have not completed any tests yet. When you take a test, the result will show up here.</p>
+            <p id="lastTestComment" class="hidden">In your last test, you got <span id="correctWords"></span> of <span id="totalWords"></span> words right. <a href="/tests/last-test" class="link">Show details</a>.</p>
+            <p id="noTestComment" class="hidden">You have not completed any tests yet. When you take a test, the result will show up here.</p>
 
         </div>
 
