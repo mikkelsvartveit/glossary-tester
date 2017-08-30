@@ -41,12 +41,12 @@ function showNewTest() {
                 if (lang == "Other") {
                     lang = localStorage.getItem("otherLang2");
                 }
+                langNode.innerHTML = lang;
             }
 
             cloneNode.style.display = "block";
 
             wordNode.innerHTML = word[0];
-            langNode.innerHTML = lang;
             inputNode.setAttribute("id", i);
 
             document.getElementById("takeTest").appendChild(cloneNode);
