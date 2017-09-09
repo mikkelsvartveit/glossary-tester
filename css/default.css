@@ -4,14 +4,19 @@
 }
 
 @font-face {
+	font-family: raleway-light;
+	src: url(/fonts/Raleway-Light.ttf);
+}
+
+@font-face {
 	font-family: opensans;
 	src: url(/fonts/OpenSans.ttf);
 }
 
 body {
     background-color: #FAFAFA;
-    margin: 0 3% 20px 3%;
     text-align: center;
+    margin: 0;
 }
 
 * {
@@ -83,15 +88,39 @@ td, th {
 }
 
 .menu {
-    margin-top: 10px;
-    margin-bottom: 0;
+    margin: 0;
+    padding: 20px 0;
+    width: 100%;
+    background-color: white;
     text-align: center;
 }
 
-.menu img {
-    width: 50px;
-    height: 50px;
-    margin: 0px 5px;
+.menu a {
+    font-family: raleway-light;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 15px;
+    color: #333333;
+
+    border-style: solid;
+    border-width: 2px;
+}
+
+.home {
+    border-color: #BBBBBB;
+}
+
+.manage {
+    border-color: #AABBEE;
+}
+
+.practice {
+    border-color: #EFCCAA;
+}
+
+.test {
+    border-color: #AAEFBA;
 }
 
 .ingress {
