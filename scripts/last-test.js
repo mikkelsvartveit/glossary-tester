@@ -32,7 +32,7 @@ function showLastResult() {
             var correctCommentNode = cloneNode.getElementsByClassName("correctComment")[0],
                 correctWordNode = cloneNode.getElementsByClassName("correctWord")[0];
 
-            correctCommentNode.style.display = "block";
+            correctCommentNode.style.display = "inline";
             correctWordNode.innerHTML = correctArray[i];
         }
 
