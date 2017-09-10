@@ -15,6 +15,12 @@
 </head>
 
 <body>
+    
+    <?php
+       $path = $_SERVER['DOCUMENT_ROOT'];
+       $path .= "/php/menu.php";
+       include_once($path);
+    ?>
 
     <div class="ingress">
 

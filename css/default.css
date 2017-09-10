@@ -9,18 +9,35 @@
 }
 
 @font-face {
+	font-family: comfortaa;
+	src: url(/fonts/Comfortaa-Regular.ttf);
+}
+
+@font-face {
+	font-family: comfortaa-light;
+	src: url(/fonts/Comfortaa-Light.ttf);
+}
+
+@font-face {
+	font-family: comfortaa-bold;
+	src: url(/fonts/Comfortaa-Bold.ttf);
+}
+
+@font-face {
 	font-family: opensans;
 	src: url(/fonts/OpenSans.ttf);
 }
 
 body {
-    background-color: #AABBEE;
+    background-color: #EEEEEE;
     margin: 0;
 }
 
 * {
-    font-family: opensans;
+    font-family: comfortaa;
     font-weight: normal;
+    color: #333333;
+    line-height: 150%;
 }
 
 p, select, button, input {
@@ -28,15 +45,17 @@ p, select, button, input {
 }
 
 h1 {
-	font-family: raleway;
+	font-family: comfortaa-light;
 	font-size: 40px;
     font-weight: normal;
     text-align: center;
+    color: #333333;
 }
 
 h2 {
     font-size: 30px;
     font-weight: normal;
+    font-family: comfortaa;
 }
 
 h3 {
@@ -55,18 +74,51 @@ a {
 
 select {
     font-weight: bold;
+    padding: 5px;
+    width: 100%;
 }
 
 input {
     width: 100%;
     max-width: 300px;
+    margin-bottom: 10px;
+    padding: 2px;
+    border-style: none;
+    border-bottom-style: solid;
+    border-color: #009DA5;
+    border-width: 2px;
+    font-family: opensans;
 }
+
+input:focus {
+    outline: 0;
+    border-width: 3px;
+}
+
+button {
+    font-family: comfortaa-bold;
+    padding: 8px 12px;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #009DA5;
+    transition-duration: 0.2s;
+}
+
+button:hover {
+    background-color: #009DA5;
+    color: #F9F9F9;
+}
+
+button:focus, input:focus {outline: 0;}
 
 td, th {
     border: 1px solid #dddddd;
     text-align: left;
-    padding: 6px;
+    padding: 10px;
     background-color: white;
+    font-family: comfortaa;
+    width: 50%;
 }
 
 .word {
@@ -93,14 +145,12 @@ td, th {
     
     background-color: white;
     
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 20px auto;
     box-sizing: border-box;
     padding: 20px;
     
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px #888888;
+    border-radius: 0px;
+    box-shadow: 0px 0px 20px #888888;
 }
 
 @media (min-width: 600px) {
@@ -114,23 +164,35 @@ td, th {
     margin: 0;
     padding: 20px 0;
     width: 100%;
-    background-color: white;
+    background-color: #009DA5;
     text-align: center;
 }
 
 .menu a {
-    font-family: raleway-light;
-    text-transform: uppercase;
-    font-size: 20px;
-    padding: 10px 20px;
-    margin: 15px;
-    color: #333333;
+    font-family: comfortaa-bold;
+    font-size: 18px;
+    padding: 5px 0;
+    margin: 20px;
+    color: white;
+    position: relative;
+}
 
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 10px;
-    
-    transition-duration: 0.2s;
+.menu a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FFFFFF;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.2s ease-in-out 0s;
+}
+
+.menu a:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
 }
 
 .menu a:hover {
@@ -243,8 +305,7 @@ td, th {
 }
 
 .form {
-    width: 45%;
-    max-width: 400px;
+    width: 40%;
 }
 
 .correct {
@@ -276,6 +337,10 @@ td, th {
     transition: all .1s ease-in-out;
 }
 
+.deleteWordButton:hover {
+    background-color: transparent;
+}
+
 .min-scale:hover {
     transform: scale(1.1);
 }
@@ -302,4 +367,19 @@ td, th {
 
 #table {
     width: 100%;
+}
+
+
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;    
+}
+
+#practiceForm {
+    width: 100%;
+    max-width: 100%;
 }

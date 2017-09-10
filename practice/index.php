@@ -50,8 +50,8 @@
 
             <div id="practice">
                 <p class="word">Translate <b id="wordToTranslate"></b> to <span id="lang">your language</span></p>
-                <input type="text" name="practice" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="practiceForm" onKeyDown="if(event.keyCode==13) enterWord();">
-                <button onclick="enterWord();">Answer</button>
+                <input type="text" name="practice" placeholder="Type your answer" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="practiceForm" onKeyDown="if(event.keyCode==13) enterWord();">
+                <button class="float-right" onclick="enterWord();">Answer</button>
             </div>
 
             <p id="practiceCompleted" class="word hidden">Practice completed! <a class="link" href=".">Start over.</a></p>

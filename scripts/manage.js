@@ -35,7 +35,7 @@ function loadWordList() {
                 word = bothWords.split(":"),
                 // Create a new <tr> element (row) with the words and add it to the table
                 node = document.createElement("TR"),
-                str = '<td>' + word[0] + '</td><td>' + word[1] + '<button class="deleteWordButton max-scale" onclick="deleteWord(' + i + ')"></button></td>';
+                str = '<td>' + word[0] + '</td><td><button class="deleteWordButton max-scale" onclick="deleteWord(' + i + ')"></button>' + word[1] + '</td>';
                 node.innerHTML = str;
             document.getElementById("table").appendChild(node);
         }
