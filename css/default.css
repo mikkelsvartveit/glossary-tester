@@ -14,8 +14,7 @@
 }
 
 body {
-    background-color: #FAFAFA;
-    text-align: center;
+    background-color: #AABBEE;
     margin: 0;
 }
 
@@ -32,8 +31,8 @@ h1 {
 	font-family: raleway;
 	font-size: 40px;
     font-weight: normal;
-    margin-top: 20px;
-}   
+    text-align: center;
+}
 
 h2 {
     font-size: 30px;
@@ -87,6 +86,30 @@ td, th {
     text-decoration: underline;
 }
 
+.page {
+    width: 90%;
+    max-width: 700px;
+    min-height: 80vh;
+    
+    background-color: white;
+    
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    padding: 20px;
+    
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px #888888;
+}
+
+@media (min-width: 600px) {
+    .page {
+        box-sizing: border-box;
+        padding: 20px 70px;
+    }
+}
+
 .menu {
     margin: 0;
     padding: 20px 0;
@@ -105,28 +128,51 @@ td, th {
 
     border-style: solid;
     border-width: 2px;
+    border-radius: 10px;
+    
+    transition-duration: 0.2s;
+}
+
+.menu a:hover {
+    transition-duration: 0.2s;
 }
 
 .home {
     border-color: #BBBBBB;
 }
 
+.home:hover {
+    background-color: #E6E6E6;
+}
+
 .manage {
     border-color: #AABBEE;
+}
+
+.manage:hover {
+    background-color: #E0E9FF;
 }
 
 .practice {
     border-color: #EFCCAA;
 }
 
+.practice:hover {
+    background-color: #FFEFDD;
+}
+
 .test {
     border-color: #AAEFBA;
 }
 
+.test:hover {
+    background-color: #E1FFE9;
+}
+
 .ingress {
 	margin-top: 0px;
-	text-align: center;
     margin-bottom: 30px;
+    text-align: center;
 }
 
 .ingress p {
@@ -136,9 +182,9 @@ td, th {
 
 .content {
     text-align: left;
-    width: auto;
-    max-width: 500px;
-    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 140px;
 }
 
 .center {
@@ -194,7 +240,7 @@ td, th {
 
 .form {
     width: 45%;
-    max-width: 200px;
+    max-width: 400px;
 }
 
 .correct {
@@ -238,15 +284,14 @@ td, th {
     margin-bottom: 30px;
 }
 
-#testScore p {
-    font-size: 110%;
-    font-weight: bolder;
-}
-
 #deleteAllWords {
     margin-top: 30px;
 }
 
 #correctComment, #wrongComment {
     font-size: 20px;
+}
+
+#practice {
+    margin-bottom: 20px;
 }

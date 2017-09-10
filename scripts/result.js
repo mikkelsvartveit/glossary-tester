@@ -58,7 +58,7 @@ function showLastResult() {
         comment = document.getElementById("under30");
     }
 
-    comment.style.display = "block";
+    comment.style.display = "inline";
 }
 
 showLastResult();
