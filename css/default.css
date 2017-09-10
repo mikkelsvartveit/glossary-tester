@@ -128,7 +128,6 @@ td, th {
 
     border-style: solid;
     border-width: 2px;
-<<<<<<< HEAD
     border-radius: 10px;
     
     transition-duration: 0.2s;
@@ -136,37 +135,28 @@ td, th {
 
 .menu a:hover {
     transition-duration: 0.2s;
-=======
->>>>>>> 201fe46abd0e2df990439a4699af4cb2a2a5c26d
 }
 
 .home {
     border-color: #BBBBBB;
 }
 
-<<<<<<< HEAD
 .home:hover {
     background-color: #E6E6E6;
 }
 
-=======
->>>>>>> 201fe46abd0e2df990439a4699af4cb2a2a5c26d
 .manage {
     border-color: #AABBEE;
 }
 
-<<<<<<< HEAD
 .manage:hover {
     background-color: #E0E9FF;
 }
 
-=======
->>>>>>> 201fe46abd0e2df990439a4699af4cb2a2a5c26d
 .practice {
     border-color: #EFCCAA;
 }
 
-<<<<<<< HEAD
 .practice:hover {
     background-color: #FFEFDD;
 }
@@ -177,10 +167,10 @@ td, th {
 
 .test:hover {
     background-color: #E1FFE9;
-=======
+}
+
 .test {
     border-color: #AAEFBA;
->>>>>>> 201fe46abd0e2df990439a4699af4cb2a2a5c26d
 }
 
 .ingress {
