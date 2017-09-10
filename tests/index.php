@@ -22,7 +22,7 @@
        include_once($path);
     ?>
     
-    <div class="page center">
+    <div class="page">
 
         <div class="ingress">
 

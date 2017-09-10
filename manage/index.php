@@ -31,9 +31,9 @@
 
         </div>
             
-        <div class="center">
+        <div class="">
 
-            <div class="addWords">
+            <div class="addWords center">
 
                 <p id="form">
                     <input type="text" name="language1" placeholder="Your language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="language1" onKeyDown="if(event.keyCode==13){document.getElementById('language2').focus();}"> =
@@ -46,30 +46,26 @@
 
             <h2>Your words</h2>
 
-            <div class="wordTable">
+            <table id="table">
+                <th>
+                    <select id="langSelect1" onchange="changeLanguage(1);">
+                            <option value="none" selected disabled>--Select--</option>
+                            <option value="Other" id="other1">--Other--</option>
+                        </select>
+                </th>
 
-                <table id="table" class="center">
-                    <th>
-                        <select id="langSelect1" onchange="changeLanguage(1);">
-                                <option value="none" selected disabled>--Select--</option>
-                                <option value="Other" id="other1">--Other--</option>
-                            </select>
-                    </th>
+                <th>
+                    <select id="langSelect2" onchange="changeLanguage(2);">
+                            <option value="none" selected disabled>--Select--</option>
+                            <option value="Other" id="other2">--Other--</option>
+                        </select>
+                </th>
+            </table>
 
-                    <th>
-                        <select id="langSelect2" onchange="changeLanguage(2);">
-                                <option value="none" selected disabled>--Select--</option>
-                                <option value="Other" id="other2">--Other--</option>
-                            </select>
-                    </th>
-                </table>
+            <button id="deleteAllWords" onclick="deleteAllWords();">Clear word list</button>
 
-                <button id="deleteAllWords" onclick="deleteAllWords();">Clear word list</button>
+            <p>Hint: Click on the dropdown lists to change your language!</p>
 
-                <p>Hint: Click on the dropdown lists to change your language!</p>
-
-            </div>
-            
         </div>
     
     </div>
