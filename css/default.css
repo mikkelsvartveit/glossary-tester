@@ -163,10 +163,10 @@ td, th {
 
 .menu {
     margin: 0;
-    padding: 20px 0;
+    padding: 10px 0;
+    height: 50px;
     width: 100%;
     background-color: #009DA5;
-    text-align: center;
 }
 
 .menu a {
@@ -198,6 +198,28 @@ td, th {
 
 .menu a:hover {
     transition-duration: 0.2s;
+}
+
+.menu-group {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+}
+
+.menu-left {
+    width: 25%;
+    text-align: left;
+}
+
+.menu-center {
+    width: 50%;
+    text-align: center;
+}
+
+.menu-right {
+    width: 25%;
+    text-align: right;
+    margin-right: 100px;
 }
 
 .home {
@@ -285,24 +307,22 @@ td, th {
     width: 70%;
     margin: auto;
     padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px #888888;
     text-decoration: none;
-    color: black;
     
-    transition: all 0.1s ease-in-out;
+    background-color: white;
+    box-shadow: 0px 0px 15px #888888;
+    border: 3px solid #009DA5;
+    
+    transition-duration: 0.2s;
 }
 
-.blue {
-    background-color: #CED8F6;
+.card:hover {
+    background-color: #009DA5;
+    color: #F9F9F9;
 }
 
-.orange {
-    background-color: #F5D0A9;
-}
-
-.green {
-    background-color: #CEF6D8;
+.card:hover p, .card:hover h3 {
+    color: #F9F9F9;
 }
 
 .form {
@@ -392,3 +412,11 @@ td, th {
 .comments {
     height: 100px;
 }
+
+#menu-collapse-icon {
+    width: 50px;
+    height: 50px; 
+}
+
+.menu-right {
+    float: right;    
