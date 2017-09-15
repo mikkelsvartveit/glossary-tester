@@ -1,14 +1,4 @@
 @font-face {
-	font-family: raleway;
-	src: url(/fonts/Raleway-ExtraLight.ttf);
-}
-
-@font-face {
-	font-family: raleway-light;
-	src: url(/fonts/Raleway-Light.ttf);
-}
-
-@font-face {
 	font-family: comfortaa;
 	src: url(/fonts/Comfortaa-Regular.ttf);
 }
@@ -222,42 +212,6 @@ td, th {
     margin-right: 100px;
 }
 
-.home {
-    border-color: #BBBBBB;
-}
-
-.home:hover {
-    background-color: #E6E6E6;
-}
-
-.manage {
-    border-color: #AABBEE;
-}
-
-.manage:hover {
-    background-color: #E0E9FF;
-}
-
-.practice {
-    border-color: #EFCCAA;
-}
-
-.practice:hover {
-    background-color: #FFEFDD;
-}
-
-.test {
-    border-color: #AAEFBA;
-}
-
-.test:hover {
-    background-color: #E1FFE9;
-}
-
-.test {
-    border-color: #AAEFBA;
-}
-
 .ingress {
 	margin-top: 0px;
     margin-bottom: 30px;
@@ -267,19 +221,6 @@ td, th {
 .ingress p {
 	font-size: 18px;
 	margin: 0px;
-}
-
-.content {
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto;
-    width: 140px;
-}
-
-.center {
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 .row {
@@ -325,8 +266,26 @@ td, th {
     color: #F9F9F9;
 }
 
+.center {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;    
+}
+
 .form {
     width: 40%;
+}
+
+.comments {
+    height: 100px;
 }
 
 .correct {
@@ -354,20 +313,10 @@ td, th {
     background-size: 100% 100%;
     
     border-style: none;
-    
-    transition: all .1s ease-in-out;
 }
 
 .deleteWordButton:hover {
     background-color: transparent;
-}
-
-.min-scale:hover {
-    transform: scale(1.1);
-}
-
-.max-scale:hover {
-    transform: scale(1.2);
 }
 
 #testScore {
@@ -390,14 +339,6 @@ td, th {
     width: 100%;
 }
 
-.float-left {
-    float: left;
-}
-
-.float-right {
-    float: right;    
-}
-
 #practiceForm {
     width: 100%;
     max-width: 100%;
@@ -409,14 +350,7 @@ td, th {
     padding-right: 20px;
 }
 
-.comments {
-    height: 100px;
-}
-
 #menu-collapse-icon {
     width: 50px;
     height: 50px; 
 }
-
-.menu-right {
-    float: right;    
