@@ -147,7 +147,7 @@ td, th {
 @media (min-width: 600px) {
     .page {
         box-sizing: border-box;
-        padding: 20px 70px;
+        padding: 20px 70px 50px 70px;
     }
 }
 
