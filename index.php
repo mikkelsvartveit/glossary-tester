@@ -24,7 +24,7 @@
 
     <div class="ingress">
 
-        <h1 style="margin-top: 40px;">Glossary Tester </h1>
+        <h1 style="margin-top: 40px;">Glossary Tester</h1>
         <p>Are you tired of learning glossary? Glossary Tester makes learning glossary easy and fun!</p>
 
     </div>
