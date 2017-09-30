@@ -22,28 +22,31 @@
        include_once($path);
     ?>
 
-    <div class="ingress">
+    <div class="page">
+       
+        <div class="ingress">
 
-        <h1>Last test result</h1>
+            <h1>Last test result</h1>
+            
+            <div id="testScore">
 
-    </div>
+                <p id="resultComment">On your last test, you got <b id="correctWords"></b> of <b id="totalWords"></b> words right.</p>
 
-    <div id="testScore">
+            </div>
 
-        <p id="resultComment">On your last test, you got <span id="correctWords"></span> of <span id="totalWords"></span> words right.</p>
+        </div>
 
-    </div>
+        <div id="testResult">
 
-    <div class="content" id="testResult">
-
-        <p id="sampleElement" class="hidden">
-            <span class="originalWord"></span> =
-            <span class="answer"></span>
-            <span class="correctComment hidden"> (correct answer was
-                    <b class="correctWord"></b>)
+            <p id="sampleElement" class="hidden">
+                <span class="originalWord"></span> =
+                <span class="answer"></span>
+                <span class="correctComment hidden"> (correct answer was <b class="correctWord"></b>)
                 </span>
-        </p>
+            </p>
 
+        </div>
+        
     </div>
 
     <script src="/scripts/last-test.js"></script>

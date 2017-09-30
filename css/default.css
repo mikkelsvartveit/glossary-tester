@@ -1,6 +1,16 @@
 @font-face {
-	font-family: raleway;
-	src: url(/fonts/Raleway-ExtraLight.ttf);
+	font-family: comfortaa;
+	src: url(/fonts/Comfortaa-Regular.ttf);
+}
+
+@font-face {
+	font-family: comfortaa-light;
+	src: url(/fonts/Comfortaa-Light.ttf);
+}
+
+@font-face {
+	font-family: comfortaa-bold;
+	src: url(/fonts/Comfortaa-Bold.ttf);
 }
 
 @font-face {
@@ -9,14 +19,16 @@
 }
 
 body {
-    background-color: #FAFAFA;
-    margin: 0 3% 20px 3%;
-    text-align: center;
+    background-color: #EEEEEE;
+    margin: 0;
+    overflow-y: scroll;
 }
 
 * {
-    font-family: opensans;
+    font-family: comfortaa;
     font-weight: normal;
+    color: #333333;
+    line-height: 150%;
 }
 
 p, select, button, input {
@@ -24,15 +36,17 @@ p, select, button, input {
 }
 
 h1 {
-	font-family: raleway;
+	font-family: comfortaa-light;
 	font-size: 40px;
     font-weight: normal;
-    margin-top: 20px;
-}   
+    text-align: center;
+    color: #333333;
+}
 
 h2 {
     font-size: 30px;
     font-weight: normal;
+    font-family: comfortaa;
 }
 
 h3 {
@@ -51,18 +65,51 @@ a {
 
 select {
     font-weight: bold;
+    padding: 5px;
+    width: 100%;
 }
 
 input {
     width: 100%;
     max-width: 300px;
+    margin-bottom: 10px;
+    padding: 2px;
+    border-style: none;
+    border-bottom-style: solid;
+    border-color: #009DA5;
+    border-width: 2px;
+    font-family: opensans;
 }
+
+input:focus {
+    outline: 0;
+    border-width: 3px;
+}
+
+button {
+    font-family: comfortaa-bold;
+    padding: 8px 12px;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #009DA5;
+    transition-duration: 0.2s;
+}
+
+button:hover {
+    background-color: #009DA5;
+    color: #F9F9F9;
+}
+
+button:focus, input:focus {outline: 0;}
 
 td, th {
     border: 1px solid #dddddd;
     text-align: left;
-    padding: 6px;
+    padding: 10px;
     background-color: white;
+    font-family: comfortaa;
+    width: 50%;
 }
 
 .word {
@@ -82,40 +129,134 @@ td, th {
     text-decoration: underline;
 }
 
+.page {
+    width: 90%;
+    max-width: 700px;
+    min-height: 80vh;
+    
+    background-color: white;
+    
+    margin: 20px auto;
+    box-sizing: border-box;
+    padding: 20px;
+    
+    border-radius: 0px;
+    box-shadow: 0px 0px 20px #888888;
+}
+
+@media (min-width: 600px) {
+    .page {
+        box-sizing: border-box;
+        padding: 20px 70px 50px 70px;
+    }
+}
+
+.desktop-menu {
+    display: none;
+}
+
+@media (min-width: 1000px) {
+    .desktop-menu {
+        display: block;
+    }
+    
+    .mobile-menu, .dropdown-menu {
+        display: none;
+    }
+}
+
 .menu {
-    margin-top: 10px;
-    margin-bottom: 0;
+    margin: 0;
+    padding: 10px 0;
+    height: 50px;
+    width: 100%;
+    background-color: #009DA5;
+}
+
+.menu a {
+    font-family: comfortaa-bold;
+    font-size: 18px;
+    padding: 5px 0;
+    margin: 20px;
+    color: white;
+    position: relative;
+}
+
+.menu a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FFFFFF;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.2s ease-in-out 0s;
+}
+
+.menu a:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+.menu a:hover {
+    transition-duration: 0.2s;
+}
+
+.menu-group {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+}
+
+.menu-left {
+    width: 25%;
+    text-align: left;
+}
+
+.menu-center {
+    width: 50%;
     text-align: center;
 }
 
-.menu img {
-    width: 50px;
-    height: 50px;
-    margin: 0px 5px;
+.menu-right {
+    width: 25%;
+    text-align: right;
+}
+
+#dropdown-menu {
+    background-color: #00797f;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+#dropdown-menu a {
+    font-family: comfortaa-bold;
+    font-size: 18px;
+    color: white;
+    padding: 10px;
+    display: block;
+    text-align: right;
+}
+
+#dropdownButton {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 10px;
 }
 
 .ingress {
 	margin-top: 0px;
-	text-align: center;
     margin-bottom: 30px;
+    text-align: center;
 }
 
 .ingress p {
 	font-size: 18px;
 	margin: 0px;
-}
-
-.content {
-    text-align: left;
-    width: auto;
-    max-width: 500px;
-    display: inline-block;
-}
-
-.center {
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 .row {
@@ -143,29 +284,44 @@ td, th {
     width: 70%;
     margin: auto;
     padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px #888888;
     text-decoration: none;
-    color: black;
     
-    transition: all 0.1s ease-in-out;
+    background-color: white;
+    box-shadow: 0px 0px 15px #888888;
+    border: 3px solid #009DA5;
+    
+    transition-duration: 0.2s;
 }
 
-.blue {
-    background-color: #CED8F6;
+.card:hover {
+    background-color: #009DA5;
+    color: #F9F9F9;
 }
 
-.orange {
-    background-color: #F5D0A9;
+.card:hover p, .card:hover h3 {
+    color: #F9F9F9;
 }
 
-.green {
-    background-color: #CEF6D8;
+.center {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;    
 }
 
 .form {
-    width: 45%;
-    max-width: 200px;
+    width: 40%;
+}
+
+.comments {
+    height: 100px;
 }
 
 .correct {
@@ -193,25 +349,14 @@ td, th {
     background-size: 100% 100%;
     
     border-style: none;
-    
-    transition: all .1s ease-in-out;
 }
 
-.min-scale:hover {
-    transform: scale(1.1);
-}
-
-.max-scale:hover {
-    transform: scale(1.2);
+.deleteWordButton:hover {
+    background-color: transparent;
 }
 
 #testScore {
     margin-bottom: 30px;
-}
-
-#testScore p {
-    font-size: 110%;
-    font-weight: bolder;
 }
 
 #deleteAllWords {
@@ -220,4 +365,23 @@ td, th {
 
 #correctComment, #wrongComment {
     font-size: 20px;
+}
+
+#practice {
+    margin-bottom: 20px;
+}
+
+#table {
+    width: 100%;
+}
+
+#practiceForm {
+    width: 100%;
+    max-width: 100%;
+}
+
+.fill-width {
+    display: block;
+    overflow: hidden;
+    padding-right: 20px;
 }

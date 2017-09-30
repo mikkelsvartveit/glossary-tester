@@ -4,7 +4,7 @@
 
 <head>
 
-    <title>Glossary tester</title>
+    <title>Glossary Tester</title>
 
     <?php
        $path = $_SERVER['DOCUMENT_ROOT'];
@@ -15,10 +15,16 @@
 </head>
 
 <body>
+    
+    <?php
+       $path = $_SERVER['DOCUMENT_ROOT'];
+       $path .= "/php/menu.php";
+       include_once($path);
+    ?>
 
     <div class="ingress">
 
-        <h1>Glossary Tester</h1>
+        <h1 style="margin-top: 40px;">Glossary Tester</h1>
         <p>Are you tired of learning glossary? Glossary Tester makes learning glossary easy and fun!</p>
 
     </div>
@@ -27,7 +33,7 @@
 
         <div class="col">
 
-            <a href="/manage" class="card blue min-scale">
+            <a href="/manage" class="card">
 
                 <h3>Manage glossary</h3>
                 <p>This is where you manage your words. Before you start learning, add your words here!</p>
@@ -38,7 +44,7 @@
 
         <div class="col">
 
-            <a href="/practice" class="card orange min-scale">
+            <a href="/practice" class="card">
 
                 <h3>Practice</h3>
                 <p>If you don't know all your glossary by heart yet, practice here! You'll be there in no time!</p>
@@ -49,7 +55,7 @@
 
         <div class="col">
 
-            <a href="/tests" class="card green min-scale">
+            <a href="/tests" class="card">
 
                 <h3>Test yourself</h3>
                 <p>Are you confident that you know your glossary? Test yourself here, and get a score!</p>

@@ -22,29 +22,29 @@
        include_once($path);
     ?>
 
-    <div class="ingress">
+    <div class="page">
+   
+        <div class="ingress">
 
-        <h1>Manage glossary</h1>
-        <p>Add your words, delete words you already know or clear the word list and start over.</p>
+            <h1>Manage glossary</h1>
+            <p>Add your words, delete words you already know or clear the word list and start over.</p>
 
-    </div>
+        </div>
 
-    <div class="addWords center">
+        <div class="addWords center">
 
-        <p id="form">
-            <input type="text" name="language1" placeholder="Your language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="language1" onKeyDown="if(event.keyCode==13){document.getElementById('language2').focus();}"> =
-            <input type="text" name="language2" placeholder="Learning language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="language2" onKeyDown="if(event.keyCode==13) addWord();">
-            <br>
-            <button onclick="addWord();" style="margin: 20px;">Add word</button>
-        </p>
+            <p id="form">
+                <input type="text" name="language1" placeholder="Your language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="language1" onKeyDown="if(event.keyCode==13){document.getElementById('language2').focus();}"> =
+                <input type="text" name="language2" placeholder="Learning language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="language2" onKeyDown="if(event.keyCode==13) addWord();">
+                <br>
+                <button onclick="addWord();" style="margin: 20px;">Add word</button>
+            </p>
 
-    </div>
+        </div>
 
-    <h2 class="center">Your words</h2>
+        <h2 class="center">Your words</h2>
 
-    <div class="wordTable center">
-
-        <table class="center" id="table">
+        <table id="table">
             <th>
                 <select id="langSelect1" onchange="changeLanguage(1);">
                         <option value="none" selected disabled>--Select--</option>
@@ -60,10 +60,12 @@
             </th>
         </table>
 
-        <button class="center" id="deleteAllWords" onclick="deleteAllWords();">Clear word list</button>
+        <div class="center">            
+            <button id="deleteAllWords" onclick="deleteAllWords();">Clear word list</button>
+        </div>
 
         <p>Hint: Click on the dropdown lists to change your language!</p>
-
+    
     </div>
 
     <script src="/scripts/manage.js"></script>
