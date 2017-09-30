@@ -151,6 +151,20 @@ td, th {
     }
 }
 
+.desktop-menu {
+    display: none;
+}
+
+@media (min-width: 1000px) {
+    .desktop-menu {
+        display: block;
+    }
+    
+    .mobile-menu, .dropdown-menu {
+        display: none;
+    }
+}
+
 .menu {
     margin: 0;
     padding: 10px 0;
@@ -209,6 +223,29 @@ td, th {
 .menu-right {
     width: 25%;
     text-align: right;
+}
+
+#dropdown-menu {
+    background-color: #00797f;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+#dropdown-menu a {
+    font-family: comfortaa-bold;
+    font-size: 18px;
+    color: white;
+    padding: 10px;
+    display: block;
+    text-align: right;
+}
+
+#dropdownButton {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 10px;
 }
 
 .ingress {
@@ -347,9 +384,4 @@ td, th {
     display: block;
     overflow: hidden;
     padding-right: 20px;
-}
-
-#menu-collapse-icon {
-    width: 50px;
-    height: 50px; 
 }
