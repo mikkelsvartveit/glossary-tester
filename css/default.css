@@ -155,7 +155,7 @@ td, th {
     display: none;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 800px) {
     .desktop-menu {
         display: block;
     }
@@ -271,6 +271,12 @@ td, th {
     float: left;
     text-align: center;
     padding: 20px 0;
+}
+
+@media (min-width: 700px) {
+    .col {
+        width: 50%;
+    }
 }
 
 @media (min-width: 1000px) {

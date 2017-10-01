@@ -8,7 +8,6 @@ var round = 0,
     wordArray,
     newWordArray;
 
-// This function returns the total number of words in the list
 function numberOfWords() {
     var number;
 
