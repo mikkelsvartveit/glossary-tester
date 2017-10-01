@@ -42,8 +42,6 @@
 
         </div>
 
-        <h2 class="center">Your words</h2>
-
         <table id="table">
             <th>
                 <select id="langSelect1" onchange="changeLanguage(1);">
@@ -64,7 +62,7 @@
             <button id="deleteAllWords" onclick="deleteAllWords();">Clear word list</button>
         </div>
 
-        <p>Hint: Click on the dropdown lists to change your language!</p>
+        <p><b>Hint:</b> Click on the dropdown lists to change your language!</p>
     
     </div>
 
