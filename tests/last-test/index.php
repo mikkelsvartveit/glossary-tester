@@ -30,7 +30,7 @@
             
             <div id="testScore">
 
-                <p id="resultComment">On your last test, you got <b id="correctWords"></b> of <b id="totalWords"></b> words right.</p>
+                <p id="resultComment">On your last test, you got <span id="correctWords"></span> of <span id="totalWords"></span> words right.</p>
 
             </div>
 
