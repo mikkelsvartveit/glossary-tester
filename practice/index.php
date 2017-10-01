@@ -28,6 +28,7 @@
 
             <h1>Practice</h1>
             <p>This is the practice section. When you practice, each word will get repeated until you get it right. </p>
+            <button onclick="startOver();">Start over</button>
 
         </div>
 
@@ -56,7 +57,7 @@
             </span>
         </div>
 
-        <p id="practiceCompleted" class="word hidden">Practice completed! <a class="link" href=".">Start over.</a></p>
+        <p id="practiceCompleted" class="word hidden">Practice completed!</p>
         <p id="noWords" class="hidden">The word list is empty. <a class="link" href="/manage">Go add some words!</a></p>
 
         <div class="comments">

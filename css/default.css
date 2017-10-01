@@ -260,6 +260,10 @@ td, th {
 	margin: 0px;
 }
 
+.ingress button {
+    margin-top: 20px;
+}
+
 .row {
     max-width: 1200px;
     margin: auto;
