@@ -31,6 +31,14 @@
          url('/fonts/opensans.ttf') format('truetype');
 }
 
+@font-face {
+	font-family: 'Material Icons';
+	src: url('/fonts/materialicons.eot');
+	src: url('/fonts/materialicons.eot?#iefix') format('embedded-opentype'), 
+         url('/fonts/materialicons.woff') format('woff'), 
+         url('/fonts/materialicons.ttf') format('truetype');
+}
+
 body {
     background-color: #EEEEEE;
     margin: 0;
@@ -76,10 +84,42 @@ a {
     color: black;
 }
 
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+.md-dark {color: rgba(0, 0, 0, 0.54);}
+
+.md-light {color: #FFFFFF;}
+
 select {
     font-family: 'comfortaa-bold';
     padding: 5px;
     width: 100%;
+    background-color: transparent;
+    border: 2px solid #009DA5;
 }
 
 input {
@@ -217,6 +257,10 @@ td, th {
     transition-duration: 0.2s;
 }
 
+.menu .material-icons {
+    margin-right: 5px;
+}
+
 .menu-group {
     float: left;
     height: 50px;
@@ -255,11 +299,17 @@ td, th {
     text-align: right;
 }
 
+#dropdown-menu .material-icons {
+    margin-right: 5px;
+}
+
 #dropdownButton {
-    width: 40px;
-    height: 40px;
+    font-size: 32px;
     vertical-align: middle;
-    margin-right: 10px;
+    margin-right: 15px;
+    
+    padding: 2px;
+    border: 2px white solid;
 }
 
 .ingress {
@@ -364,13 +414,7 @@ td, th {
     width: 20px;
     padding: 0;
     margin-left: 10px;
-    
-    font-size: 15px;
-    font-family: 'comfortaa-bold';
     color: grey;
-    
-    background: url(/img/x.png) no-repeat;
-    background-size: 100% 100%;
     
     border-style: none;
 }

@@ -45,16 +45,16 @@
         <table id="table">
             <th>
                 <select id="langSelect1" onchange="changeLanguage(1);">
-                        <option value="none" selected disabled>--Select--</option>
-                        <option value="Other" id="other1">--Other--</option>
-                    </select>
+                    <option value="none" selected disabled>--Select--</option>
+                    <option value="Other" id="other1">--Other--</option>
+                </select>
             </th>
 
             <th>
                 <select id="langSelect2" onchange="changeLanguage(2);">
-                        <option value="none" selected disabled>--Select--</option>
-                        <option value="Other" id="other2">--Other--</option>
-                    </select>
+                    <option value="none" selected disabled>--Select--</option>
+                    <option value="Other" id="other2">--Other--</option>
+                </select>
             </th>
         </table>
 

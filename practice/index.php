@@ -62,11 +62,11 @@
 
         <div class="comments">
             <div id="correctComment" class="hidden">
-                <p class="correct">Correct!</p>
+                <p class="correct"><i class="material-icons" style="color: green;">done</i>Correct!</p>
             </div>
 
             <div id="wrongComment" class="hidden">
-                <p class="false">Wrong!</p>
+                <p class="false"><i class="material-icons" style="color: red;">clear</i>Wrong!</p>
                 <p>The correct word was <b id="correctWordWas"></b></p>
             </div>
         </div>
