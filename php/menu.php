@@ -6,9 +6,9 @@
         </div>
     
         <div class="menu-group menu-center">
-            <a href="/manage"><i class="material-icons md-light">playlist_add</i>Manage</a>
-            <a href="/practice"><i class="material-icons md-light">create</i>Practice</a>
-            <a href="/tests"><i class="material-icons md-light">spellcheck</i>Test</a>
+            <a href="/manage"><i class="material-icons md-light">&#xE03B;</i>Manage</a>
+            <a href="/practice"><i class="material-icons md-light">&#xE150;</i>Practice</a>
+            <a href="/tests"><i class="material-icons md-light">&#xE8CE;</i>Test</a>
         </div>
     </div>
     
@@ -18,7 +18,7 @@
         </div>
         
         <div class="menu-group float-right">
-            <i class="material-icons md-light" id="dropdownButton" onclick="showDropdown();">menu</i>
+            <i class="material-icons md-light" id="dropdownButton" onclick="showDropdown();">&#xE5D2;</i>
         </div>
     </div>
 
