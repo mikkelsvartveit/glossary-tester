@@ -80,6 +80,7 @@ function enterWord() {
 }
 
 function startNewRound() {
+    // Duplicate array
     wordArray = newWordArray.slice(0);
     localStorage.setItem("practiceWordList", wordArray.join("&"));
 

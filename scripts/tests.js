@@ -14,8 +14,6 @@ function numberOfWords() {
 }
 
 function showLastTestResult() {
-    var node = document.createElement("P"),
-        resultComment = "";
     if (localStorage.getItem("lastTestScore")) {
         var resultArray = localStorage.getItem("lastTestScore").split("/"),
             correctWords = resultArray[0],
@@ -29,7 +27,6 @@ function showLastTestResult() {
         document.getElementById("noTestComment").style.display = "block";
     }
 
-    node.innerHTML = resultComment;
     document.getElementById("lastResult").appendChild(node);
 }
 

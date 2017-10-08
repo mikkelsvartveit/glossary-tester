@@ -17,6 +17,7 @@ function showLastResult() {
         numberOfCorrectWords = 0;
 
     for (i = 0; i < numberOfWords; i++) {
+        // Clones an invisible sample element from the HTML file
         var cloneNode = document.getElementById("sampleElement").cloneNode(true),
             originalWordNode = cloneNode.getElementsByClassName("originalWord")[0],
             answerNode = cloneNode.getElementsByClassName("answer")[0];

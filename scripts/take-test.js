@@ -1,4 +1,3 @@
-// This function returns the total number of words in the list
 function numberOfWords() {
     var number;
 
@@ -21,7 +20,6 @@ function insertAfter(newNode, referenceNode) {
 function showNewTest() {
     if (numberOfWords() > 0) {
         var wordString = localStorage.getItem("wordList"),
-            // Create an array with all the words.
             wordArray = wordString.split("&");
 
         document.getElementById("submitTest").style.display = "block";
@@ -75,21 +73,17 @@ function submitTest() {
         isCorrect = [];
 
     for (var i = 0; i < numberOfWords(); i++) {
-
         if (answerArray[i].toLowerCase() == correctArray[i].toLowerCase()) {
             numberOfCorrectWords++;
-            isCorrect[i] = true;
-        } else {
-            isCorrect[i] = false;
         }
-
     }
+    
     var scoreString = numberOfCorrectWords + "/" + numberOfWords();
 
     localStorage.setItem("lastTestScore", scoreString);
-    localStorage.setItem("lastTestResult", isCorrect.toString());
     localStorage.setItem("lastTestWordList", localStorage.getItem("wordList"));
 
+    // Redirects to results page after submitting test
     window.location.href = "/tests/result";
 }
 

@@ -1,8 +1,7 @@
-// Enter supported languages here, seperated by space
+// Enter supported languages here, seperated by space:
 var languages = "English Español Deutsch Français Italiano Nederlands Português Norsk Svenska Dansk عربى हिंदी русский 中文 日本語".split(" ");
 languages.sort();
 
-// This function returns the total number of words in the list
 function numberOfWords() {
     var number;
 
@@ -17,9 +16,9 @@ function numberOfWords() {
     return number;
 }
 
-// This function clears and reloads the word table, with data from the local storage.
 function loadWordList() {
     var tableNode = document.getElementById("table");
+    // Clearing the table before reloading the words
     while (tableNode.childElementCount > 1) {
         tableNode.removeChild(tableNode.lastChild);
     }
@@ -29,16 +28,14 @@ function loadWordList() {
             wordArray = wordString.split("&");
 
         for (var i = 0; i < numberOfWords(); i++) {
-            // Get a string with the original word and the translation.
             var bothWords = wordArray[i],
-                // Create an array where [0] is the original word and [1] is the translation.
                 word = bothWords.split(":"),
-                // Create a new <tr> element (row) with the words and add it to the table
                 node = document.createElement("TR"),
                 childNode1 = document.createElement("TD"),
                 childNode2 = document.createElement("TD");
             
             childNode1.innerHTML = word[0];
+            // childNode2 includes a button to delete the word
             childNode2.innerHTML = '<button class="deleteWordButton" onclick="deleteWord(' + i + ')"><i class="material-icons md-dark">&#xE872;</i></button>' + word[1];
             
             node.appendChild(childNode1);
@@ -50,7 +47,6 @@ function loadWordList() {
 }
 
 function loadLanguages() {
-
     for (var i = 0; i < languages.length; i++) {
         var node = document.createElement("OPTION"),
             otherElement = document.getElementById("other1");
@@ -150,7 +146,6 @@ function changeLanguage(languageToChange) {
     }
 }
 
-// This function runs when the user clicks the "Add word" button
 function addWord() {
     function addWordToLocalStorage(firstWord, secondWord) {
         var wordString, newWordString;
@@ -169,14 +164,10 @@ function addWord() {
     // If any of the text fields are empty, display an error message
     if (document.getElementById("language1").value == "" || document.getElementById("language2").value == "") {
         window.alert("Enter a word in both text fields!");
-    }
-
-    // Else, add the inputted word to the word list
-    else {
+    } else {
         word1 = document.getElementById("language1").value;
         word2 = document.getElementById("language2").value;
 
-        // Add the word to the local storage and reload the word table.
         addWordToLocalStorage(word1, word2);
         loadWordList();
 
@@ -187,14 +178,11 @@ function addWord() {
     }
 }
 
-// This function runs when the user clicks one of the red buttons next to a word
 function deleteWord(index) {
     // If the user deletes the only word in the list, delete the whole cookie
     if (numberOfWords() == 1) {
         localStorage.removeItem("wordList");
-    }
-    // Else, remove the word from the cookie
-    else {
+    } else {
         var wordString, wordArray, wordToDelete;
 
         wordString = localStorage.getItem("wordList");
@@ -214,7 +202,6 @@ function deleteWord(index) {
     loadWordList();
 }
 
-// This function runs when the user clicks the "Clear word list" button
 function deleteAllWords() {
     var prompt = confirm("Are you sure you want to delete all the words?");
 
