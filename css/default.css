@@ -417,10 +417,14 @@ td, th {
     color: grey;
     
     border-style: none;
+    cursor: pointer;
+    
+    transition-duration: 0s;
 }
 
 .deleteWordButton:hover {
     background-color: transparent;
+    color: rgba(0, 0, 0, 0.54);
 }
 
 #testScore {
