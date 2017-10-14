@@ -32,19 +32,60 @@ function showNextWord() {
             word = bothWords.split(":");
 
         document.getElementById("wordToTranslate").innerHTML = word[0];
+        document.getElementById("practiceForm").focus();
     } else {
         startNewRound();
     }
 }
 
+function repeatWord() {
+    document.getElementById("practice").style.display = "none";
+    document.getElementById("practiceRepeatWord").style.display = "block";
+    
+    var bothWords = wordArray[counter],
+        word = bothWords.split(":");
+
+    document.getElementById("wordToRepeat").innerHTML = word[1];
+    document.getElementById("practiceRepeatForm").focus();
+}
+
+function typeRepeatWord() {
+    var inputWord = document.getElementById("practiceRepeatForm").value,
+
+        bothWords = wordArray[counter],
+        word = bothWords.split(":"),
+        correctWord = word[1];
+    
+    if(inputWord.toLowerCase() === correctWord.toLowerCase()) {
+        document.getElementById("wordsLeft").innerHTML = --wordsLeft;
+        document.getElementById("practiceRepeatForm").value = "";
+        document.getElementById("practiceForm").value = "";
+        
+        document.getElementById("practiceRepeatWord").style.display = "none";
+        document.getElementById("wrongComment").style.display = "none";
+        document.getElementById("practice").style.display = "block";
+        
+        document.getElementById("correctRepeatComment").style.display = "block";
+        window.setTimeout(function () {
+            document.getElementById("correctRepeatComment").style.display = "none";
+        }, 1000);
+
+        counter++;
+        localStorage.setItem("practiceCounter", counter);
+        showNextWord();
+    }
+}
+
 function enterWord() {
     document.getElementById("correctComment").style.display = "none";
+    document.getElementById("correctRepeatComment").style.display = "none";
     document.getElementById("wrongComment").style.display = "none";
 
     var inputWord = document.getElementById("practiceForm").value,
 
         bothWords = wordArray[counter],
         word = bothWords.split(":"),
+        wordToTranslate = word[0],
         correctWord = word[1];
 
     if (inputWord.toLowerCase() === correctWord.toLowerCase()) {
@@ -60,23 +101,23 @@ function enterWord() {
         newWordArray.splice(index, 1);
         localStorage.setItem("practiceNewWordList", newWordArray.join("&"));
         
+        document.getElementById("wordsLeft").innerHTML = --wordsLeft;
+        document.getElementById("practiceForm").value = "";
+
+        counter++;
+        localStorage.setItem("practiceCounter", counter);
+        showNextWord();
+        
     } else {
         // Displays the "Wrong!" message for 3 seconds
+        document.getElementById("wordToTranslateWas").innerHTML = wordToTranslate;
         document.getElementById("correctWordWas").innerHTML = correctWord;
+        
         document.getElementById("wrongComment").style.display = "block";
-        window.setTimeout(function () {
-            document.getElementById("wrongComment").style.display = "none";
-        }, 3000);
-
         document.getElementById("wrongWords").innerHTML = ++wrongWords;
+        
+        repeatWord();
     }
-
-    document.getElementById("wordsLeft").innerHTML = --wordsLeft;
-    document.getElementById("practiceForm").value = "";
-
-    counter++;
-    localStorage.setItem("practiceCounter", counter);
-    showNextWord();
 }
 
 function startNewRound() {
