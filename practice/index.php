@@ -21,7 +21,7 @@
        $path .= "/php/menu.php";
        include_once($path);
     ?>
-        
+
     <div class="page">
 
         <div class="ingress">
@@ -48,6 +48,23 @@
             <span><b>Words wrong: </b></span>
             <span id="wrongWords">0</span>
         </div>
+        
+        <div class="comments">
+            <span id="correctComment" class="hidden">
+                <i class="material-icons" style="color: green;">&#xE876;</i>
+                <span class="correct">Correct!</span>
+            </span>
+            
+            <span id="wrongComment" class="hidden">
+                <i class="material-icons" style="color: red;">&#xE14C;</i>
+                <span class="false">Wrong!</span>
+                <span id="wordToTranslateWas"></span> = <b id="correctWordWas"></b></span>
+            </span>
+            
+            <span id="correctRepeatComment" class="hidden">
+                <span class="correct">Great!</span>
+            </span>
+        </div>
 
         <div id="practice">
             <p class="word">Translate <b id="wordToTranslate"></b> to <span id="lang">your language</span></p>
@@ -56,21 +73,18 @@
                 <input type="text" name="practice" placeholder="Type your answer" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="practiceForm" onKeyDown="if(event.keyCode==13) enterWord();">
             </span>
         </div>
+           
+        <div id="practiceRepeatWord">
+            <p class="word">Type <b id="wordToRepeat"></b></p>
+            <button class="float-right" onclick="typeRepeatWord();">Answer</button>
+            <span class="fill-width">
+                <input type="text" name="practice" placeholder="Repeat" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="practiceRepeatForm" oninput="typeRepeatWord();">
+            </span>
+        </div>
 
         <p id="practiceCompleted" class="word hidden">Practice completed!</p>
         <p id="noWords" class="hidden">The word list is empty. <a class="link" href="/manage">Go add some words!</a></p>
 
-        <div class="comments">
-            <div id="correctComment" class="hidden">
-                <p class="correct"><i class="material-icons" style="color: green;">&#xE876;</i>Correct!</p>
-            </div>
-
-            <div id="wrongComment" class="hidden">
-                <p class="false"><i class="material-icons" style="color: red;">&#xE14C;</i>Wrong!</p>
-                <p>The correct word was <b id="correctWordWas"></b></p>
-            </div>
-        </div>
-        
     </div>
 
     <script src="/scripts/practice.js"></script>

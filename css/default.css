@@ -408,10 +408,6 @@ td, th {
     width: 40%;
 }
 
-.comments {
-    height: 100px;
-}
-
 .correct {
     color: green;
     font-family: 'comfortaa-bold';
@@ -449,8 +445,16 @@ td, th {
     margin-top: 30px;
 }
 
-#correctComment, #wrongComment {
-    font-size: 20px;
+.comments {
+    position: relative;
+    height: 50px;
+    margin-bottom: 0;
+}
+
+#correctComment, #wrongComment, #correctRepeatComment {
+    font-size: 16px;
+    position: absolute;
+    bottom: 0;
 }
 
 #practice {
@@ -461,9 +465,13 @@ td, th {
     width: 100%;
 }
 
-#practiceForm {
+#practiceForm, #practiceRepeatForm {
     width: 100%;
     max-width: 100%;
+}
+
+#practiceRepeatWord {
+    display: none;
 }
 
 .fill-width {
