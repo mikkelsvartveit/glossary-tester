@@ -78,7 +78,7 @@
             <p class="word">Type <b id="wordToRepeat"></b></p>
             <button class="float-right" onclick="typeRepeatWord();">Answer</button>
             <span class="fill-width">
-                <input type="text" name="practice" placeholder="Repeat" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="practiceRepeatForm" oninput="typeRepeatWord();">
+                <input type="text" name="practiceRepeatForm" placeholder="Repeat" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="practiceRepeatForm" oninput="typeRepeatWord();">
             </span>
         </div>
 
