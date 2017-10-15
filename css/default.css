@@ -452,12 +452,12 @@ td, th {
 }
 
 #correctComment, #wrongComment, #correctRepeatComment {
-    font-size: 16px;
+    font-size: 18px;
     position: absolute;
     bottom: 0;
 }
 
-#practice {
+#practice, #practiceRepeatWord {
     margin-bottom: 20px;
 }
 
