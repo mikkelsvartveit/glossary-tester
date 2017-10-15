@@ -71,6 +71,7 @@ function typeRepeatWord() {
 
         counter++;
         localStorage.setItem("practiceCounter", counter);
+        document.getElementById("practiceForm").focus();
         showNextWord();
     }
 }
