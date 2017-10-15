@@ -32,7 +32,6 @@ function showNextWord() {
             word = bothWords.split(":");
 
         document.getElementById("wordToTranslate").innerHTML = word[0];
-        document.getElementById("practiceForm").focus();
     } else {
         startNewRound();
     }
@@ -106,6 +105,7 @@ function enterWord() {
 
         counter++;
         localStorage.setItem("practiceCounter", counter);
+        document.getElementById("practiceForm").focus();
         showNextWord();
         
     } else {
