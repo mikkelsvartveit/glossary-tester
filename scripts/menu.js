@@ -1,12 +1,11 @@
 var dropdownNode = document.getElementById("dropdown-menu");
-dropdownNode.style.display = "none";
 
 function showDropdown() {
-    if(dropdownNode.style.display == "none") {
-        dropdownNode.style.display = "block";
+    if(dropdownNode.className == "dropdown-hide") {
+        dropdownNode.className = "dropdown-show";
     }
     
-    else if(dropdownNode.style.display == "block") {
-        dropdownNode.style.display = "none";
+    else if(dropdownNode.className == "dropdown-show") {
+        dropdownNode.className = "dropdown-hide";
     }
 }

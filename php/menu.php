@@ -24,7 +24,7 @@
 
 </div>
 
-<div id="dropdown-menu">
+<div id="dropdown-menu" class="dropdown-hide">
     <a href="/manage"><i class="material-icons md-light">playlist_add</i>Manage</a>
     <a href="/practice"><i class="material-icons md-light">create</i>Practice</a>
     <a href="/tests"><i class="material-icons md-light">spellcheck</i>Test</a>

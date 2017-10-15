@@ -286,8 +286,18 @@ td, th {
     background-color: #00797f;
     width: 100%;
     box-sizing: border-box;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.dropdown-hide {
+    height: 0;
+    padding: 0 10px;
+}
+
+.dropdown-show {
+    height: 161px;
     padding: 10px;
-    display: none;
 }
 
 #dropdown-menu a {
@@ -310,6 +320,10 @@ td, th {
     
     padding: 2px;
     border: 2px white solid;
+}
+
+#dropdownButton:hover {
+    cursor: default;
 }
 
 .ingress {
