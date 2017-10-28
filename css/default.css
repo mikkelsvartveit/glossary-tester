@@ -446,7 +446,7 @@ td, th {
 }
 
 .comments {
-    min-height: 50px;
+    min-height: 30px;
     width: 100%;
     margin-top: 20px;
 }
