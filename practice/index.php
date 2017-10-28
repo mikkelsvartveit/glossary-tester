@@ -48,22 +48,22 @@
             <span><b>Words wrong: </b></span>
             <span id="wrongWords">0</span>
         </div>
-        
+
         <div class="comments">
-            <span id="correctComment" class="hidden">
+            <p id="correctComment" class="hidden">
                 <i class="material-icons" style="color: green;">&#xE876;</i>
                 <span class="correct">Correct!</span>
-            </span>
-            
-            <span id="wrongComment" class="hidden">
+            </p>
+
+            <p id="wrongComment" class="hidden">
                 <i class="material-icons" style="color: red;">&#xE14C;</i>
                 <span class="false">Wrong!</span>
                 <span id="wordToTranslateWas"></span> = <b id="correctWordWas"></b></span>
-            </span>
-            
-            <span id="correctRepeatComment" class="hidden">
+            </p>
+
+            <p id="correctRepeatComment" class="hidden">
                 <span class="correct">Great!</span>
-            </span>
+            </p>
         </div>
 
         <div id="practice">
@@ -73,7 +73,7 @@
                 <input type="text" name="practice" placeholder="Type your answer" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="practiceForm" onKeyDown="if(event.keyCode==13) enterWord();">
             </span>
         </div>
-           
+
         <div id="practiceRepeatWord">
             <p class="word">Type <b id="wordToRepeat"></b></p>
             <button class="float-right" onclick="typeRepeatWord();">Answer</button>
