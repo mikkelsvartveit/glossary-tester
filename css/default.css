@@ -1,41 +1,41 @@
 @font-face {
 	font-family: 'comfortaa';
 	src: url('/fonts/comfortaa-regular.eot');
-	src: url('/fonts/comfortaa-regular.eot?#iefix') format('embedded-opentype'), 
+	src: url('/fonts/comfortaa-regular.eot?#iefix') format('embedded-opentype'),
          url('/fonts/comfortaa-regular.ttf') format('truetype');
 }
 
 @font-face {
 	font-family: 'comfortaa-light';
 	src: url('/fonts/comfortaa-light.eot');
-	src: url('/fonts/comfortaa-light.eot?#iefix') format('embedded-opentype'), 
+	src: url('/fonts/comfortaa-light.eot?#iefix') format('embedded-opentype'),
          url('/fonts/comfortaa-light.ttf') format('truetype');
-    
+
     font-weight: 300;
 }
 
 @font-face {
 	font-family: 'comfortaa-bold';
 	src: url('/fonts/comfortaa-bold.eot');
-	src: url('/fonts/comfortaa-bold.eot?#iefix') format('embedded-opentype'), 
+	src: url('/fonts/comfortaa-bold.eot?#iefix') format('embedded-opentype'),
          url('/fonts/comfortaa-bold.ttf') format('truetype');
-    
+
     font-weight: 700;
 }
 
 @font-face {
 	font-family: 'opensans';
 	src: url('/fonts/opensans.eot');
-	src: url('/fonts/opensans.eot?#iefix') format('embedded-opentype'), 
-         url('/fonts/opensans.woff') format('woff'), 
+	src: url('/fonts/opensans.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/opensans.woff') format('woff'),
          url('/fonts/opensans.ttf') format('truetype');
 }
 
 @font-face {
 	font-family: 'Material Icons';
 	src: url('/fonts/materialicons.eot');
-	src: url('/fonts/materialicons.eot?#iefix') format('embedded-opentype'), 
-         url('/fonts/materialicons.woff') format('woff'), 
+	src: url('/fonts/materialicons.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/materialicons.woff') format('woff'),
          url('/fonts/materialicons.ttf') format('truetype');
 }
 
@@ -186,21 +186,23 @@ td, th {
     width: 90%;
     max-width: 700px;
     min-height: 80vh;
-    
+
     background-color: white;
-    
+
     margin: 20px auto;
     box-sizing: border-box;
-    padding: 20px;
-    
+    padding: 20px 70px 50px 70px;
+
     border-radius: 0px;
     box-shadow: 0px 0px 20px #888888;
 }
 
-@media (min-width: 600px) {
+@media (max-width: 600px) {
     .page {
+        width: 100%;
+        margin: 0;
         box-sizing: border-box;
-        padding: 20px 70px 50px 70px;
+        padding: 4%;
     }
 }
 
@@ -212,7 +214,7 @@ td, th {
     .desktop-menu {
         display: block;
     }
-    
+
     .mobile-menu, .dropdown-menu {
         display: none;
     }
@@ -317,7 +319,7 @@ td, th {
     font-size: 32px;
     vertical-align: middle;
     margin-right: 15px;
-    
+
     padding: 2px;
     border: 2px white solid;
 }
@@ -373,11 +375,11 @@ td, th {
     margin: auto;
     padding: 10px;
     text-decoration: none;
-    
+
     background-color: white;
     box-shadow: 0px 0px 15px #888888;
     border: 3px solid #009DA5;
-    
+
     transition-duration: 0.2s;
 }
 
@@ -401,7 +403,7 @@ td, th {
 }
 
 .float-right {
-    float: right;    
+    float: right;
 }
 
 .form {
@@ -425,10 +427,10 @@ td, th {
     padding: 0;
     margin-left: 10px;
     color: grey;
-    
+
     border-style: none;
     cursor: pointer;
-    
+
     transition-duration: 0s;
 }
 
@@ -463,6 +465,8 @@ td, th {
 
 #table {
     width: 100%;
+    table-layout: fixed;
+    word-wrap: break-word;
 }
 
 #practiceForm, #practiceRepeatForm {
