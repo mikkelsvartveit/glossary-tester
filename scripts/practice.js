@@ -14,6 +14,16 @@ function numberOfWords() {
     return number;
 }
 
+function shuffleArray(array) {
+    var newArray = [];
+    for (var i = array.length; i > 0; i--) {
+        var random = Math.floor(Math.random()*i);
+        newArray.push(array[random]);
+        array.splice(random, 1);
+    }
+    return newArray;
+}
+
 function resetPractice() {
     localStorage.removeItem("practiceRound");
     localStorage.removeItem("practiceCounter");
@@ -40,7 +50,7 @@ function showNextWord() {
 function repeatWord() {
     document.getElementById("practice").style.display = "none";
     document.getElementById("practiceRepeatWord").style.display = "block";
-    
+
     var bothWords = wordArray[counter],
         word = bothWords.split(":");
 
@@ -54,16 +64,16 @@ function typeRepeatWord() {
         bothWords = wordArray[counter],
         word = bothWords.split(":"),
         correctWord = word[1];
-    
+
     if(inputWord.toLowerCase() === correctWord.toLowerCase()) {
         document.getElementById("wordsLeft").innerHTML = --wordsLeft;
         document.getElementById("practiceRepeatForm").value = "";
         document.getElementById("practiceForm").value = "";
-        
+
         document.getElementById("practiceRepeatWord").style.display = "none";
         document.getElementById("wrongComment").style.display = "none";
         document.getElementById("practice").style.display = "block";
-        
+
         document.getElementById("correctRepeatComment").style.display = "block";
         window.setTimeout(function () {
             document.getElementById("correctRepeatComment").style.display = "none";
@@ -100,7 +110,7 @@ function enterWord() {
         var index = newWordArray.indexOf(bothWords);
         newWordArray.splice(index, 1);
         localStorage.setItem("practiceNewWordList", newWordArray.join("&"));
-        
+
         document.getElementById("wordsLeft").innerHTML = --wordsLeft;
         document.getElementById("practiceForm").value = "";
 
@@ -108,22 +118,23 @@ function enterWord() {
         localStorage.setItem("practiceCounter", counter);
         document.getElementById("practiceForm").focus();
         showNextWord();
-        
+
     } else {
         // Displays the "Wrong!" message for 3 seconds
         document.getElementById("wordToTranslateWas").innerHTML = wordToTranslate;
         document.getElementById("correctWordWas").innerHTML = correctWord;
-        
+
         document.getElementById("wrongComment").style.display = "block";
         document.getElementById("wrongWords").innerHTML = ++wrongWords;
-        
+
         repeatWord();
     }
 }
 
 function startNewRound() {
     // Duplicate array
-    wordArray = newWordArray.slice(0);
+    wordArray = shuffleArray(newWordArray.slice(0));
+    newWordArray = wordArray.slice(0);
     localStorage.setItem("practiceWordList", wordArray.join("&"));
 
     counter = 0;
@@ -174,17 +185,17 @@ function onLoad() {
 
         showNextWord();
     }
-    
+
     function initializePractice() {
         round = 0;
         counter = 0;
         wordsLeft = 0;
         correctWords = 0;
         wrongWords = 0;
-        
+
         wordString = localStorage.getItem("wordList");
-        wordArray = wordString.split("&");
-        newWordArray = wordString.split("&");
+        wordArray = shuffleArray(wordString.split("&"));
+        newWordArray = wordArray.slice(0);
 
         startNewRound();
     }
@@ -197,7 +208,7 @@ function onLoad() {
         }
         document.getElementById("lang").innerHTML = lang;
     }
-    
+
     if (localStorage.getItem("practiceCounter")) {
         resumePractice();
     } else if (localStorage.getItem("wordList")) {
