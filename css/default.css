@@ -139,6 +139,11 @@ input:focus {
     border-width: 3px;
 }
 
+.table-input {
+    width: calc(100% - 65px);
+    margin: 0;
+}
+
 button {
     font-family: 'comfortaa-bold', Fallback, sans-serif;
     padding: 8px 12px;

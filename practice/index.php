@@ -70,7 +70,7 @@
             <p class="word">Translate <b id="wordToTranslate"></b> to <span id="lang">your language</span></p>
             <button class="float-right" onclick="enterWord();">Answer</button>
             <span class="fill-width">
-                <input type="text" name="practice" placeholder="Type your answer" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="practiceForm" onKeyDown="if(event.keyCode==13) enterWord();">
+                <input type="text" name="practice" placeholder="Type your answer" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="default-input form" id="practiceForm" onKeyDown="if(event.keyCode==13) enterWord();">
             </span>
         </div>
 

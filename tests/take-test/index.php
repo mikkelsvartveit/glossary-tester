@@ -36,7 +36,7 @@
                     <span class="word1 bold"></span> to
                     <span class="lang">your language</span>
                     <br>
-                    <input type="text" class="input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="default-input input">
                 </p>
             </div>
 

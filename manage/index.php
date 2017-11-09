@@ -34,8 +34,8 @@
         <div class="addWords center">
 
             <p id="form">
-                <input type="text" name="language1" placeholder="Your language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="language1" onKeyDown="if(event.keyCode==13){document.getElementById('language2').focus();}"> =
-                <input type="text" name="language2" placeholder="Learning language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="language2" onKeyDown="if(event.keyCode==13) addWord();">
+                <input type="text" name="language1" placeholder="Your language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="default-input form" id="language1" onKeyDown="if(event.keyCode==13){document.getElementById('language2').focus();}"> =
+                <input type="text" name="language2" placeholder="Learning language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="default-input form" id="language2" onKeyDown="if(event.keyCode==13) addWord();">
                 <br>
                 <button onclick="addWord();" style="margin: 20px;">Add word</button>
             </p>
@@ -50,7 +50,7 @@
                         <option value="Other" id="other1">--Other--</option>
                     </select>
                 </th>
-
+                
                 <th>
                     <select id="langSelect2" onchange="changeLanguage(2);">
                         <option value="none" selected disabled>--Select--</option>

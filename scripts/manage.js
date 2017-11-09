@@ -36,7 +36,7 @@ function loadWordList() {
 
             childNode1.innerHTML = word[0];
             // childNode2 includes a button to delete the word
-            childNode2.innerHTML = '<button class="deleteWordButton" onclick="deleteWord(' + i + ')"><i class="material-icons md-dark">&#xE872;</i></button>' + word[1];
+            childNode2.innerHTML = '<button class="deleteWordButton" onclick="deleteWord(' + i + ')"><i class="material-icons md-dark">&#xE872;</i></button><button class="deleteWordButton" onclick="editWord(' + i + ')"><i class="material-icons md-dark">&#xE3C9;</i></button>' + word[1];
 
             node.appendChild(childNode1);
             node.appendChild(childNode2);
@@ -190,6 +190,42 @@ function addWord() {
         document.getElementById("language1").focus();
     } else {
         window.alert("Words can not contain '&' or ':' characters.");
+    }
+}
+
+function editWord(index) {
+    loadWordList();
+    
+    var wordString, wordArray, wordToEdit, newWord, newWordList, rowNode;
+    
+    wordString = localStorage.getItem("wordList");
+    wordArray = wordString.split("&");
+    wordToEdit = wordArray[index].split(":");
+    
+    rowNode = document.getElementById("table").children[index+1];
+    
+    rowNode.innerHTML = '<td><input type="text" class="table-input" id="edit1" value="' + wordToEdit[0] + '"></td><td><input type="text" class="table-input" id="edit2" value="' + wordToEdit[1] + '"><button onclick="acceptEditedWord(' + index + ')" class="deleteWordButton"><i class="material-icons md-dark">&#xE5CA;</i></button><button onclick="loadWordList();" class="deleteWordButton"><i class="material-icons md-dark">&#xE14C;</i></button></td>';
+}
+
+function acceptEditedWord(index) {
+    var wordString, wordArray, wordToEdit, newWord, newWordString, rowNode;
+    
+    wordString = localStorage.getItem("wordList");
+    wordArray = wordString.split("&");
+    wordToEdit = wordArray[index];
+    
+    var edit1 = document.getElementById("edit1").value,
+        edit2 = document.getElementById("edit2").value;
+    
+    if (edit1 = "" || edit2 == "") {
+        window.alert("Enter a word in both text fields!");
+    } else {
+        var newWord = edit1 + ":" + edit2;
+
+        newWordString = wordString.replace(wordToEdit, newWord);
+        localStorage.setItem("wordList", newWordString);
+
+        loadWordList();
     }
 }
 
