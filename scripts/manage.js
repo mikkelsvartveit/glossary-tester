@@ -33,14 +33,14 @@ function loadWordList() {
                 node = document.createElement("TR"),
                 childNode1 = document.createElement("TD"),
                 childNode2 = document.createElement("TD");
-            
+
             childNode1.innerHTML = word[0];
             // childNode2 includes a button to delete the word
             childNode2.innerHTML = '<button class="deleteWordButton" onclick="deleteWord(' + i + ')"><i class="material-icons md-dark">&#xE872;</i></button>' + word[1];
-            
+
             node.appendChild(childNode1);
             node.appendChild(childNode2);
-            
+
             document.getElementById("table").appendChild(node);
         }
     }
@@ -159,12 +159,25 @@ function addWord() {
         localStorage.setItem("wordList", newWordString);
     }
 
+    function checkLegal(word1, word2) {
+        var array = [word1.split(""), word2.split("")];
+
+        for (var i = 0; i < array.length; i++) {
+            for (var j = 0; j < array[i].length; j++) {
+                if (array[i][j] == "&" || array[i][j] == ":") {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     var word1, word2;
 
     // If any of the text fields are empty, display an error message
     if (document.getElementById("language1").value == "" || document.getElementById("language2").value == "") {
         window.alert("Enter a word in both text fields!");
-    } else {
+    } else if (checkLegal(document.getElementById("language1").value, document.getElementById("language2").value)){
         word1 = document.getElementById("language1").value;
         word2 = document.getElementById("language2").value;
 
@@ -175,6 +188,8 @@ function addWord() {
         document.getElementById("language1").value = "";
         document.getElementById("language2").value = "";
         document.getElementById("language1").focus();
+    } else {
+        window.alert("Words can not contain '&' or ':' characters.");
     }
 }
 
