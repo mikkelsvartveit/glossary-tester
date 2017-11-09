@@ -36,7 +36,7 @@ function loadWordList() {
 
             childNode1.innerHTML = word[0];
             // childNode2 includes a button to delete the word
-            childNode2.innerHTML = '<button class="deleteWordButton" onclick="deleteWord(' + i + ')"><i class="material-icons md-dark">&#xE872;</i></button><button class="deleteWordButton" onclick="editWord(' + i + ')"><i class="material-icons md-dark">&#xE3C9;</i></button>' + word[1];
+            childNode2.innerHTML = '<button type="button" class="deleteWordButton" onclick="deleteWord(' + i + ')"><i class="material-icons md-dark">&#xE872;</i></button><button type="button" class="deleteWordButton" onclick="editWord(' + i + ')"><i class="material-icons md-dark">&#xE3C9;</i></button>' + word[1];
 
             node.appendChild(childNode1);
             node.appendChild(childNode2);

@@ -40,7 +40,7 @@
                 </p>
             </div>
 
-            <button id="submitTest" class="hidden" onclick="submitTest()">Submit test</button>
+            <button type="button" id="submitTest" class="hidden" onclick="submitTest()">Submit test</button>
 
             <p id="noWords" class="hidden">The word list is empty. Go <a class="link" href="/manage">here</a> to add some words!</p>
 

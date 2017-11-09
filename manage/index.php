@@ -37,7 +37,7 @@
                 <input type="text" name="language1" placeholder="Your language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="default-input form" id="language1" onKeyDown="if(event.keyCode==13){document.getElementById('language2').focus();}"> =
                 <input type="text" name="language2" placeholder="Learning language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="default-input form" id="language2" onKeyDown="if(event.keyCode==13) addWord();">
                 <br>
-                <button onclick="addWord();" style="margin: 20px;">Add word</button>
+                <button type="button" onclick="addWord();" style="margin: 20px;">Add word</button>
             </p>
 
         </div>
@@ -61,7 +61,7 @@
         </table>
 
         <div class="center">            
-            <button id="deleteAllWords" onclick="deleteAllWords();">Clear word list</button>
+            <button type="button" id="deleteAllWords" onclick="deleteAllWords();">Clear word list</button>
         </div>
 
         <p><b>Hint:</b> Click on the dropdown lists to change your language!</p>

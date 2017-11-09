@@ -68,7 +68,7 @@
 
         <div id="practice">
             <p class="word">Translate <b id="wordToTranslate"></b> to <span id="lang">your language</span></p>
-            <button class="float-right" onclick="enterWord();">Answer</button>
+            <button type="button" class="float-right" onclick="enterWord();">Answer</button>
             <span class="fill-width">
                 <input type="text" name="practice" placeholder="Type your answer" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="default-input form" id="practiceForm" onKeyDown="if(event.keyCode==13) enterWord();">
             </span>
@@ -76,7 +76,7 @@
 
         <div id="practiceRepeatWord">
             <p class="word">Type <b id="wordToRepeat"></b></p>
-            <button class="float-right" onclick="typeRepeatWord();">Answer</button>
+            <button type="button" class="float-right" onclick="typeRepeatWord();">Answer</button>
             <span class="fill-width">
                 <input type="text" name="practiceRepeatForm" placeholder="Repeat" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="practiceRepeatForm" oninput="typeRepeatWord();">
             </span>
