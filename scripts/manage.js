@@ -196,7 +196,7 @@ function addWord() {
 function editWord(index) {
     loadWordList();
     
-    var wordString, wordArray, wordToEdit, newWord, newWordList, rowNode;
+    var wordString, wordArray, wordToEdit, newWord, newWordList, rowNode, tempNode;
     
     wordString = localStorage.getItem("wordList");
     wordArray = wordString.split("&");
@@ -204,7 +204,11 @@ function editWord(index) {
     
     rowNode = document.getElementById("table").children[index+1];
     
-    rowNode.innerHTML = '<td><input type="text" class="table-input" id="edit1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onKeyDown="if(event.keyCode==13) acceptEditedWord(' + index + ');" value="' + wordToEdit[0] + '"></td><td><input type="text" class="table-input" id="edit2" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onKeyDown="if(event.keyCode==13) acceptEditedWord(' + index + ');" value="' + wordToEdit[1] + '"><button type="button" onclick="acceptEditedWord(' + index + ')" class="deleteWordButton"><i class="material-icons md-dark">&#xE5CA;</i></button><button type="button" onclick="loadWordList();" class="deleteWordButton"><i class="material-icons md-dark">&#xE14C;</i></button></td>';
+    // This is extremely ugly and unreadable, but it's the best way to make it work in IE9
+    tempNode = document.createElement("DIV");
+    tempNode.innerHTML = '<table><td><input type="text" class="table-input" id="edit1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onKeyDown="if(event.keyCode==13) acceptEditedWord(' + index + ');" value="' + wordToEdit[0] + '"></td><td><input type="text" class="table-input" id="edit2" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onKeyDown="if(event.keyCode==13) acceptEditedWord(' + index + ');" value="' + wordToEdit[1] + '"><button type="button" onclick="acceptEditedWord(' + index + ')" class="deleteWordButton"><i class="material-icons md-dark">&#xE5CA;</i></button><button type="button" onclick="loadWordList();" class="deleteWordButton"><i class="material-icons md-dark">&#xE14C;</i></button></td></table>';
+    
+    rowNode.parentNode.replaceChild(tempNode.firstChild.firstChild, rowNode);
 }
 
 function acceptEditedWord(index) {

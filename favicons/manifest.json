@@ -1,5 +1,5 @@
 {
-    "name": "",
+    "name": "Glossary Tester",
     "icons": [
         {
             "src": "/favicons/android-chrome-192x192.png",
@@ -12,7 +12,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#009da5",
+    "background_color": "#009da5",
     "display": "standalone"
 }
