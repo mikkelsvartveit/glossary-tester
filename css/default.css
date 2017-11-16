@@ -495,3 +495,22 @@ td, th {
     overflow: hidden;
     padding-right: 20px;
 }
+
+/* Ensures placeholders look the same in all browsers */
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #8E8E8E;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: #8E8E8E;
+   opacity: 1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: #8E8E8E;
+   opacity: 1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: #8E8E8E;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color: #8E8E8E;
+}
