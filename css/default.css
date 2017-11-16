@@ -287,6 +287,16 @@ td, th {
     text-align: right;
 }
 
+.logo {
+    line-height: 1;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    border: none;
+    -ms-interpolation-mode: bicubic;
+}
+
 #dropdown-menu {
     background-color: #00797f;
     width: 100%;

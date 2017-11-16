@@ -2,7 +2,7 @@
    
     <div class="desktop-menu"> 
         <div class="menu-group menu-left">
-            <a href="/">Glossary Tester</a>
+            <a href="/"><img src="/images/logo-white.png" class="logo">Glossary Tester</a>
         </div>
     
         <div class="menu-group menu-center">
@@ -14,7 +14,7 @@
     
     <div class="mobile-menu">
         <div class="menu-group">
-            <a href="/">Glossary Tester</a>
+            <a href="/"><img src="/images/logo-white.png" class="logo">Glossary Tester</a>
         </div>
         
         <div class="menu-group float-right">
