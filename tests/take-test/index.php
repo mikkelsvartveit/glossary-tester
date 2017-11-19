@@ -4,7 +4,7 @@
 
 <head>
 
-    <title>Glossary tester</title>
+    <title>Take test - Glossary Tester</title>
 
     <?php
        $path = $_SERVER['DOCUMENT_ROOT'];
