@@ -41,7 +41,11 @@
             </p>
 
         </div>
-
+        
+        <div class="wordListButtons">
+            <button type="button" class="iconButton float-right" onclick="showOverlay('clearOverlay', true);"><i class="material-icons md-dark md-big">&#xE16C;</i>Clear</button>
+        </div>
+        
         <table id="table">
             <tr>
                 <th>
@@ -60,11 +64,30 @@
             </tr>
         </table>
 
-        <div class="center">            
-            <button type="button" id="deleteAllWords" onclick="deleteAllWords();">Clear word list</button>
-        </div>
-
         <p><b>Hint:</b> Click on the dropdown lists to change your language!</p>
+        
+        <div id="dim" class="dim">
+            <!-- This dims the viewport to prepare for a dialog box -->
+        </div>
+        
+        <div class="overlay hidden" id="noInputOverlay">
+            <h3>Enter word</h3>
+            <p>Enter a word in both text fields!</p>
+            <button type="button" class="float-right" autofocus onclick="showOverlay('noInputOverlay', false);">OK</button>
+        </div>
+        
+        <div class="overlay hidden" id="illegalCharacterOverlay">
+            <h3>Enter word</h3>
+            <p>Words can not contain '&' or ':' characters.</p>
+            <button type="button" class="float-right" autofocus onclick="showOverlay('illegalCharacterOverlay', false);">OK</button>
+        </div>
+        
+        <div class="overlay hidden" id="clearOverlay">
+            <h3>Clear word list?</h3>
+            <p>Are you sure you want to delete all your words?</p>
+            <button type="button" class="float-left" onclick="deleteAllWords(false);">No</button>
+            <button type="button" class="float-right" onclick="deleteAllWords(true);">Yes</button>
+        </div>
     
     </div>
 

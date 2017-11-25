@@ -176,7 +176,7 @@ function addWord() {
 
     // If any of the text fields are empty, display an error message
     if (document.getElementById("language1").value == "" || document.getElementById("language2").value == "") {
-        window.alert("Enter a word in both text fields!");
+        showOverlay("noInputOverlay", true);
     } else if (checkLegal(document.getElementById("language1").value, document.getElementById("language2").value)){
         word1 = document.getElementById("language1").value;
         word2 = document.getElementById("language2").value;
@@ -189,7 +189,7 @@ function addWord() {
         document.getElementById("language2").value = "";
         document.getElementById("language1").focus();
     } else {
-        window.alert("Words can not contain '&' or ':' characters.");
+        showOverlay("illegalCharacterOverlay", true);
     }
 }
 
@@ -222,7 +222,7 @@ function acceptEditedWord(index) {
         edit2 = document.getElementById("edit2").value;
     
     if (edit1 == "" || edit2 == "") {
-        window.alert("Enter a word in both text fields!");
+        showOverlay("noInputOverlay", true);
     } else {
         var newWord = edit1 + ":" + edit2;
 
@@ -257,13 +257,27 @@ function deleteWord(index) {
     loadWordList();
 }
 
-function deleteAllWords() {
-    var prompt = confirm("Are you sure you want to delete all the words?");
+function showOverlay(id, show) {
+    if(show) {
+        document.getElementById("dim").className = "dim dim-show";
+        
+        document.getElementById(id).className = "overlay";
+        setTimeout(function() {document.getElementById(id).className = "overlay overlay-show"}, 0);
+    } else {
+        document.getElementById(id).className = "overlay";
+        setTimeout(function() {document.getElementById(id).className = "overlay hidden"}, 300);
+        
+        document.getElementById("dim").className = "dim";
+    }
+}
 
-    if (prompt == true) {
+function deleteAllWords(prompt) {
+    if(prompt) {
         localStorage.removeItem("wordList");
         loadWordList();
     }
+    
+    showOverlay("clearOverlay", false);
 }
 
 // Load the word table and language list when the page loads
