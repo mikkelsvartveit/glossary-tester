@@ -262,7 +262,7 @@ function showOverlay(id, show) {
         document.getElementById("dim").className = "dim dim-show";
         
         document.getElementById(id).className = "overlay";
-        setTimeout(function() {document.getElementById(id).className = "overlay overlay-show"}, 0);
+        setTimeout(function() {document.getElementById(id).className = "overlay overlay-show"}, 50);
     } else {
         document.getElementById(id).className = "overlay";
         setTimeout(function() {document.getElementById(id).className = "overlay hidden"}, 300);
