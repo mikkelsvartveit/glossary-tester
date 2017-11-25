@@ -193,6 +193,24 @@ function addWord() {
     }
 }
 
+function showOverlay(id, show) {
+    if(show) {
+        document.getElementById("dim").className = "dim dim-show";
+        
+        document.getElementById(id).className = "overlay";
+        setTimeout(function() {document.getElementById(id).className = "overlay overlay-show"}, 50);
+    } else {
+        document.getElementById(id).className = "overlay";
+        setTimeout(function() {document.getElementById(id).className = "overlay hidden"}, 300);
+        
+        document.getElementById("dim").className = "dim";
+    }
+}
+
+function sortWords(order) {
+    
+}
+
 function editWord(index) {
     loadWordList();
     
@@ -255,20 +273,6 @@ function deleteWord(index) {
     }
 
     loadWordList();
-}
-
-function showOverlay(id, show) {
-    if(show) {
-        document.getElementById("dim").className = "dim dim-show";
-        
-        document.getElementById(id).className = "overlay";
-        setTimeout(function() {document.getElementById(id).className = "overlay overlay-show"}, 50);
-    } else {
-        document.getElementById(id).className = "overlay";
-        setTimeout(function() {document.getElementById(id).className = "overlay hidden"}, 300);
-        
-        document.getElementById("dim").className = "dim";
-    }
 }
 
 function deleteAllWords(prompt) {
