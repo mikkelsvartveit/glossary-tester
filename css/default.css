@@ -118,12 +118,17 @@ a {
 
 select {
     font-family: 'comfortaa-bold';
-    padding: 5px;
+    padding: 5px 10px;
     width: 100%;
-    height: 34px;
     background-color: transparent;
     border: 2px solid #009DA5;
     border-radius: 3px;
+    
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    background: url(/images/arrow-down.svg) no-repeat calc(100% - 5px);
 }
 
 input {
