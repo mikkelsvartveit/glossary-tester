@@ -218,7 +218,12 @@ td, th {
 
 @media (min-width: 600px) {
     .page {
-        box-sizing: border-box;
+        padding: 10px 40px 20px 40px;
+    }
+}
+
+@media (min-width: 800px) {
+    .page {
         padding: 20px 70px 50px 70px;
     }
 }
