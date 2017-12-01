@@ -17,7 +17,9 @@ function numberOfWords() {
 }
 
 function loadWordList() {
-    var tableNode = document.getElementById("table");
+    var tableNode = document.getElementById("table"),
+        table = [],
+        sortedTable = [];
     // Clearing the table before reloading the words
     while (tableNode.childElementCount > 1) {
         tableNode.removeChild(tableNode.lastChild);
@@ -35,13 +37,40 @@ function loadWordList() {
                 childNode2 = document.createElement("TD");
 
             childNode1.innerHTML = word[0];
-            // childNode2 includes a button to delete the word
+            // childNode2 includes buttons to edit or delete the word
             childNode2.innerHTML = '<button type="button" class="deleteWordButton" onclick="deleteWord(' + i + ')"><i class="material-icons md-dark">&#xE872;</i></button><button type="button" class="deleteWordButton" onclick="editWord(' + i + ')"><i class="material-icons md-dark">&#xE3C9;</i></button>' + word[1];
 
             node.appendChild(childNode1);
             node.appendChild(childNode2);
 
-            document.getElementById("table").appendChild(node);
+            table.push(node);
+        }
+        
+        switch (localStorage.getItem("sort")) {
+            case "alpha1":
+                sortedTable = table.slice(0);
+                break;
+
+            case "alpha2":
+                sortedTable = table.slice(0);
+                break;
+
+            case "oldest":
+                sortedTable = table.slice(0);
+                break;
+
+            case "newest":
+                for (var i = table.length - 1; i >= 0; i--) {
+                    sortedTable.push(table[i].cloneNode(true));
+                }
+                break;
+                
+            default:
+                sortedTable = table.slice(0);
+        }
+
+        for (var i = 0; i < sortedTable.length; i++) {
+            tableNode.appendChild(sortedTable[i]);
         }
     }
 }
@@ -64,8 +93,8 @@ function loadLanguages() {
     }
 
     if (localStorage.getItem("lang1")) {
-        var lang = localStorage.getItem("lang1");
-        var otherLang;
+        var lang = localStorage.getItem("lang1"),
+            otherLang;
 
         if (lang == "Other") {
             otherLang = localStorage.getItem("otherLang1");
@@ -83,8 +112,8 @@ function loadLanguages() {
     }
 
     if (localStorage.getItem("lang2")) {
-        var lang = localStorage.getItem("lang2");
-        var otherLang;
+        var lang = localStorage.getItem("lang2"),
+            otherLang;
 
         if (lang == "Other") {
             otherLang = localStorage.getItem("otherLang2");
@@ -208,7 +237,47 @@ function showOverlay(id, show) {
 }
 
 function sortWords(order) {
+    var tableNode = document.getElementById("table");
     
+    // Returns an array of table rows containing words
+    var tableObject = tableNode.children,
+        oldTable = [],
+        newTable = [];
+    
+    for (var i = 1; i < tableObject.length; i++) {
+        oldTable.push(tableObject[i].cloneNode(true));
+    }
+    
+    switch (order) {
+        case "alpha1":
+            
+            break;
+            
+        case "alpha2":
+            
+            break;
+            
+        case "oldest":
+            
+            break;
+            
+        case "newest":
+            for (var i = oldTable.length - 1; i >= 0; i--) {
+                newTable.push(oldTable[i].cloneNode(true));
+            }
+            break;
+            
+        default:
+            alert("error");
+    }
+    
+    while (tableNode.childElementCount > 1) {
+        tableNode.removeChild(tableNode.lastChild);
+    }
+    
+    for (var i = 0; i < newTable.length; i++) {
+        tableNode.appendChild(newTable[i]);
+    }
 }
 
 function editWord(index) {

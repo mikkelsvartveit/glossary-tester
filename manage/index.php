@@ -45,9 +45,10 @@
         <div class="wordListButtons">
             <button type="button" id="sortButton" class="iconButton dropdown-button"><i class="material-icons md-dark md-big">&#xE164;</i>Sort</button>
             <div id="sort-words-dropdown" class="dropdown-content">
-                <a href="#" onclick="sortWords('alphabetically');return false;"><i class="material-icons md-dark">&#xE053;</i>Alphabetically</a>
-                <a href="#" onclick="sortWords('oldest');return false;"><i class="material-icons md-dark">&#xE192;</i>Oldest first</a>
-                <a href="#" onclick="sortWords('newest');return false;"><i class="material-icons md-dark">&#xE192;</i>Newest first</a>
+                <a href="#" onclick="localStorage.setItem('sort', 'alpha1'); loadWordList(); return false;"><i class="material-icons md-dark">&#xE053;</i>Alphabetically (1)</a>
+                <a href="#" onclick="localStorage.setItem('sort', 'alpha2'); loadWordList(); return false;"><i class="material-icons md-dark">&#xE053;</i>Alphabetically (2)</a>
+                <a href="#" onclick="localStorage.setItem('sort', 'oldest'); loadWordList(); return false;"><i class="material-icons md-dark">&#xE192;</i>Oldest first</a>
+                <a href="#" onclick="localStorage.setItem('sort', 'newest'); loadWordList(); return false;"><i class="material-icons md-dark">&#xE192;</i>Newest first</a>
             </div>
             <button type="button" class="iconButton float-right" onclick="showOverlay('clearOverlay', true);"><i class="material-icons md-dark md-big">&#xE16C;</i>Clear</button>
         </div>
