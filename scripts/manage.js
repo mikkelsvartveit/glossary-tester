@@ -38,7 +38,7 @@ function loadWordList() {
 
             childNode1.innerHTML = word[0];
             // childNode2 includes buttons to edit or delete the word
-            childNode2.innerHTML = '<button type="button" class="deleteWordButton" onclick="deleteWord(' + i + ')"><i class="material-icons md-dark">&#xE872;</i></button><button type="button" class="deleteWordButton" onclick="editWord(' + i + ')"><i class="material-icons md-dark">&#xE3C9;</i></button>' + word[1];
+            childNode2.innerHTML = '<button type="button" class="deleteWordButton" onclick="deleteWord(' + i + ')"><i class="material-icons md-dark">&#xE872;</i></button><button type="button" class="deleteWordButton" onclick="editWord(this, ' + i + ')"><i class="material-icons md-dark">&#xE3C9;</i></button>' + word[1];
 
             node.appendChild(childNode1);
             node.appendChild(childNode2);
@@ -236,66 +236,30 @@ function showOverlay(id, show) {
     }
 }
 
-function sortWords(order) {
-    var tableNode = document.getElementById("table");
-    
-    // Returns an array of table rows containing words
-    var tableObject = tableNode.children,
-        oldTable = [],
-        newTable = [];
-    
-    for (var i = 1; i < tableObject.length; i++) {
-        oldTable.push(tableObject[i].cloneNode(true));
-    }
-    
-    switch (order) {
-        case "alpha1":
-            
-            break;
-            
-        case "alpha2":
-            
-            break;
-            
-        case "oldest":
-            
-            break;
-            
-        case "newest":
-            for (var i = oldTable.length - 1; i >= 0; i--) {
-                newTable.push(oldTable[i].cloneNode(true));
-            }
-            break;
-            
-        default:
-            alert("error");
-    }
-    
-    while (tableNode.childElementCount > 1) {
-        tableNode.removeChild(tableNode.lastChild);
-    }
-    
-    for (var i = 0; i < newTable.length; i++) {
-        tableNode.appendChild(newTable[i]);
-    }
-}
-
-function editWord(index) {
+function editWord(elem, index) {
     loadWordList();
     
-    var wordString, wordArray, wordToEdit, newWord, newWordList, rowNode, tempNode;
+    var wordString, wordArray, wordToEdit, newWord, newWordList, rowNode, tempNode, elemHtml, tableNode;
     
     wordString = localStorage.getItem("wordList");
     wordArray = wordString.split("&");
     wordToEdit = wordArray[index].split(":");
     
-    rowNode = document.getElementById("table").children[index+1];
+    // Picks out the correct table row to edit
+    tableNode = document.getElementById("table");
+    elemHtml = elem.parentNode.parentNode.innerHTML;
+    for (var i = 0; i < tableNode.children.length; i++) {
+        if (tableNode.children[i].innerHTML == elemHtml) {
+            rowNode = tableNode.children[i];
+            break;
+        }
+    }
     
     // This is extremely ugly and unreadable, but it's the best way to make it work in IE9
     tempNode = document.createElement("DIV");
-    tempNode.innerHTML = '<table><td><input type="text" class="table-input" id="edit1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onKeyDown="if(event.keyCode==13) acceptEditedWord(' + index + ');" value="' + wordToEdit[0] + '"></td><td><input type="text" class="table-input" id="edit2" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onKeyDown="if(event.keyCode==13) acceptEditedWord(' + index + ');" value="' + wordToEdit[1] + '"><button type="button" onclick="acceptEditedWord(' + index + ')" class="deleteWordButton"><i class="material-icons md-dark">&#xE5CA;</i></button><button type="button" onclick="loadWordList();" class="deleteWordButton"><i class="material-icons md-dark">&#xE14C;</i></button></td></table>';
+    tempNode.innerHTML = '<table><tr><td><input type="text" class="table-input" id="edit1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onKeyDown="if(event.keyCode==13) acceptEditedWord(' + index + ');" value="' + wordToEdit[0] + '"></td><td><input type="text" class="table-input" id="edit2" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onKeyDown="if(event.keyCode==13) acceptEditedWord(' + index + ');" value="' + wordToEdit[1] + '"><button type="button" onclick="acceptEditedWord(' + index + ')" class="deleteWordButton"><i class="material-icons md-dark">&#xE5CA;</i></button><button type="button" onclick="loadWordList();" class="deleteWordButton"><i class="material-icons md-dark">&#xE14C;</i></button></td></tr></table>';
     
-    rowNode.parentNode.replaceChild(tempNode.firstChild.firstChild, rowNode);
+    rowNode.parentNode.replaceChild(tempNode.firstChild.firstChild.firstChild, rowNode);
 }
 
 function acceptEditedWord(index) {
