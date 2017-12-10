@@ -135,9 +135,11 @@ function loadLanguages() {
 
             document.getElementById("language1").setAttribute("placeholder", otherLang);
             document.getElementById("langSelect1").value = otherLang;
+            document.getElementById("lang1").innerHTML = otherLang;
         } else {
             document.getElementById("langSelect1").value = lang;
             document.getElementById("language1").setAttribute("placeholder", lang);
+            document.getElementById("lang1").innerHTML = lang;
         }
     }
 
@@ -154,9 +156,11 @@ function loadLanguages() {
 
             document.getElementById("language2").setAttribute("placeholder", otherLang);
             document.getElementById("langSelect2").value = otherLang;
+            document.getElementById("lang2").innerHTML = otherLang;
         } else {
             document.getElementById("langSelect2").value = lang;
-            document.getElementById("language2").setAttribute("placeholder", lang);
+            document.getElementById("language2").setAttribute("placeholder", lang)
+            document.getElementById("lang2").innerHTML = lang;
         }
     }
 }
@@ -178,9 +182,11 @@ function changeLanguage(languageToChange) {
 
             document.getElementById("language1").setAttribute("placeholder", otherLang);
             document.getElementById("langSelect1").value = otherLang;
+            document.getElementById("lang1").innerHTML = otherLang;
         } else {
             document.getElementById("langSelect1").value = lang;
             document.getElementById("language1").setAttribute("placeholder", lang);
+            document.getElementById("lang1").innerHTML = lang;
         }
     } else if (languageToChange == 2) {
         var lang = document.getElementById("langSelect2").value;
@@ -198,9 +204,11 @@ function changeLanguage(languageToChange) {
 
             document.getElementById("language2").setAttribute("placeholder", otherLang);
             document.getElementById("langSelect2").value = otherLang;
+            document.getElementById("lang2").innerHTML = otherLang;
         } else {
             document.getElementById("langSelect2").value = lang;
-            document.getElementById("language2").setAttribute("placeholder", lang);
+            document.getElementById("language2").setAttribute("placeholder", lang)
+            document.getElementById("lang2").innerHTML = lang;
         }
     }
 }

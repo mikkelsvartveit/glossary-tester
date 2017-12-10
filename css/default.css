@@ -173,7 +173,7 @@ button:hover {
     color: #F9F9F9;
 }
 
-button:focus, input:focus, select:focus {outline: 0;}
+button:focus, button:active, input:focus, select:focus {outline: 0;}
 
 td, th {
     border: 1px solid #dddddd;
@@ -498,7 +498,7 @@ td, th {
     box-shadow: 0px 0px 15px #888888;
 }
 
-.dropdown-content a {
+.dropdown-content a{
     text-decoration: none;
     padding: 15px;
     display: block;
@@ -513,6 +513,10 @@ td, th {
 
 .dropdown-content i {
     margin-right: 10px;
+}
+
+.dropdown-content a span {
+    color: rgba(0, 0, 0, 0.54);
 }
 
 .dropdown-button:focus + .dropdown-content, .dropdown-content:hover {
