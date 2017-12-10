@@ -48,11 +48,41 @@ function loadWordList() {
         
         switch (localStorage.getItem("sort")) {
             case "alpha1":
-                sortedTable = table.slice(0);
+                var tempArray = [];
+                for (var i = 0; i < table.length; i++) {
+                    tempArray[i] = table[i].firstChild.innerHTML;
+                }
+                
+                tempArray.sort();
+                
+                for (var i = 0; i < tempArray.length; i++) {
+                    for(var j = 0; j < table.length; j++) {
+                        if (table[j].firstChild.innerHTML == tempArray[i]) {
+                            sortedTable.push(table[j].cloneNode(true));
+                            break;
+                        }
+                    }
+                }
+                
                 break;
 
             case "alpha2":
-                sortedTable = table.slice(0);
+                var tempArray = [];
+                for (var i = 0; i < table.length; i++) {
+                    tempArray[i] = table[i].lastChild.lastChild.textContent;
+                }
+                
+                tempArray.sort();
+                
+                for (var i = 0; i < tempArray.length; i++) {
+                    for(var j = 0; j < table.length; j++) {
+                        if (table[j].lastChild.lastChild.textContent == tempArray[i]) {
+                            sortedTable.push(table[j].cloneNode(true));
+                            break;
+                        }
+                    }
+                }
+                
                 break;
 
             case "oldest":
