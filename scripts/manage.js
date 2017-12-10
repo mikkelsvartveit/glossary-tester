@@ -274,6 +274,27 @@ function showOverlay(id, show) {
     }
 }
 
+function toggleDropdown(id) {
+    var element = document.getElementById(id);
+    
+    if (element.className.indexOf("hidden") == -1) {
+        element.className += "hidden";
+    } else {
+        element.className = element.className.replace("hidden", "");
+    }
+}
+
+window.onclick = function(event) {
+    var matches = event.target.matches ? event.target.matches('#sortButton') || event.target.matches('#sortButton i'): event.target.msMatchesSelector('#sortButton') ||  event.target.msMatchesSelector('#sortButton i');
+    if (!matches) {
+        var element = document.getElementById("sort-words-dropdown");
+        
+        if (element.className.indexOf("hidden") == -1) {
+            element.className += "hidden";
+        }
+    }
+}
+
 function editWord(elem, index) {
     loadWordList();
     

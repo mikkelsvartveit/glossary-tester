@@ -18,7 +18,7 @@
         </div>
         
         <div class="menu-group float-right">
-            <i class="material-icons md-light" id="dropdownButton" onclick="showDropdown();">&#xE5D2;</i>
+            <i class="material-icons md-light" id="dropdown-menu-button" onclick="showDropdown();">&#xE5D2;</i>
         </div>
     </div>
 

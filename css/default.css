@@ -385,7 +385,7 @@ td, th {
     margin-right: 5px;
 }
 
-#dropdownButton {
+#dropdown-menu-button {
     font-size: 32px;
     vertical-align: middle;
     margin-right: 15px;
@@ -394,7 +394,7 @@ td, th {
     border: 2px white solid;
 }
 
-#dropdownButton:hover {
+#dropdown-menu-button:hover {
     cursor: default;
 }
 
@@ -493,12 +493,11 @@ td, th {
 
 .dropdown-content {
     position: absolute;
-    display: none;
     background-color: white;
     box-shadow: 0px 0px 15px #888888;
 }
 
-.dropdown-content a{
+.dropdown-content a {
     text-decoration: none;
     padding: 15px;
     display: block;
@@ -517,10 +516,6 @@ td, th {
 
 .dropdown-content a span {
     color: rgba(0, 0, 0, 0.54);
-}
-
-.dropdown-button:focus + .dropdown-content, .dropdown-content:hover {
-    display: block;
 }
 
 .wordListButtons {
