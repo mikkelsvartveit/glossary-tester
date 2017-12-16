@@ -43,6 +43,13 @@
         </div>
         
         <div class="wordListButtons">
+            <button type="button" id="sortButton" class="iconButton dropdown-button" onclick="toggleDropdown('sort-words-dropdown');"><i class="material-icons md-dark md-big">&#xE164;</i>Sort</button>
+            <div id="sort-words-dropdown" class="dropdown-content hidden">
+                <a href="#" onclick="localStorage.setItem('sort', 'alpha1'); loadWordList(); return false;"><i class="material-icons md-dark">&#xE053;</i>Alphabetically (<span id="lang1">1</span>)</a>
+                <a href="#" onclick="localStorage.setItem('sort', 'alpha2'); loadWordList(); return false;"><i class="material-icons md-dark">&#xE053;</i>Alphabetically (<span id="lang2">2</span>)</a>
+                <a href="#" onclick="localStorage.setItem('sort', 'oldest'); loadWordList(); return false;"><i class="material-icons md-dark">&#xE192;</i>Oldest first</a>
+                <a href="#" onclick="localStorage.setItem('sort', 'newest'); loadWordList(); return false;"><i class="material-icons md-dark">&#xE192;</i>Newest first</a>
+            </div>
             <button type="button" class="iconButton float-right" onclick="showOverlay('clearOverlay', true);"><i class="material-icons md-dark md-big">&#xE16C;</i>Clear</button>
         </div>
         

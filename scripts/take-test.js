@@ -73,7 +73,7 @@ function submitTest() {
         isCorrect = [];
 
     for (var i = 0; i < numberOfWords(); i++) {
-        if (answerArray[i].toLowerCase() == correctArray[i].toLowerCase()) {
+        if (answerArray[i].trim().toLowerCase() == correctArray[i].toLowerCase()) {
             numberOfCorrectWords++;
         }
     }

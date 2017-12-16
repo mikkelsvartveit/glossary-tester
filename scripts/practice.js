@@ -98,7 +98,7 @@ function enterWord() {
         wordToTranslate = word[0],
         correctWord = word[1];
 
-    if (inputWord.toLowerCase() === correctWord.toLowerCase()) {
+    if (inputWord.trim().toLowerCase() === correctWord.toLowerCase()) {
         // Displays the "Correct!" message for 1 second
         document.getElementById("correctComment").style.display = "block";
         window.setTimeout(function () {

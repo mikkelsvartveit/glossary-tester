@@ -173,7 +173,7 @@ button:hover {
     color: #F9F9F9;
 }
 
-button:focus, input:focus, select:focus {outline: 0;}
+button:focus, button:active, input:focus, select:focus {outline: 0;}
 
 td, th {
     border: 1px solid #dddddd;
@@ -390,7 +390,7 @@ td, th {
     margin-right: 5px;
 }
 
-#dropdownButton {
+#dropdown-menu-button {
     font-size: 32px;
     vertical-align: middle;
     margin-right: 15px;
@@ -399,7 +399,7 @@ td, th {
     border: 2px white solid;
 }
 
-#dropdownButton:hover {
+#dropdown-menu-button:hover {
     cursor: default;
 }
 
@@ -496,13 +496,41 @@ td, th {
     font-family: 'comfortaa-bold';
 }
 
+.dropdown-content {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 0px 15px #888888;
+}
+
+.dropdown-content a {
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.dropdown-content a:hover {
+    background-color: #EEEEEE;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.dropdown-content i {
+    margin-right: 10px;
+}
+
+.dropdown-content a span {
+    color: rgba(0, 0, 0, 0.54);
+}
+
 .wordListButtons {
     padding: 5px 10px;
     line-height: 1;
+    position: relative;
 }
 
 .iconButton {
-    padding: 0;
+    padding: 5px 0;
     color: rgba(0, 0, 0, 0.54);
 
     border-style: none;
