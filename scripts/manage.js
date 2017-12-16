@@ -245,8 +245,8 @@ function addWord() {
     if (document.getElementById("language1").value == "" || document.getElementById("language2").value == "") {
         showOverlay("noInputOverlay", true);
     } else if (checkLegal(document.getElementById("language1").value, document.getElementById("language2").value)){
-        word1 = document.getElementById("language1").value;
-        word2 = document.getElementById("language2").value;
+        word1 = document.getElementById("language1").value.trim();
+        word2 = document.getElementById("language2").value.trim();
 
         addWordToLocalStorage(word1, word2);
         loadWordList();

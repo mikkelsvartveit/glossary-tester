@@ -25,7 +25,7 @@ function showLastResult() {
         originalWordNode.innerHTML = translationArray[i];
         answerNode.innerHTML = answerArray[i];
 
-        if (answerArray[i].toLowerCase() == correctArray[i].toLowerCase()) {
+        if (answerArray[i].trim().toLowerCase() == correctArray[i].toLowerCase()) {
             answerNode.setAttribute("class", "answer correct");
             numberOfCorrectWords++;
         } else {
