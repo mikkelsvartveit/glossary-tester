@@ -1,19 +1,5 @@
 var round, counter, wordsLeft, correctWords, wrongWords, wordString, wordArray, newWordString, newWordArray;
 
-function numberOfWords() {
-    var number;
-
-    if (localStorage.getItem("wordList")) {
-        var wordString = localStorage.getItem("wordList"),
-            wordArray = wordString.split("&");
-        number = wordArray.length;
-    } else {
-        number = 0;
-    }
-
-    return number;
-}
-
 function shuffleArray(array) {
     var newArray = [];
     for (var i = array.length; i > 0; i--) {
@@ -25,21 +11,18 @@ function shuffleArray(array) {
 }
 
 function resetPractice() {
-    localStorage.removeItem("practiceRound");
-    localStorage.removeItem("practiceCounter");
-    localStorage.removeItem("practiceWordList");
-    localStorage.removeItem("practiceNewWordList");
-}
-
-function startOver() {
-    resetPractice();
-    location.reload();
+    delete storage.practiceRound;
+    delete storage.practiceCounter;
+    delete storage.practiceWordList;
+    delete storage.practiceNewWordList;
+    
+    updateStorage();
 }
 
 function showNextWord() {
     if (wordsLeft > 0) {
         var bothWords = wordArray[counter],
-            word = bothWords.split(":");
+            word = bothWords.split("=");
 
         document.getElementById("wordToTranslate").innerHTML = word[0];
     } else {
@@ -52,7 +35,7 @@ function repeatWord() {
     document.getElementById("practiceRepeatWord").style.display = "block";
 
     var bothWords = wordArray[counter],
-        word = bothWords.split(":");
+        word = bothWords.split("=");
 
     document.getElementById("wordToRepeat").innerHTML = word[1];
     document.getElementById("practiceRepeatForm").focus();
@@ -62,7 +45,7 @@ function typeRepeatWord() {
     var inputWord = document.getElementById("practiceRepeatForm").value,
 
         bothWords = wordArray[counter],
-        word = bothWords.split(":"),
+        word = bothWords.split("="),
         correctWord = word[1];
 
     if(inputWord.toLowerCase() === correctWord.toLowerCase()) {
@@ -80,10 +63,11 @@ function typeRepeatWord() {
         }, 1000);
 
         counter++;
-        localStorage.setItem("practiceCounter", counter);
+        storage.practiceCounter = counter;
         document.getElementById("practiceForm").focus();
         showNextWord();
     }
+    updateStorage();
 }
 
 function enterWord() {
@@ -94,7 +78,7 @@ function enterWord() {
     var inputWord = document.getElementById("practiceForm").value,
 
         bothWords = wordArray[counter],
-        word = bothWords.split(":"),
+        word = bothWords.split("="),
         wordToTranslate = word[0],
         correctWord = word[1];
 
@@ -109,13 +93,13 @@ function enterWord() {
 
         var index = newWordArray.indexOf(bothWords);
         newWordArray.splice(index, 1);
-        localStorage.setItem("practiceNewWordList", newWordArray.join("&"));
+        storage.practiceNewWordList = newWordArray.join(";");
 
         document.getElementById("wordsLeft").innerHTML = --wordsLeft;
         document.getElementById("practiceForm").value = "";
 
         counter++;
-        localStorage.setItem("practiceCounter", counter);
+        storage.practiceCounter = counter;
         document.getElementById("practiceForm").focus();
         showNextWord();
 
@@ -129,16 +113,17 @@ function enterWord() {
 
         repeatWord();
     }
+    updateStorage();
 }
 
 function startNewRound() {
     // Duplicate array
     wordArray = shuffleArray(newWordArray.slice(0));
     newWordArray = wordArray.slice(0);
-    localStorage.setItem("practiceWordList", wordArray.join("&"));
+    storage.practiceWordList = wordArray.join(";");
 
     counter = 0;
-    localStorage.setItem("practiceCounter", counter);
+    storage.practiceCounter = counter;
     wordsLeft = wordArray.length;
     wrongWords = 0;
 
@@ -148,7 +133,7 @@ function startNewRound() {
         document.getElementById("wrongWords").innerHTML = wrongWords;
 
         document.getElementById("round").innerHTML = ++round;
-        localStorage.setItem("practiceRound", round);
+        storage.practiceRound = round;
         showNextWord();
     } else {
         var divNode = document.getElementById("practice");
@@ -159,24 +144,25 @@ function startNewRound() {
         document.getElementById("practiceCompleted").style.display = "block";
         resetPractice();
     }
+    updateStorage();
 }
 
 function onLoad() {
     function resumePractice() {
-        wordString = localStorage.getItem("practiceWordList");
-        wordArray = wordString.split("&");
-        if (localStorage.getItem("practiceNewWordList")) {
-            newWordString = localStorage.getItem("practiceNewWordList");
+        wordString = storage.practiceWordList;
+        wordArray = wordString.split(";");
+        if (storage.practiceNewWordList) {
+            newWordString = storage.practiceNewWordList;
         } else {
-            newWordString = localStorage.getItem("practiceWordList");
+            newWordString = storage.practiceWordList;
         }
-        newWordArray = newWordString.split("&");
+        newWordArray = newWordString.split(";");
 
-        counter = parseInt(localStorage.getItem("practiceCounter"));
+        counter = parseInt(storage.practiceCounter);
         wordsLeft = wordArray.length - counter;
         correctWords = wordArray.length - newWordArray.length;
         wrongWords = counter - correctWords;
-        round = parseInt(localStorage.getItem("practiceRound"));
+        round = parseInt(storage.practiceRound);
 
         document.getElementById("wordsLeft").innerHTML = wordsLeft;
         document.getElementById("correctWords").innerHTML = correctWords;
@@ -193,30 +179,47 @@ function onLoad() {
         correctWords = 0;
         wrongWords = 0;
 
-        wordString = localStorage.getItem("wordList");
-        wordArray = shuffleArray(wordString.split("&"));
+        wordString = storage.wordList;
+        wordArray = shuffleArray(wordString.split(";"));
         newWordArray = wordArray.slice(0);
 
         startNewRound();
     }
 
     var lang;
-    if (localStorage.getItem("lang2")) {
-        lang = localStorage.getItem("lang2");
+    if (storage.lang2) {
+        lang = storage.lang2;
         if (lang === "Other") {
-            lang = localStorage.getItem("otherLang2");
+            lang = storage.otherLang2;
         }
         document.getElementById("lang").innerHTML = lang;
     }
 
-    if (localStorage.getItem("practiceCounter")) {
+    if (storage.practiceCounter) {
         resumePractice();
-    } else if (localStorage.getItem("wordList")) {
+    } else if (storage.wordList) {
         initializePractice();
     } else {
         document.getElementById("practice").style.display = "none";
         document.getElementById("noWords").style.display = "block";
     }
 }
+
+// Event listeners:
+
+document.getElementById("startOverButton").addEventListener("click", function() {
+    resetPractice();
+    location.reload();
+});
+
+document.getElementById("enterWordButton").addEventListener("click", enterWord);
+
+document.getElementById("practiceForm").addEventListener("keydown", function() {
+    if (event.keyCode == 13) {
+        enterWord();
+    }
+});
+
+document.getElementById("practiceRepeatForm").addEventListener("input", typeRepeatWord);
 
 onLoad();

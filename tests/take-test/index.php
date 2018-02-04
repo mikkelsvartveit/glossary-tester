@@ -40,13 +40,14 @@
                 </p>
             </div>
 
-            <button type="button" id="submitTest" class="hidden" onclick="submitTest()">Submit test</button>
+            <button type="button" id="submitTest" class="hidden" >Submit test</button>
 
             <p id="noWords" class="hidden">The word list is empty. Go <a class="link" href="/manage">here</a> to add some words!</p>
 
     
     </div>
 
+    <script src="/scripts/all.js"></script>
     <script src="/scripts/take-test.js"></script>
 
 </body>

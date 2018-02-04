@@ -29,5 +29,3 @@
     <a href="/practice"><i class="material-icons md-light">create</i>Practice</a>
     <a href="/tests"><i class="material-icons md-light">spellcheck</i>Test</a>
 </div>
-
-<script src="/scripts/menu.js"></script>

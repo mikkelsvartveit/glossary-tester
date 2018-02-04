@@ -28,7 +28,7 @@
 
             <h1>Practice</h1>
             <p>This is the practice section. When you practice, each word will get repeated until you get it right. </p>
-            <button type="button" onclick="startOver();">Start over</button>
+            <button type="button" id="startOverButton">Start over</button>
 
         </div>
 
@@ -68,17 +68,17 @@
 
         <div id="practice">
             <p class="word">Translate <b id="wordToTranslate"></b> to <span id="lang">your language</span></p>
-            <button type="button" class="float-right" onclick="enterWord();">Answer</button>
+            <button type="button" id="enterWordButton" class="float-right">Answer</button>
             <span class="fill-width">
-                <input type="text" name="practice" placeholder="Type your answer" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="default-input form" id="practiceForm" onKeyDown="if(event.keyCode==13) enterWord();">
+                <input type="text" name="practice" id="practiceForm" placeholder="Type your answer" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form">
             </span>
         </div>
 
         <div id="practiceRepeatWord">
             <p class="word">Type <b id="wordToRepeat"></b></p>
-            <button type="button" class="float-right" onclick="typeRepeatWord();">Answer</button>
+            <button type="button" class="float-right">Answer</button>
             <span class="fill-width">
-                <input type="text" name="practiceRepeatForm" placeholder="Repeat" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="practiceRepeatForm" oninput="typeRepeatWord();">
+                <input type="text" name="practiceRepeatForm" placeholder="Repeat" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="practiceRepeatForm">
             </span>
         </div>
 
@@ -87,6 +87,7 @@
 
     </div>
 
+    <script src="/scripts/all.js"></script>
     <script src="/scripts/practice.js"></script>
 
 </body>

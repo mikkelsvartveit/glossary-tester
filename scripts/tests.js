@@ -1,21 +1,6 @@
-// This function returns the total number of words in the list
-function numberOfWords() {
-    var number;
-
-    if (localStorage.getItem("wordList")) {
-        var wordString = localStorage.getItem("wordList"),
-            wordArray = wordString.split("&");
-        number = wordArray.length;
-    } else {
-        number = 0;
-    }
-
-    return number;
-}
-
 function showLastTestResult() {
-    if (localStorage.getItem("lastTestScore")) {
-        var resultArray = localStorage.getItem("lastTestScore").split("/"),
+    if (storage.lastTestScore) {
+        var resultArray = storage.lastTestScore.split("/"),
             correctWords = resultArray[0],
             totalWords = resultArray[1];
 
@@ -26,8 +11,6 @@ function showLastTestResult() {
     } else {
         document.getElementById("noTestComment").style.display = "block";
     }
-
-    document.getElementById("lastResult").appendChild(node);
 }
 
 showLastTestResult();

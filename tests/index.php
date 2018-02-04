@@ -54,6 +54,7 @@
         
     </div>
 
+    <script src="/scripts/all.js"></script>
     <script src="/scripts/tests.js"></script>
 
 </body>

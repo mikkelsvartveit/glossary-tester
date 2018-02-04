@@ -49,6 +49,7 @@
         
     </div>
 
+    <script src="/scripts/all.js"></script>
     <script src="/scripts/last-test.js"></script>
 
 </body>

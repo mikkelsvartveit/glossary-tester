@@ -1,19 +1,19 @@
 function showLastResult() {
-    var wordString = localStorage.getItem("lastTestWordList"),
-        wordListArray = wordString.split("&"),
+    var wordString = storage.lastTestWordList,
+        wordListArray = wordString.split(";"),
 
         numberOfWords = wordListArray.length,
 
         translationArray = [],
         correctArray = [];
     for (var i = 0; i < numberOfWords; i++) {
-        bothWords = wordListArray[i].split(":");
+        bothWords = wordListArray[i].split("=");
         translationArray[i] = bothWords[0];
         correctArray[i] = bothWords[1];
     }
 
-    var answerString = localStorage.getItem("lastTestAnswers"),
-        answerArray = answerString.split(","),
+    var answerString = storage.lastTestAnswers,
+        answerArray = answerString.split(";"),
         numberOfCorrectWords = 0;
 
     for (i = 0; i < numberOfWords; i++) {

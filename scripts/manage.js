@@ -2,20 +2,6 @@
 var languages = "English Español Deutsch Français Italiano Nederlands Português Norsk Svenska Dansk عربى हिंदी русский 中文 日本語".split(" ");
 languages.sort();
 
-function numberOfWords() {
-    var number;
-
-    if (localStorage.getItem("wordList")) {
-        var wordString = localStorage.getItem("wordList"),
-            wordArray = wordString.split("&");
-        number = wordArray.length;
-    } else {
-        number = 0;
-    }
-
-    return number;
-}
-
 function loadWordList() {
     var tableNode = document.getElementById("table"),
         table = [],
@@ -26,12 +12,12 @@ function loadWordList() {
     }
 
     if (numberOfWords() > 0) {
-        var wordString = localStorage.getItem("wordList"),
-            wordArray = wordString.split("&");
+        var wordString = storage.wordList,
+            wordArray = wordString.split(";");
 
         for (var i = 0; i < numberOfWords(); i++) {
             var bothWords = wordArray[i],
-                word = bothWords.split(":"),
+                word = bothWords.split("="),
                 node = document.createElement("TR"),
                 childNode1 = document.createElement("TD"),
                 childNode2 = document.createElement("TD");
@@ -46,7 +32,7 @@ function loadWordList() {
             table.push(node);
         }
         
-        switch (localStorage.getItem("sort")) {
+        switch (storage.sort) {
             case "alpha1":
                 var tempArray = [];
                 for (var i = 0; i < table.length; i++) {
@@ -122,12 +108,12 @@ function loadLanguages() {
         otherElement.parentNode.insertBefore(node, otherElement);
     }
 
-    if (localStorage.getItem("lang1")) {
-        var lang = localStorage.getItem("lang1"),
+    if (storage.lang1) {
+        var lang = storage.lang1,
             otherLang;
 
         if (lang == "Other") {
-            otherLang = localStorage.getItem("otherLang1");
+            otherLang = storage.otherLang1;
             node = document.createElement("OPTION");
             node.innerHTML = otherLang;
             node.setAttribute("value", otherLang);
@@ -143,12 +129,12 @@ function loadLanguages() {
         }
     }
 
-    if (localStorage.getItem("lang2")) {
-        var lang = localStorage.getItem("lang2"),
+    if (storage.lang2) {
+        var lang = storage.lang2,
             otherLang;
 
         if (lang == "Other") {
-            otherLang = localStorage.getItem("otherLang2");
+            otherLang = storage.otherLang2;
             node = document.createElement("OPTION");
             node.innerHTML = otherLang;
             node.setAttribute("value", otherLang);
@@ -168,13 +154,13 @@ function loadLanguages() {
 function changeLanguage(languageToChange) {
     if (languageToChange == 1) {
         var lang = document.getElementById("langSelect1").value;
-        localStorage.setItem("lang1", lang);
+        storage.lang1 = lang;
 
         if (lang == "Other") {
             var otherLang = prompt("Type in your language:");
-            localStorage.setItem("otherLang1", otherLang);
+            storage.otherLang1 = otherLang;
 
-            otherLang = localStorage.getItem("otherLang1");
+            otherLang = storage.otherLang1;
             node = document.createElement("OPTION");
             node.innerHTML = otherLang;
             node.setAttribute("value", otherLang);
@@ -190,13 +176,13 @@ function changeLanguage(languageToChange) {
         }
     } else if (languageToChange == 2) {
         var lang = document.getElementById("langSelect2").value;
-        localStorage.setItem("lang2", lang);
+        storage.lang2 = lang;
 
         if (lang == "Other") {
             var otherLang = prompt("Type in your language:");
-            localStorage.setItem("otherLang2", otherLang);
+            storage.otherLang2 = otherLang;
 
-            otherLang = localStorage.getItem("otherLang2");
+            otherLang = storage.otherLang2;
             node = document.createElement("OPTION");
             node.innerHTML = otherLang;
             node.setAttribute("value", otherLang);
@@ -211,19 +197,21 @@ function changeLanguage(languageToChange) {
             document.getElementById("lang2").innerHTML = lang;
         }
     }
+    
+    updateStorage();
 }
 
 function addWord() {
     function addWordToLocalStorage(firstWord, secondWord) {
         var wordString, newWordString;
-        if (localStorage.getItem("wordList")) {
-            wordString = localStorage.getItem("wordList");
-            newWordString = wordString + "&" + firstWord + ":" + secondWord;
+        if (storage.wordList) {
+            wordString = storage.wordList;
+            newWordString = wordString + ";" + firstWord + "=" + secondWord;
         } else {
-            newWordString = firstWord + ":" + secondWord;
+            newWordString = firstWord + "=" + secondWord;
         }
 
-        localStorage.setItem("wordList", newWordString);
+        storage.wordList = newWordString;
     }
 
     function checkLegal(word1, word2) {
@@ -231,7 +219,7 @@ function addWord() {
 
         for (var i = 0; i < array.length; i++) {
             for (var j = 0; j < array[i].length; j++) {
-                if (array[i][j] == "&" || array[i][j] == ":") {
+                if (array[i][j] == ";" || array[i][j] == "=") {
                     return false;
                 }
             }
@@ -258,6 +246,8 @@ function addWord() {
     } else {
         showOverlay("illegalCharacterOverlay", true);
     }
+    
+    updateStorage();
 }
 
 function showOverlay(id, show) {
@@ -274,8 +264,8 @@ function showOverlay(id, show) {
     }
 }
 
-function toggleDropdown(id) {
-    var element = document.getElementById(id);
+function toggleDropdown() {
+    var element = document.getElementById(this.getAttribute("data-dropdown"));
     
     if (element.className.indexOf("hidden") == -1) {
         element.className += "hidden";
@@ -300,9 +290,9 @@ function editWord(elem, index) {
     
     var wordString, wordArray, wordToEdit, newWord, newWordList, rowNode, tempNode, elemHtml, tableNode;
     
-    wordString = localStorage.getItem("wordList");
-    wordArray = wordString.split("&");
-    wordToEdit = wordArray[index].split(":");
+    wordString = storage.wordList;
+    wordArray = wordString.split(";");
+    wordToEdit = wordArray[index].split("=");
     
     // Picks out the correct table row to edit
     tableNode = document.getElementById("table");
@@ -324,8 +314,8 @@ function editWord(elem, index) {
 function acceptEditedWord(index) {
     var wordString, wordArray, wordToEdit, newWord, newWordString, rowNode;
     
-    wordString = localStorage.getItem("wordList");
-    wordArray = wordString.split("&");
+    wordString = storage.wordList;
+    wordArray = wordString.split(";");
     wordToEdit = wordArray[index];
     
     var edit1 = document.getElementById("edit1").value,
@@ -334,47 +324,97 @@ function acceptEditedWord(index) {
     if (edit1 == "" || edit2 == "") {
         showOverlay("noInputOverlay", true);
     } else {
-        var newWord = edit1 + ":" + edit2;
+        var newWord = edit1 + "=" + edit2;
 
         newWordString = wordString.replace(wordToEdit, newWord);
-        localStorage.setItem("wordList", newWordString);
-
+        storage.wordList = newWordString;
+        
         loadWordList();
     }
+    updateStorage();
 }
 
 function deleteWord(index) {
     // If the user deletes the only word in the list, delete the whole cookie
     if (numberOfWords() == 1) {
-        localStorage.removeItem("wordList");
+        delete storage.wordList;
     } else {
         var wordString, wordArray, wordToDelete;
 
-        wordString = localStorage.getItem("wordList");
-        wordArray = wordString.split("&");
+        wordString = storage.wordList;
+        wordArray = wordString.split(";");
 
         if (index == 0) {
-            wordToDelete = wordArray[index] + "&";
+            wordToDelete = wordArray[index] + ";";
         } else {
-            wordToDelete = "&" + wordArray[index];
+            wordToDelete = ";" + wordArray[index];
         }
 
         // Update the cookie without the deleted word
         var newWordString = wordString.replace(wordToDelete, "");
-        localStorage.setItem("wordList", newWordString);
+        storage.wordList = newWordString;
     }
-
+    
+    updateStorage();
     loadWordList();
 }
 
 function deleteAllWords(prompt) {
     if(prompt) {
-        localStorage.removeItem("wordList");
+        delete storage.wordList;
         loadWordList();
     }
     
     showOverlay("clearOverlay", false);
 }
+
+// Event listeners for all buttons:
+
+document.getElementById("sortButton").addEventListener("click", toggleDropdown);
+document.getElementById("clearButton").addEventListener("click", function() {
+    showOverlay("clearOverlay", true);
+});
+
+var sortOptions = document.getElementById("sort-words-dropdown").children;
+for (i = 0; i < sortOptions.length; i++) {
+    sortOptions[i].addEventListener("click", function(event) {
+        storage.sort = this.getAttribute("data-sort-order");
+        loadWordList();
+        updateStorage();
+        // To stop the browser from following the link
+        event.preventDefault();
+    });
+}
+
+document.getElementById("language1").addEventListener("keydown", function() {
+    if (event.keyCode == 13) {
+        document.getElementById('language2').focus();
+    }
+});
+
+document.getElementById("language2").addEventListener("keydown", function() {
+    if (event.keyCode == 13) {
+        addWord();
+    }
+});
+
+document.getElementById("addWordButton").addEventListener("click", addWord);
+
+document.getElementById("noInputOverlayOkButton").addEventListener("click", function() {
+    showOverlay('noInputOverlay', false);
+});
+
+document.getElementById("illegalCharacterOverlayOkButton").addEventListener("click", function() {
+    showOverlay('illegalCharacterOverlay', false);
+});
+
+document.getElementById("clearOverlayNoButton").addEventListener("click", function() {
+    deleteAllWords(false);
+});
+
+document.getElementById("clearOverlayYesButton").addEventListener("click", function() {
+    deleteAllWords(true);
+});
 
 // Load the word table and language list when the page loads
 loadLanguages();

@@ -1,17 +1,3 @@
-function numberOfWords() {
-    var number;
-
-    if (localStorage.getItem("wordList")) {
-        var wordString = localStorage.getItem("wordList"),
-            wordArray = wordString.split("&");
-        number = wordArray.length;
-    } else {
-        number = 0;
-    }
-
-    return number;
-}
-
 // Function for inserting an HTML element after another
 function insertAfter(newNode, referenceNode) {
     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
@@ -19,8 +5,8 @@ function insertAfter(newNode, referenceNode) {
 
 function showNewTest() {
     if (numberOfWords() > 0) {
-        var wordString = localStorage.getItem("wordList"),
-            wordArray = wordString.split("&");
+        var wordString = storage.wordList,
+            wordArray = wordString.split(";");
 
         document.getElementById("submitTest").style.display = "block";
 
@@ -32,12 +18,12 @@ function showNewTest() {
                 inputNode = cloneNode.getElementsByClassName("input")[0],
 
                 bothWords = wordArray[i],
-                word = bothWords.split(":");
+                word = bothWords.split("=");
 
-            if (localStorage.getItem("lang2")) {
-                var lang = localStorage.getItem("lang2");
+            if (storage.lang2) {
+                var lang = storage.lang2;
                 if (lang == "Other") {
-                    lang = localStorage.getItem("otherLang2");
+                    lang = storage.otherLang2;
                 }
                 langNode.innerHTML = lang;
             }
@@ -59,13 +45,13 @@ function submitTest() {
     for (var i = 0; i < numberOfWords(); i++) {
         answerArray[i] = document.getElementById(i).value;
     }
-    localStorage.setItem("lastTestAnswers", answerArray.toString());
+    storage.lastTestAnswers = answerArray.join(";");
 
     var correctArray = [],
-        wordString = localStorage.getItem("wordList"),
-        wordArray = wordString.split("&");
+        wordString = storage.wordList,
+        wordArray = wordString.split(";");
     for (var i = 0; i < numberOfWords(); i++) {
-        bothWords = wordArray[i].split(":");
+        bothWords = wordArray[i].split("=");
         correctArray[i] = bothWords[1];
     }
 
@@ -80,11 +66,15 @@ function submitTest() {
     
     var scoreString = numberOfCorrectWords + "/" + numberOfWords();
 
-    localStorage.setItem("lastTestScore", scoreString);
-    localStorage.setItem("lastTestWordList", localStorage.getItem("wordList"));
+    storage.lastTestScore = scoreString;
+    storage.lastTestWordList = storage.wordList;
+    
+    updateStorage();
 
     // Redirects to results page after submitting test
     window.location.href = "/tests/result";
 }
+
+document.getElementById("submitTest").addEventListener("click", submitTest);
 
 showNewTest();

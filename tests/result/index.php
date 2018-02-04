@@ -53,6 +53,7 @@
         
     </div>
 
+    <script src="/scripts/all.js"></script>
     <script src="/scripts/result.js"></script>
 
 </body>
