@@ -36,7 +36,8 @@
                 <span id="30plus" class="hidden">Go practice some more. </span>
                 <span id="under30" class="hidden">Ouch! </span> You got <span id="correctWords"></span> of <span id="totalWords"></span> words right.
             </p>
-
+            
+            <button class="center" onclick="location.href='/tests/take-test'">Try again</button>
         </div>
 
         <div id="testResult">
