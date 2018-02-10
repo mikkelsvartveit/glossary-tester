@@ -48,6 +48,10 @@
             <span><b>Words wrong: </b></span>
             <span id="wrongWords">0</span>
         </div>
+        
+        <div class="progressBar">
+            <div id="practiceProgress"></div>
+        </div>
 
         <div class="comments">
             <p id="correctComment" class="hidden">

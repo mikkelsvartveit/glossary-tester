@@ -19,6 +19,33 @@ function resetPractice() {
     updateStorage();
 }
 
+function updateProgressBar() {
+    var bar = document.getElementById("practiceProgress");
+    
+    var totalWords = correctWords + wordsLeft + wrongWords;
+    var percent;
+    if(correctWords > 0) {
+        percent = Math.round(correctWords / totalWords * 100);
+    } else {
+        percent = 0;
+    }
+    var oldWidth = Number(bar.style.width.replace(/[^0-9]/g,""));
+    var changingWidth = oldWidth;
+    
+    bar.innerHTML = percent + "%";
+    
+    frameTime = 300 / (percent - oldWidth);
+    var interval = setInterval(frame, frameTime);
+    function frame() {
+        if (changingWidth >= percent) {
+            clearInterval(interval);
+        } else {
+            changingWidth += 0.5;
+            bar.style.width = changingWidth + "%";
+        }
+    }
+}
+
 function showNextWord() {
     if (wordsLeft > 0) {
         var bothWords = wordArray[counter],
@@ -28,6 +55,8 @@ function showNextWord() {
     } else {
         startNewRound();
     }
+    
+    updateProgressBar();
 }
 
 function repeatWord() {

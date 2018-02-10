@@ -565,18 +565,37 @@ td, th {
     color: rgba(0, 0, 0, 0.54);
 }
 
+.comments {
+    min-height: 30px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.progressBar {
+    height: 25px;
+    width: 100%;
+    margin-top: 20px;
+    background-color: #C6E1E3;
+    border-radius: 4px;
+}
+
+#practiceProgress {
+    height: 100%;
+    width: 0%;
+    background-color: #009DA5;
+    border-radius: 4px;
+    text-align: center;
+    
+    color: white;
+    font-family: comfortaa-bold;
+}
+
 #testScore {
     margin-bottom: 30px;
 }
 
 #deleteAllWords {
     margin-top: 30px;
-}
-
-.comments {
-    min-height: 30px;
-    width: 100%;
-    margin-top: 20px;
 }
 
 #correctComment, #wrongComment, #correctRepeatComment {
