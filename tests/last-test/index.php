@@ -31,6 +31,7 @@
             <div id="testScore">
 
                 <p id="resultComment">On your last test, you got <span id="correctWords"></span> of <span id="totalWords"></span> words right.</p>
+                <p id="grade">Grade: <b id="testGrade"></b></p>
 
             </div>
 

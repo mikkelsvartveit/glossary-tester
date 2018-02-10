@@ -43,6 +43,40 @@ function showLastResult() {
 
     document.getElementById("correctWords").innerHTML = numberOfCorrectWords;
     document.getElementById("totalWords").innerHTML = numberOfWords;
+    
+    var percentageCorrect = (numberOfCorrectWords / numberOfWords) * 100;
+    
+    var grade;
+    if (percentageCorrect >= 97) {
+        grade = "A+";
+    } else if (percentageCorrect >= 93) {
+        grade = "A";
+    } else if (percentageCorrect >= 90) {
+        grade = "A-";
+    } else if (percentageCorrect >= 87) {
+        grade = "B+";
+    } else if (percentageCorrect >= 83) {
+        grade = "B";
+    } else if (percentageCorrect >= 80) {
+        grade = "B-";
+    } else if (percentageCorrect >= 77) {
+        grade = "C+";
+    } else if (percentageCorrect >= 73) {
+        grade = "C";
+    } else if (percentageCorrect >= 70) {
+        grade = "C-";
+    } else if (percentageCorrect >= 67) {
+        grade = "D+";
+    } else if (percentageCorrect >= 63) {
+        grade = "D";
+    } else if (percentageCorrect >= 60) {
+        grade = "D-";
+    } else {
+        grade = "F";
+    }
+    
+    document.getElementById("testGrade").innerHTML = grade;
+            
 }
 
 showLastResult();

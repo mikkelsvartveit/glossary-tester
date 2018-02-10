@@ -646,3 +646,8 @@ td, th {
 ::-ms-input-placeholder { /* Microsoft Edge */
    color: #8E8E8E;
 }
+
+#grade {
+    font-size: 25px;
+    margin-top: 10px;
+}

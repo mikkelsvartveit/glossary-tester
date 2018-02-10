@@ -51,15 +51,44 @@ function showLastResult() {
         comment = document.getElementById("100percent");
     } else if (percentageCorrect >= 75) {
         comment = document.getElementById("75plus");
-    } else if (percentageCorrect >= 50) {
-        comment = document.getElementById("50plus");
-    } else if (percentageCorrect >= 30) {
-        comment = document.getElementById("30plus");
+    } else if (percentageCorrect >= 60) {
+        comment = document.getElementById("60plus");
     } else {
-        comment = document.getElementById("under30");
+        comment = document.getElementById("under60");
     }
 
     comment.style.display = "inline";
+    
+    var grade;
+    if (percentageCorrect >= 97) {
+        grade = "A+";
+    } else if (percentageCorrect >= 93) {
+        grade = "A";
+    } else if (percentageCorrect >= 90) {
+        grade = "A-";
+    } else if (percentageCorrect >= 87) {
+        grade = "B+";
+    } else if (percentageCorrect >= 83) {
+        grade = "B";
+    } else if (percentageCorrect >= 80) {
+        grade = "B-";
+    } else if (percentageCorrect >= 77) {
+        grade = "C+";
+    } else if (percentageCorrect >= 73) {
+        grade = "C";
+    } else if (percentageCorrect >= 70) {
+        grade = "C-";
+    } else if (percentageCorrect >= 67) {
+        grade = "D+";
+    } else if (percentageCorrect >= 63) {
+        grade = "D";
+    } else if (percentageCorrect >= 60) {
+        grade = "D-";
+    } else {
+        grade = "F";
+    }
+    
+    document.getElementById("testGrade").innerHTML = grade;
 }
 
 showLastResult();

@@ -32,9 +32,10 @@
                 <!-- The possible options for the comment -->
                 <span id="100percent" class="hidden">Wow, great job! </span>
                 <span id="75plus" class="hidden">Well done! </span>
-                <span id="50plus" class="hidden">Not bad. </span>
-                <span id="30plus" class="hidden">Go practice some more. </span>
-                <span id="under30" class="hidden">Ouch! </span> You got <span id="correctWords"></span> of <span id="totalWords"></span> words right.
+                <span id="60plus" class="hidden">Not bad. </span>
+                <span id="under60" class="hidden">Ouch! </span> You got <span id="correctWords"></span> of <span id="totalWords"></span> words right.
+                
+                <p id="grade">Grade: <b id="testGrade"></b></p>
             </p>
             
             <button class="center" onclick="location.href='/tests/take-test'">Try again</button>
@@ -45,9 +46,8 @@
             <p id="sampleElement" class="hidden">
                 <span class="originalWord"></span> =
                 <span class="answer"></span>
-                <span class="correctComment hidden"> (correct answer was
-                        <b class="correctWord"></b>)
-                    </span>
+                <span class="correctComment hidden"> (correct answer was <b class="correctWord"></b>)
+                </span>
             </p>
 
         </div>
