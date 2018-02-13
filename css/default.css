@@ -1,42 +1,37 @@
 @font-face {
-	font-family: 'comfortaa';
-	src: url('/fonts/comfortaa-regular.eot');
-	src: url('/fonts/comfortaa-regular.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/comfortaa-regular.ttf') format('truetype');
+	font-family: 'Comfortaa';
+	src: url('/fonts/comfortaa-regular.ttf') format('truetype');
 }
 
 @font-face {
-	font-family: 'comfortaa-light';
-	src: url('/fonts/comfortaa-light.eot');
-	src: url('/fonts/comfortaa-light.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/comfortaa-light.ttf') format('truetype');
+	font-family: 'Comfortaa Light';
+	src: url('/fonts/comfortaa-light.ttf') format('truetype');
 
     font-weight: 300;
 }
 
 @font-face {
-	font-family: 'comfortaa-bold';
-	src: url('/fonts/comfortaa-bold.eot');
-	src: url('/fonts/comfortaa-bold.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/comfortaa-bold.ttf') format('truetype');
+	font-family: 'Comfortaa Bold';
+	src: url('/fonts/comfortaa-bold.ttf') format('truetype');
 
     font-weight: 700;
 }
 
 @font-face {
-	font-family: 'opensans';
-	src: url('/fonts/opensans.eot');
-	src: url('/fonts/opensans.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/opensans.woff') format('woff'),
-         url('/fonts/opensans.ttf') format('truetype');
+    font-family: 'Nunito';
+    src: url('/fonts/nunito-regular.ttf');
+}
+
+@font-face {
+    font-family: 'Nunito Bold';
+    src: url('/fonts/nunito-semibold.ttf');
+    
+    font-weight: 700;
 }
 
 @font-face {
 	font-family: 'Material Icons';
-	src: url('/fonts/materialicons.eot');
-	src: url('/fonts/materialicons.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/materialicons.woff') format('woff'),
-         url('/fonts/materialicons.ttf') format('truetype');
+	src: url('/fonts/materialicons.ttf') format('truetype');
 }
 
 body {
@@ -46,18 +41,15 @@ body {
 }
 
 * {
-    font-family: 'comfortaa', Fallback, sans-serif;
+    font-family: 'Nunito', Fallback, sans-serif;
     font-weight: normal;
     color: #333333;
     line-height: 150%;
-}
-
-p, select, button, input {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 h1 {
-	font-family: 'comfortaa-light', Fallback, sans-serif;
+	font-family: 'Comfortaa Light', Fallback, sans-serif;
 	font-size: 40px;
     font-weight: normal;
     text-align: center;
@@ -67,16 +59,23 @@ h1 {
 h2 {
     font-size: 30px;
     font-weight: normal;
-    font-family: 'comfortaa', Fallback, sans-serif;
+    font-family: 'Comfortaa', Fallback, sans-serif;
 }
 
 h3 {
     font-size: 24px;
     font-weight: normal;
+    font-family: 'Comfortaa', Fallback, sans-serif;
+}
+
+span {
+    font-family: inherit;
+    font-size: inherit;
 }
 
 b, .bold {
-    font-family: 'comfortaa-bold';
+    font-family: 'Nunito Bold', Fallback, sans-serif;
+    font-size: inherit;
 }
 
 a {
@@ -117,7 +116,7 @@ a {
 .md-big {font-size: 32px;}
 
 select {
-    font-family: 'comfortaa-bold';
+    font-family: 'Nunito Bold', Fallback, sans-serif;
     padding: 5px 10px;
     width: 100%;
     background-color: transparent;
@@ -144,7 +143,7 @@ input {
     border-bottom-style: solid;
     border-color: #009DA5;
     border-width: 2px;
-    font-family: 'opensans', Fallback, sans-serif;
+    font-family: 'Nunito', Fallback, sans-serif;
 }
 
 input:focus {
@@ -158,7 +157,7 @@ input:focus {
 }
 
 button {
-    font-family: 'comfortaa-bold', Fallback, sans-serif;
+    font-family: 'Nunito Bold', Fallback, sans-serif;
     padding: 8px 12px;
     background-color: transparent;
     border-style: solid;
@@ -180,7 +179,6 @@ td, th {
     text-align: left;
     padding: 10px;
     background-color: white;
-    font-family: 'comfortaa', Fallback, sans-serif;
     width: 50%;
 }
 
@@ -294,7 +292,7 @@ td, th {
 }
 
 .menu a {
-    font-family: 'comfortaa-bold', Fallback, sans-serif;
+    font-family: 'Comfortaa Bold', Fallback, sans-serif;
     font-size: 18px;
     padding: 5px 0;
     margin: 20px;
@@ -378,7 +376,7 @@ td, th {
 }
 
 #dropdown-menu a {
-    font-family: 'comfortaa-bold', Fallback, sans-serif;
+    font-family: 'Comfortaa Bold', Fallback, sans-serif;
     font-size: 18px;
     color: white;
     padding: 10px;
@@ -410,7 +408,7 @@ td, th {
 }
 
 .ingress p {
-	font-size: 18px;
+	font-size: 20px;
 	margin: 0px;
 }
 
@@ -488,12 +486,12 @@ td, th {
 
 .correct {
     color: green;
-    font-family: 'comfortaa-bold';
+    font-family: 'Nunito Bold', Fallback, sans-serif;
 }
 
 .false {
     color: red;
-    font-family: 'comfortaa-bold';
+    font-family: 'Nunito Bold', Fallback, sans-serif;
 }
 
 .dropdown-content {
@@ -587,7 +585,7 @@ td, th {
     text-align: center;
     
     color: white;
-    font-family: comfortaa-bold;
+    font-family: nunito-bold;
 }
 
 #testScore {
