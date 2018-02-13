@@ -65,6 +65,8 @@
         </div>
 
     </div>
+    
+    <script src="/scripts/all.js"></script>
 
 </body>
 
