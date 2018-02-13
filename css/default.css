@@ -183,7 +183,7 @@ td, th {
 }
 
 .word {
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .hidden {
@@ -585,7 +585,8 @@ td, th {
     text-align: center;
     
     color: white;
-    font-family: nunito-bold;
+    font-family: 'Nunito Bold';
+    font-size: 18px;
 }
 
 #testScore {
@@ -649,3 +650,5 @@ td, th {
     font-size: 25px;
     margin-top: 10px;
 }
+
+
