@@ -386,13 +386,13 @@ for (i = 0; i < sortOptions.length; i++) {
     });
 }
 
-document.getElementById("language1").addEventListener("keydown", function() {
+document.getElementById("language1").addEventListener("keydown", function(event) {
     if (event.keyCode == 13) {
         document.getElementById('language2').focus();
     }
 });
 
-document.getElementById("language2").addEventListener("keydown", function() {
+document.getElementById("language2").addEventListener("keydown", function(event) {
     if (event.keyCode == 13) {
         addWord();
     }

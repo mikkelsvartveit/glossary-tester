@@ -244,7 +244,7 @@ document.getElementById("startOverButton").addEventListener("click", function() 
 
 document.getElementById("enterWordButton").addEventListener("click", enterWord);
 
-document.getElementById("practiceForm").addEventListener("keydown", function() {
+document.getElementById("practiceForm").addEventListener("keydown", function(event) {
     if (event.keyCode == 13) {
         enterWord();
     }
