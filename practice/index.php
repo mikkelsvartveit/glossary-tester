@@ -71,7 +71,7 @@
         </div>
 
         <div id="practice">
-            <p class="word">Translate <b id="wordToTranslate"></b> to <span id="lang">your language</span></p>
+            <p class="word">Translate <b id="wordToTranslate"></b> to <span id="lang">your learning language</span></p>
             <button type="button" id="enterWordButton" class="float-right">Answer</button>
             <span class="fill-width">
                 <input type="text" name="practice" id="practiceForm" placeholder="Type your answer" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form">
