@@ -362,6 +362,7 @@ function deleteWord(index) {
 function deleteAllWords(prompt) {
     if(prompt) {
         delete storage.wordList;
+        updateStorage();
         loadWordList();
     }
     
