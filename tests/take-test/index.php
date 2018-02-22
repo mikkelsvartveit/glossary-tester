@@ -34,7 +34,7 @@
                 <p class="hidden" id="sampleElement">
                     Translate
                     <span class="word1 bold"></span> to
-                    <span class="lang">your language</span>
+                    <span class="lang">your learning language</span>
                     <br>
                     <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="default-input input">
                 </p>
