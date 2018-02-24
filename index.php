@@ -22,7 +22,7 @@
        include_once($path);
     ?>
 
-    <div class="ingress" style="margin-left: 5px; margin-right: 5px;">
+    <div class="ingress" style="margin-left: 20px; margin-right: 20px;">
 
         <h1>Glossary Tester</h1>
         <p>Are you tired of learning glossary? Glossary Tester makes learning glossary easy and fun!</p>
