@@ -264,6 +264,14 @@ function showOverlay(id, show) {
     }
 }
 
+// Dismisses dialog box when clicking outside it
+document.getElementById("dim").addEventListener("click", function(event) {
+    var elements = document.getElementsByClassName("overlay");
+    for (var i = 0; i < elements.length; i++) {
+        showOverlay(elements[i].getAttribute("id"), false);
+    }
+});
+
 function toggleDropdown() {
     var element = document.getElementById(this.getAttribute("data-dropdown"));
     
@@ -274,16 +282,16 @@ function toggleDropdown() {
     }
 }
 
-window.onclick = function(event) {
+// Closes dropdown menu when clicking outside it
+document.addEventListener("click", function(event) {
     var matches = event.target.matches ? event.target.matches('#sortButton') || event.target.matches('#sortButton i'): event.target.msMatchesSelector('#sortButton') ||  event.target.msMatchesSelector('#sortButton i');
     if (!matches) {
         var element = document.getElementById("sort-words-dropdown");
-        
         if (element.className.indexOf("hidden") == -1) {
             element.className += "hidden";
         }
     }
-}
+});
 
 function editWord(elem, index) {
     loadWordList();
@@ -410,7 +418,7 @@ document.getElementById("illegalCharacterOverlayOkButton").addEventListener("cli
 });
 
 document.getElementById("clearOverlayNoButton").addEventListener("click", function() {
-    deleteAllWords(false);
+    showOverlay("clearOverlay", false);
 });
 
 document.getElementById("clearOverlayYesButton").addEventListener("click", function() {

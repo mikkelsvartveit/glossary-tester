@@ -92,8 +92,8 @@
         <div class="overlay hidden" id="clearOverlay">
             <h3>Clear word list?</h3>
             <p>Are you sure you want to delete all your words?</p>
-            <button type="button" id="clearOverlayNoButton" class="float-left">No</button>
-            <button type="button" id="clearOverlayYesButton" class="float-right">Yes</button>
+            <button type="button" id="clearOverlayYesButton" class="float-left">Clear</button>
+            <button type="button" id="clearOverlayNoButton" class="float-right">Cancel</button>
         </div>
     
     </div>

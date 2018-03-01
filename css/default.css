@@ -240,7 +240,7 @@ td, th {
 
 .dim-show {
     visibility: visible;
-    opacity: 0.5;
+    opacity: 0.2;
 }
 
 .overlay {
@@ -258,9 +258,11 @@ td, th {
     text-align: center;
     
     background-color: white;
+    border: 3px solid #009DA5;
     border-radius: 5px;
+    box-shadow: 0px 0px 20px 0px #888888;
     
-    transition-duration: 0.2s;
+    transition-duration: 0.15s;
 }
 
 .overlay-show {
