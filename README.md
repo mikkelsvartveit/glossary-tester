@@ -1,6 +1,7 @@
 # Glossary Tester
 
 Visit website here: [glossary.mikkelsvartveit.com](http://glossary.mikkelsvartveit.com)
+
 Beta version: [beta.glossary.mikkelsvartveit.com](http://beta.glossary.mikkelsvartveit.com)
 
 We all know how boring it is to learn glossary. This is a lightweight, easy-to-use web app meant to make learning glossary easy and fun.
