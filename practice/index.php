@@ -49,7 +49,7 @@
             <span id="wrongWords">0</span>
         </div>
         
-        <div class="progressBar">
+        <div id="progressBar">
             <div id="practiceProgress"></div>
         </div>
 

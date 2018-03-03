@@ -151,8 +151,13 @@ input:focus {
     border-width: 3px;
 }
 
-.table-input {
-    width: calc(100% - 65px);
+.table-input-1 {
+    width: 98%;
+    margin: 0;
+}
+
+.table-input-2 {
+    width: calc(100% - 75px);
     margin: 0;
 }
 
@@ -180,6 +185,7 @@ td, th {
     padding: 10px;
     background-color: white;
     width: 50%;
+    height: 28px;
 }
 
 .word {
@@ -548,10 +554,10 @@ td, th {
 
 .deleteWordButton {
     float: right;
-    height: 20px;
-    width: 20px;
+    height: 24px;
+    width: 24px;
     padding: 0;
-    margin-left: 10px;
+    margin: 0 0 0 10px;
     color: grey;
 
     border-style: none;
@@ -571,7 +577,13 @@ td, th {
     margin-top: 20px;
 }
 
-.progressBar {
+.fill-width {
+    display: block;
+    overflow: hidden;
+    padding-right: 20px;
+}
+
+#progressBar {
     height: 25px;
     width: 100%;
     margin-top: 20px;
@@ -579,20 +591,10 @@ td, th {
     border-radius: 4px;
 }
 
-#practiceProgress {
-    height: 100%;
-    width: 0%;
-    background-color: #009DA5;
-    border-radius: 4px;
-    text-align: center;
-    
-    color: white;
-    font-family: 'Nunito Bold';
-    font-size: 18px;
-}
-
-#testScore {
-    margin-bottom: 30px;
+#table {
+    width: 100%;
+    table-layout: fixed;
+    word-wrap: break-word;
 }
 
 #deleteAllWords {
@@ -608,26 +610,36 @@ td, th {
     margin-bottom: 20px;
 }
 
-#table {
-    width: 100%;
-    table-layout: fixed;
-    word-wrap: break-word;
-}
-
 #practiceForm, #practiceRepeatForm {
     width: 100%;
     max-width: 100%;
+}
+
+#practiceProgress {
+    height: 100%;
+    width: 0%;
+    background-color: #009DA5;
+    border-radius: 4px;
+    text-align: center;
+    
+    color: white;
+    font-family: 'Nunito Bold';
+    font-size: 18px;
 }
 
 #practiceRepeatWord {
     display: none;
 }
 
-.fill-width {
-    display: block;
-    overflow: hidden;
-    padding-right: 20px;
+#testScore {
+    margin-bottom: 30px;
 }
+
+#grade {
+    font-size: 25px;
+    margin-top: 10px;
+}
+
 
 /* Ensures placeholders look the same in all browsers */
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -647,10 +659,3 @@ td, th {
 ::-ms-input-placeholder { /* Microsoft Edge */
    color: #8E8E8E;
 }
-
-#grade {
-    font-size: 25px;
-    margin-top: 10px;
-}
-
-
