@@ -22,13 +22,11 @@
        include_once($path);
     ?>
     
-    <div class="page">
-
-        <div class="ingress">
-
-            <h1>Taking test</h1>
-
-        </div>
+    <div class="content">
+        
+        <h1>Taking test</h1>
+    
+        <div class="page">
 
             <div id="takeTest">
                 <p class="hidden" id="sampleElement">
@@ -44,7 +42,8 @@
 
             <p id="noWords" class="hidden">The word list is empty. Go <a class="link" href="/manage">here</a> to add some words!</p>
 
-    
+        </div>
+        
     </div>
 
     <script src="/scripts/all.js"></script>

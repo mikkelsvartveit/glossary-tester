@@ -21,31 +21,34 @@
        $path .= "/php/menu.php";
        include_once($path);
     ?>
+    
+    <div class="content">
+        
+        <h1>Last test result</h1>
+        
+        <div class="page">
 
-    <div class="page">
-       
-        <div class="ingress">
+            <div class="ingress">
 
-            <h1>Last test result</h1>
-            
-            <div id="testScore">
+                <div id="testScore">
 
-                <p id="resultComment">On your last test, you got <span id="correctWords"></span> of <span id="totalWords"></span> words right.</p>
-                <p id="grade">Grade: <b id="testGrade"></b></p>
+                    <p id="resultComment">On your last test, you got <span id="correctWords"></span> of <span id="totalWords"></span> words right.</p>
+                    <p id="grade">Grade: <b id="testGrade"></b></p>
+
+                </div>
 
             </div>
 
-        </div>
+            <div id="testResult">
 
-        <div id="testResult">
+                <p id="sampleElement" class="hidden">
+                    <span class="originalWord"></span> =
+                    <span class="answer"></span>
+                    <span class="correctComment hidden"> (correct answer was <b class="correctWord"></b>)</span>
+                </p>
 
-            <p id="sampleElement" class="hidden">
-                <span class="originalWord"></span> =
-                <span class="answer"></span>
-                <span class="correctComment hidden"> (correct answer was <b class="correctWord"></b>)
-                </span>
-            </p>
-
+            </div>
+            
         </div>
         
     </div>

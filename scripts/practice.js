@@ -33,9 +33,9 @@ function updateProgressBar() {
     var oldWidth = Number(bar.style.width.replace("%", ""));
     var changingWidth = oldWidth;
 
-    bar.innerHTML = percent + "%";
+    bar.children[0].innerHTML = percent + "%";
     
-    frameTime = 100 / (percent - oldWidth);
+    var frameTime = 100 / (percent - oldWidth);
     var interval = setInterval(frame, frameTime);
     function frame() {
         if (changingWidth >= percent) {

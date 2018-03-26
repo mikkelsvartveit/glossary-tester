@@ -7,7 +7,7 @@ function loadWordList() {
         table = [],
         sortedTable = [];
     // Clearing the table before reloading the words
-    while (tableNode.childElementCount > 1) {
+    while (tableNode.childElementCount > 0) {
         tableNode.removeChild(tableNode.lastChild);
     }
 
@@ -20,14 +20,17 @@ function loadWordList() {
                 word = bothWords.split("="),
                 node = document.createElement("TR"),
                 childNode1 = document.createElement("TD"),
-                childNode2 = document.createElement("TD");
+                childNode2 = document.createElement("TD"),
+                childNode3 = document.createElement("TD");
 
             childNode1.innerHTML = word[0];
             // childNode2 includes buttons to edit or delete the word
-            childNode2.innerHTML = '<button type="button" class="deleteWordButton" onclick="deleteWord(' + i + ')"><i class="material-icons md-dark">&#xE872;</i></button><button type="button" class="deleteWordButton" onclick="editWord(this, ' + i + ')"><i class="material-icons md-dark">&#xE3C9;</i></button>' + word[1];
+            childNode2.innerHTML = word[1];
+            childNode3.innerHTML = '<button type="button" class="deleteWordButton" onclick="deleteWord(' + i + ')"><i class="material-icons md-dark">&#xE872;</i></button><button type="button" class="deleteWordButton" onclick="editWord(this, ' + i + ')"><i class="material-icons md-dark">&#xE3C9;</i></button>'
 
             node.appendChild(childNode1);
             node.appendChild(childNode2);
+            node.appendChild(childNode3);
 
             table.push(node);
         }
@@ -305,7 +308,9 @@ function editWord(elem, index) {
     // Picks out the correct table row to edit
     tableNode = document.getElementById("table");
     elemHtml = elem.parentNode.parentNode.innerHTML;
+    console.log(elemHtml);
     for (var i = 0; i < tableNode.children.length; i++) {
+        console.log("this works");
         if (tableNode.children[i].innerHTML == elemHtml) {
             rowNode = tableNode.children[i];
             break;
@@ -314,8 +319,9 @@ function editWord(elem, index) {
     
     // This is extremely ugly and unreadable, but it's the best way to make it work in IE9
     tempNode = document.createElement("DIV");
-    tempNode.innerHTML = '<table><tr><td><input type="text" class="table-input-1" id="edit1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onKeyDown="if(event.keyCode==13) acceptEditedWord(' + index + ');" value="' + wordToEdit[0] + '"></td><td><input type="text" class="table-input-2" id="edit2" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onKeyDown="if(event.keyCode==13) acceptEditedWord(' + index + ');" value="' + wordToEdit[1] + '"><button type="button" onclick="acceptEditedWord(' + index + ')" class="deleteWordButton"><i class="material-icons md-dark">&#xE5CA;</i></button><button type="button" onclick="loadWordList();" class="deleteWordButton"><i class="material-icons md-dark">&#xE14C;</i></button></td></tr></table>';
+    tempNode.innerHTML = '<table><tr><td><input type="text" class="table-input-1" id="edit1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onKeyDown="if(event.keyCode==13) acceptEditedWord(' + index + ');" value="' + wordToEdit[0] + '"></td><td><input type="text" class="table-input-2" id="edit2" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onKeyDown="if(event.keyCode==13) acceptEditedWord(' + index + ');" value="' + wordToEdit[1] + '"></td><td><button type="button" onclick="acceptEditedWord(' + index + ')" class="deleteWordButton"><i class="material-icons md-dark">&#xE5CA;</i></button><button type="button" onclick="loadWordList();" class="deleteWordButton"><i class="material-icons md-dark">&#xE14C;</i></button></td></tr></table>';
     
+    console.log(rowNode);
     rowNode.parentNode.replaceChild(tempNode.firstChild.firstChild.firstChild, rowNode);
 }
 

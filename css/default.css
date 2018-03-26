@@ -35,7 +35,7 @@
 }
 
 body {
-    background-color: #EEEEEE;
+    background-color: #F5F5F5;
     margin: 0;
     overflow-y: scroll;
 }
@@ -151,15 +151,7 @@ input:focus {
     border-width: 3px;
 }
 
-.table-input-1 {
-    width: 98%;
-    margin: 0;
-}
 
-.table-input-2 {
-    width: calc(100% - 75px);
-    margin: 0;
-}
 
 button {
     font-family: 'Nunito Bold', Fallback, sans-serif;
@@ -179,13 +171,39 @@ button:hover {
 
 button:focus, button:active, input:focus, select:focus {outline: 0;}
 
+#table {
+    width: 100%;
+    table-layout: fixed;
+    word-wrap: break-word;
+    border-spacing: 0 15px;
+}
+
+tr {
+    height: 60px;
+    box-shadow: 0px 1px 10px #888888;
+    border-radius: 3px;
+}
+
 td, th {
-    border: 1px solid #dddddd;
     text-align: left;
-    padding: 10px;
+    padding: 10px 2% 10px 3%;
     background-color: white;
-    width: 50%;
     height: 28px;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+td:first-child {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+td:last-child {
+    width: 80px;
+    padding: 10px 2% 10px 0;
+    
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 
 .word {
@@ -205,30 +223,28 @@ td, th {
     text-decoration: underline;
 }
 
-.page {
+.content {
     width: 93%;
     max-width: 700px;
-    min-height: 80vh;
+    
+    margin: 15px auto 40px auto;
+}
 
+.page {
     background-color: white;
 
-    margin: 15px auto;
     box-sizing: border-box;
-    padding: 5px 15px 15px 15px;
+    padding: 20px 20px 30px 20px;
 
-    border-radius: 5px;
-    box-shadow: 0px 0px 20px #888888;
+    border-radius: 3px;
+    box-shadow: 0px 1px 15px #888888;
+    
+    margin: 20px 0;
 }
 
 @media (min-width: 600px) {
     .page {
-        padding: 10px 40px 20px 40px;
-    }
-}
-
-@media (min-width: 800px) {
-    .page {
-        padding: 20px 70px 50px 70px;
+        padding: 20px 40px 30px 40px;
     }
 }
 
@@ -474,6 +490,14 @@ td, th {
     color: #F9F9F9;
 }
 
+.stat {
+    width: 170px;
+}
+
+.stat span {
+    display: inline-block;
+}
+
 .center {
 	text-align: center;
 	margin-left: auto;
@@ -490,6 +514,16 @@ td, th {
 
 .form {
     width: 40%;
+}
+
+#langSelect {
+    margin: 10px 0 40px 0;
+}
+
+#langSelect select {
+    width: 40%;
+    max-width: 180px;
+    margin: 0 3px;
 }
 
 .correct {
@@ -531,6 +565,8 @@ td, th {
 
 .wordListButtons {
     padding: 5px 10px;
+    margin-top: 15px;
+    margin-bottom: -10px;
     line-height: 1;
     position: relative;
 }
@@ -554,10 +590,9 @@ td, th {
 
 .deleteWordButton {
     float: right;
-    height: 24px;
     width: 24px;
     padding: 0;
-    margin: 0 0 0 10px;
+    margin: 0 0 0 4px;
     color: grey;
 
     border-style: none;
@@ -584,17 +619,13 @@ td, th {
 }
 
 #progressBar {
-    height: 25px;
+    height: 40px;
+    vertical-align: middle;
     width: 100%;
-    margin-top: 20px;
+    margin: 20px 0;
     background-color: #C6E1E3;
-    border-radius: 4px;
-}
-
-#table {
-    width: 100%;
-    table-layout: fixed;
-    word-wrap: break-word;
+    border-radius: 3px;
+    box-shadow: 0px 1px 15px #888888;
 }
 
 #deleteAllWords {
@@ -617,11 +648,14 @@ td, th {
 
 #practiceProgress {
     height: 100%;
+    line-height: 40px;
     width: 0%;
     background-color: #009DA5;
     border-radius: 4px;
     text-align: center;
-    
+}
+
+#practiceProgress span {
     color: white;
     font-family: 'Nunito Bold';
     font-size: 18px;
