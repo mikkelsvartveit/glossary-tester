@@ -71,16 +71,18 @@ h3 {
 span {
     font-family: inherit;
     font-size: inherit;
+    color: inherit;
 }
 
 b, .bold {
     font-family: 'Nunito Bold', Fallback, sans-serif;
     font-size: inherit;
+    color: inherit;
 }
 
 a {
     text-decoration: none;
-    color: black;
+    color: inherit;
 }
 
 .material-icons {
@@ -139,6 +141,7 @@ input {
     max-width: 300px;
     margin-bottom: 10px;
     padding: 2px;
+    background-color: transparent;
     border-style: none;
     border-bottom-style: solid;
     border-color: #009DA5;
@@ -161,7 +164,7 @@ button {
     border-width: 3px;
     border-color: #009DA5;
     border-radius: 3px;
-    transition-duration: 0.2s;
+    transition: color 0.2s, background-color 0.2s;
 }
 
 button:hover {
@@ -359,6 +362,14 @@ td:last-child {
     -ms-interpolation-mode: bicubic;
 }
 
+#darkModeButton {
+    line-height: 1;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+
 .underline:before {
     content: "";
     position: absolute;
@@ -395,7 +406,7 @@ td:last-child {
 }
 
 .dropdown-show {
-    height: 161px;
+    height: 215px;
     padding: 10px;
 }
 
@@ -478,7 +489,7 @@ td:last-child {
     border: 3px solid #009DA5;
     border-radius: 5px;
 
-    transition-duration: 0.2s;
+    transition: color 0.2s, background-color 0.2s;
 }
 
 .card:hover {
@@ -528,12 +539,10 @@ td:last-child {
 
 .correct {
     color: green;
-    font-family: 'Nunito Bold', Fallback, sans-serif;
 }
 
 .false {
     color: red;
-    font-family: 'Nunito Bold', Fallback, sans-serif;
 }
 
 .dropdown-content {
@@ -674,6 +683,128 @@ td:last-child {
     margin-top: 10px;
 }
 
+/* Dark mode */
+
+.dark {
+    background-color: #333333;
+}
+
+.dark p, .dark h1, .dark h2, .dark h3, .dark b, .dark span, .dark select, .dark input, .dark button, .dark td, .dark .md-dark  {
+    color: #EEEEEE;
+}
+
+.dark .link {
+    color: #F28200;
+}
+
+.dark .menu {
+    background-color: #444444;
+}
+
+.dark #dropdown-menu {
+    background-color: #222222;
+}
+
+.dark .page {
+    background-color: #444444;
+    box-shadow: 0px 1px 15px #111111;
+    
+}
+
+.dark .card {
+    background-color: #444444;
+    border-color: #F28200;
+    box-shadow: 0px 0px 15px #111111;
+}
+
+.dark .card:hover {
+    background-color: #F28200;
+}
+
+.dark .card:hover p, .dark .card:hover h3 {
+    color: black;
+}
+
+.dark td {
+    background-color: #444444;
+}
+
+.dark tr {
+    box-shadow: 0px 1px 15px #111111;
+}
+
+.dark select, .dark input, .dark button {
+    border-color: #F28200;
+}
+
+.dark select {
+    background: url("/images/arrow-down-white.svg") no-repeat 98%;
+}
+
+.dark option {
+    color: #EEEEEE;
+    background-color: #444444
+}
+
+.dark button:hover {
+    color: black;
+    background-color: #F28200;
+}
+
+.dark .iconButton:hover, .dark .deleteWordButton:hover {
+    color: #EEEEEE;
+    background-color: transparent;
+}
+
+.dark #progressBar {
+    background-color: #433C33;
+    box-shadow: 0px 1px 15px #111111;
+}
+
+.dark #practiceProgress {
+    background-color: #F28200;
+}
+
+.dark #practiceProgress span {
+    color: black;
+}
+
+.dark .correct {
+    color: lightgreen;
+}
+
+.dark .false {
+    color: orangered;
+}
+
+.dark .stat {
+    color: #EEEEEE;
+}
+
+.dark .dropdown-content {
+    position: absolute;
+    background-color: #444444;
+    box-shadow: 0px 0px 15px #111111;
+}
+
+.dark .dropdown-content a, .dark .dropdown-content a span {
+    color: #EEEEEE;
+}
+
+.dark .dropdown-content a:hover {
+    background-color: #555555;
+}
+
+.dark .overlay {
+    background-color: #444444;
+    border-color: #F28200;
+    box-shadow: 0px 1px 15px #111111;
+}
+
+/* Makes the transititon to dark mode smooth */
+body, tr, td, .menu, .page, .card, #progressBar, #practiceProgress {
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
 
 /* Ensures placeholders look the same in all browsers */
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */

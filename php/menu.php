@@ -10,6 +10,10 @@
             <a href="/practice" class="underline"><i class="material-icons md-light">&#xE150;</i>Practice</a>
             <a href="/tests" class="underline"><i class="material-icons md-light">&#xE8CE;</i>Test</a>
         </div>
+        
+        <div class="menu-group menu-right">
+            <a href="javascript:toggleDarkMode();"><img src="/images/dark-mode-icon.svg" id="darkModeButton"></a>
+        </div>
     </div>
     
     <div class="mobile-menu">
@@ -28,4 +32,5 @@
     <a href="/manage"><i class="material-icons md-light">playlist_add</i>Manage</a>
     <a href="/practice"><i class="material-icons md-light">create</i>Practice</a>
     <a href="/tests"><i class="material-icons md-light">spellcheck</i>Test</a>
+    <a href="javascript:toggleDarkMode();"><img src="/images/dark-mode-icon.svg" id="darkModeButton"></a>
 </div>

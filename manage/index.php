@@ -47,7 +47,8 @@
                     </select>
                 </div>
 
-                <input type="text" name="language1" placeholder="Your language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="default-input form" id="language1"> =
+                <input type="text" name="language1" placeholder="Your language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="default-input form" id="language1">
+                <span> = </span>
                 <input type="text" name="language2" placeholder="Learning language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="default-input form" id="language2">
                 <br>
                 <button type="button" id="addWordButton" style="margin: 20px 0 0 0">Add word</button>

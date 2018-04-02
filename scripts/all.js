@@ -1,3 +1,25 @@
+function darkMode() {
+    if (localStorage.getItem("darkMode")) {
+        document.body.className = "dark";
+        document.getElementById("theme-color").setAttribute("content", "#F28200");
+    } else {
+        document.body.className = "";
+        document.getElementById("theme-color").setAttribute("content", "#009DA5");
+    }
+}
+
+darkMode();
+
+function toggleDarkMode() {
+    if (localStorage.getItem("darkMode")) {
+        localStorage.removeItem("darkMode")
+    } else {
+        localStorage.setItem("darkMode", "true")
+    }
+    
+    darkMode();
+}
+
 var activeProfile = "profile" + 1;
 var storage = {};
 if (localStorage.getItem(activeProfile)) {

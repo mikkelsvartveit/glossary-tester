@@ -27,9 +27,7 @@
         <div class="ingress">
 
             <h1>Practice</h1>
-            <p>This is the practice section. When you practice, each word will get repeated until you get it right.
-
-</p>
+            <p>This is the practice section. When you practice, each word will get repeated until you get it right.</p>
 
         </div>
             
@@ -66,13 +64,13 @@
             
             <div class="comments">
                 <p id="correctComment" class="hidden">
-                    <i class="material-icons" style="color: green;">&#xE876;</i>
-                    <span class="correct">Correct!</span>
+                    <i class="material-icons correct">&#xE876;</i>
+                    <b class="correct">Correct!</b>
                 </p>
 
                 <p id="wrongComment" class="hidden">
-                    <i class="material-icons" style="color: red;">&#xE14C;</i>
-                    <span class="false">Wrong!</span>
+                    <i class="material-icons false">&#xE14C;</i>
+                    <b class="false">Wrong!</b>
                     <span id="wordToTranslateWas"></span> = <b id="correctWordWas"></b></span>
                 </p>
 
