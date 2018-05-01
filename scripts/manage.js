@@ -42,7 +42,9 @@ function loadWordList() {
                     tempArray[i] = table[i].firstChild.innerHTML;
                 }
                 
-                tempArray.sort();
+                tempArray.sort(function(a, b) {
+                    return a.toLowerCase().localeCompare(b.toLowerCase());
+                });
                 
                 for (var i = 0; i < tempArray.length; i++) {
                     for(var j = 0; j < table.length; j++) {
@@ -58,14 +60,16 @@ function loadWordList() {
             case "alpha2":
                 var tempArray = [];
                 for (var i = 0; i < table.length; i++) {
-                    tempArray[i] = table[i].lastChild.lastChild.textContent;
+                    tempArray[i] = table[i].children[1].innerHTML;
                 }
                 
-                tempArray.sort();
+                tempArray.sort(function(a, b) {
+                    return a.toLowerCase().localeCompare(b.toLowerCase());
+                });
                 
                 for (var i = 0; i < tempArray.length; i++) {
                     for(var j = 0; j < table.length; j++) {
-                        if (table[j].lastChild.lastChild.textContent == tempArray[i]) {
+                        if (table[j].children[1].innerHTML == tempArray[i]) {
                             sortedTable.push(table[j].cloneNode(true));
                             break;
                         }
