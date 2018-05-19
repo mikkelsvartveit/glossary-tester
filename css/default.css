@@ -46,6 +46,7 @@ body {
     color: #333333;
     line-height: 150%;
     font-size: 18px;
+    word-wrap: break-word;
 }
 
 h1 {
@@ -174,11 +175,42 @@ button:hover {
 
 button:focus, button:active, input:focus, select:focus {outline: 0;}
 
-#table {
+#wordTable {
     width: 100%;
-    table-layout: fixed;
+    margin-top: 10px;
+}
+
+.wordCard {
+    background-color: white;
+    margin: 15px 0;
+    position: relative;
+    box-shadow: 0px 1px 10px #888888;
+    border-radius: 3px;
+}
+
+.wordCard p {
+    text-align: left;
     word-wrap: break-word;
-    border-spacing: 0 15px;
+    vertical-align: middle;
+    
+    margin: 0;
+    padding: 13px 2% 13px 3%;
+    width: calc((100% - 80px) / 2);
+    box-sizing: border-box;
+    display: inline-block;
+    
+    border-radius: 3px;
+}
+
+.wordCard p:last-child {
+    position: absolute;
+    top: 50%;
+    height: 53px;
+    margin-top: -27px;
+    
+    width: 80px;
+    padding: 13px 2% 13px 0;
+    float: right;
 }
 
 tr {
@@ -368,6 +400,12 @@ td:last-child {
     width: 30px;
     height: 30px;
     border: none;
+    outline: 0;
+}
+
+#darkModeButton:active, #darkModeButton:focus {
+    outline: 0;
+    -moz-outline-style: none;
 }
 
 .underline:before {
@@ -668,6 +706,7 @@ td:last-child {
     color: white;
     font-family: 'Nunito Bold';
     font-size: 18px;
+    word-wrap: normal;
 }
 
 #practiceRepeatWord {
@@ -725,11 +764,8 @@ td:last-child {
     color: black;
 }
 
-.dark td {
+.dark .wordCard {
     background-color: #444444;
-}
-
-.dark tr {
     box-shadow: 0px 1px 15px #111111;
 }
 
@@ -802,7 +838,7 @@ td:last-child {
 }
 
 /* Makes the transititon to dark mode smooth */
-body, tr, td, .menu, .page, .card, #progressBar, #practiceProgress {
+body, .wordCard, .menu, .page, .card, #progressBar, #practiceProgress {
     transition: background-color 0.2s, box-shadow 0.2s;
 }
 

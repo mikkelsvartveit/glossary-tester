@@ -70,7 +70,7 @@
             <button type="button" id="clearButton" class="iconButton float-right"><i class="material-icons md-dark md-big">&#xE16C;</i>Clear</button>
         </div>
 
-        <table id="table"></table>
+        <div id="wordTable"></div>
 
         <div id="dim" class="dim">
             <!-- This dims the viewport to prepare for a dialog box -->
