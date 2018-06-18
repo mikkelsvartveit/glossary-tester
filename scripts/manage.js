@@ -22,7 +22,7 @@ function loadWordList() {
                 childNode1 = document.createElement("P"),
                 childNode2 = document.createElement("P"),
                 childNode3 = document.createElement("P");
-            
+
             node.className = "wordCard";
 
             childNode1.innerHTML = word[0];
@@ -36,18 +36,18 @@ function loadWordList() {
 
             table.push(node);
         }
-        
+
         switch (storage.sort) {
             case "alpha1":
                 var tempArray = [];
                 for (var i = 0; i < table.length; i++) {
                     tempArray[i] = table[i].firstChild.innerHTML;
                 }
-                
+
                 tempArray.sort(function(a, b) {
                     return a.toLowerCase().localeCompare(b.toLowerCase());
                 });
-                
+
                 for (var i = 0; i < tempArray.length; i++) {
                     for(var j = 0; j < table.length; j++) {
                         if (table[j].firstChild.innerHTML == tempArray[i]) {
@@ -56,7 +56,7 @@ function loadWordList() {
                         }
                     }
                 }
-                
+
                 break;
 
             case "alpha2":
@@ -64,11 +64,11 @@ function loadWordList() {
                 for (var i = 0; i < table.length; i++) {
                     tempArray[i] = table[i].children[1].innerHTML;
                 }
-                
+
                 tempArray.sort(function(a, b) {
                     return a.toLowerCase().localeCompare(b.toLowerCase());
                 });
-                
+
                 for (var i = 0; i < tempArray.length; i++) {
                     for(var j = 0; j < table.length; j++) {
                         if (table[j].children[1].innerHTML == tempArray[i]) {
@@ -77,7 +77,7 @@ function loadWordList() {
                         }
                     }
                 }
-                
+
                 break;
 
             case "oldest":
@@ -89,7 +89,7 @@ function loadWordList() {
                     sortedTable.push(table[i].cloneNode(true));
                 }
                 break;
-                
+
             default:
                 sortedTable = table.slice(0);
         }
@@ -206,7 +206,7 @@ function changeLanguage(languageToChange) {
             document.getElementById("lang2").innerHTML = lang;
         }
     }
-    
+
     updateStorage();
 }
 
@@ -248,6 +248,11 @@ function addWord() {
         addWordToLocalStorage(word1, word2);
         loadWordList();
 
+        if (word1.toLowerCase().includes("pride") || word2.toLowerCase().includes("pride")) {
+            alert("Pride Mode activated!");
+            prideMode();
+        }
+
         // Empty text fields and set focus to first text field after entering a word
         document.getElementById("language1").value = "";
         document.getElementById("language2").value = "";
@@ -255,20 +260,20 @@ function addWord() {
     } else {
         showOverlay("illegalCharacterOverlay", true);
     }
-    
+
     updateStorage();
 }
 
 function showOverlay(id, show) {
     if(show) {
         document.getElementById("dim").className = "dim dim-show";
-        
+
         document.getElementById(id).className = "overlay";
         setTimeout(function() {document.getElementById(id).className = "overlay overlay-show"}, 50);
     } else {
         document.getElementById(id).className = "overlay";
         setTimeout(function() {document.getElementById(id).className = "overlay hidden"}, 300);
-        
+
         document.getElementById("dim").className = "dim";
     }
 }
@@ -283,7 +288,7 @@ document.getElementById("dim").addEventListener("click", function(event) {
 
 function toggleDropdown() {
     var element = document.getElementById(this.getAttribute("data-dropdown"));
-    
+
     if (element.className.indexOf("hidden") == -1) {
         element.className += "hidden";
     } else {
@@ -304,13 +309,13 @@ document.addEventListener("click", function(event) {
 
 function editWord(elem, index) {
     loadWordList();
-    
+
     var wordString, wordArray, wordToEdit, newWord, newWordList, rowNode, tempNode, elemHtml, tableNode;
-    
+
     wordString = storage.wordList;
     wordArray = wordString.split(";");
     wordToEdit = wordArray[index].split("=");
-    
+
     // Picks out the correct table row to edit
     tableNode = document.getElementById("wordTable");
     elemHtml = elem.parentNode.parentNode.innerHTML;
@@ -320,24 +325,24 @@ function editWord(elem, index) {
             break;
         }
     }
-    
+
     // This is extremely ugly and unreadable, but it's the best way to make it work in IE9
     tempNode = document.createElement("DIV");
     tempNode.innerHTML = '<p><input type="text" class="table-input-1" id="edit1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onKeyDown="if(event.keyCode==13) acceptEditedWord(' + index + ');" value="' + wordToEdit[0] + '"></p><p><input type="text" class="table-input-2" id="edit2" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onKeyDown="if(event.keyCode==13) acceptEditedWord(' + index + ');" value="' + wordToEdit[1] + '"></p><p><button type="button" onclick="acceptEditedWord(' + index + ')" class="deleteWordButton"><i class="material-icons md-dark">&#xE5CA;</i></button><button type="button" onclick="loadWordList();" class="deleteWordButton"><i class="material-icons md-dark">&#xE14C;</i></button></p>';
-    
+
     rowNode.innerHTML = tempNode.innerHTML;
 }
 
 function acceptEditedWord(index) {
     var wordString, wordArray, wordToEdit, newWord, newWordString, rowNode;
-    
+
     wordString = storage.wordList;
     wordArray = wordString.split(";");
     wordToEdit = wordArray[index];
-    
+
     var edit1 = document.getElementById("edit1").value.trim(),
         edit2 = document.getElementById("edit2").value.trim();
-    
+
     if (edit1 == "" || edit2 == "") {
         showOverlay("noInputOverlay", true);
     } else {
@@ -345,7 +350,7 @@ function acceptEditedWord(index) {
 
         newWordString = wordString.replace(wordToEdit, newWord);
         storage.wordList = newWordString;
-        
+
         loadWordList();
     }
     updateStorage();
@@ -371,7 +376,7 @@ function deleteWord(index) {
         var newWordString = wordString.replace(wordToDelete, "");
         storage.wordList = newWordString;
     }
-    
+
     updateStorage();
     loadWordList();
 }
@@ -382,7 +387,7 @@ function deleteAllWords(prompt) {
         updateStorage();
         loadWordList();
     }
-    
+
     showOverlay("clearOverlay", false);
 }
 

@@ -16,7 +16,7 @@ function toggleDarkMode() {
     } else {
         localStorage.setItem("darkMode", "true")
     }
-    
+
     darkMode();
 }
 
@@ -52,8 +52,17 @@ function showDropdown() {
     if (dropdownNode.className == "dropdown-hide") {
         dropdownNode.className = "dropdown-show";
     }
-    
+
     else if (dropdownNode.className == "dropdown-show") {
         dropdownNode.className = "dropdown-hide";
     }
+}
+
+function prideMode() {
+    document.getElementsByClassName("menu")[0].style.background = "url(/images/pride.gif)";
+    document.getElementById("dropdown-menu").style.background = "url(/images/pride.gif)";
+}
+
+if (storage.wordList.toLowerCase().includes("pride")) {
+    prideMode();
 }
