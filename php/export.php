@@ -1,8 +1,15 @@
 <?php
-$server = "localhost";
-$username = "root";
-$password = "";
-$dbname = "glossary-tester";
+if($_SERVER['SERVER_NAME'] == "localhost") {
+    $server = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "glossary-tester";
+} else {
+    $server = "localhost";
+    $username = "mikkegki_mysql";
+    $password = "p2VEHYe36wem";
+    $dbname = "mikkegki_glossary-tester";
+}
 
 $conn = new mysqli($server, $username, $password, $dbname);
 $conn->set_charset('utf8');
@@ -20,13 +27,13 @@ function generateId() {
 
 do {
     $id = generateId();
-    $result = $conn->query("SELECT wordlistid FROM profile WHERE wordlistid = '$id'");
+    $result = $conn->query("SELECT wordlistid FROM wordlist WHERE wordlistid = '$id'");
 } while($result->num_rows > 0);
 
 $name = $_POST["name"]; 
 $data = $_POST["data"]; 
 
-$sql = "INSERT INTO profile (wordlistid, name, date, data) VALUES('$id', '$name', CURDATE(), '$data')";
+$sql = "INSERT INTO wordlist (wordlistid, name, date, data) VALUES('$id', '$name', CURDATE(), '$data')";
 $conn->query($sql);
 
 echo $id;

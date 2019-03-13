@@ -23,10 +23,17 @@
     ?>
     
     <?php
-    $server = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "glossary-tester";
+    if($_SERVER['SERVER_NAME'] == "localhost") {
+        $server = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "glossary-tester";
+    } else {
+        $server = "localhost";
+        $username = "mikkegki_mysql";
+        $password = "p2VEHYe36wem";
+        $dbname = "mikkegki_glossary-tester";
+    }
     
     $conn = new mysqli($server, $username, $password, $dbname);
     $conn->set_charset('utf8');
@@ -34,7 +41,7 @@
     if(isset($_GET["i"])) {
         $id = $_GET["i"];
         
-        $sql = "SELECT wordlistid, name, date, data FROM profile WHERE wordlistid = '$id'";
+        $sql = "SELECT wordlistid, name, date, data FROM wordlist WHERE wordlistid = '$id'";
         $result = $conn->query($sql);
     }
     ?>
