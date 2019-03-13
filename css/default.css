@@ -152,10 +152,7 @@ input {
 
 input:focus {
     outline: 0;
-    border-width: 3px;
 }
-
-
 
 button {
     font-family: 'Nunito Bold', Fallback, sans-serif;
@@ -292,6 +289,7 @@ td:last-child {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1;
     transition-duration: 0.2s;
 }
 
@@ -309,6 +307,7 @@ td:last-child {
     transform: translate(-50%, -50%) scale(0.8);
     -ms-transform: translate(-50%, -50%) scale(0.8);
     opacity: 0;
+    z-index: 2;
     
     padding: 10px 20px 20px 20px;
     box-sizing: border-box;
@@ -320,6 +319,12 @@ td:last-child {
     box-shadow: 0px 0px 20px 0px #888888;
     
     transition-duration: 0.15s;
+}
+
+.overlay input {
+    font-size: 16px;
+    width: 90%;
+    margin-bottom: 30px;
 }
 
 .overlay-show {
@@ -381,7 +386,13 @@ td:last-child {
 
 .menu-right {
     width: 25%;
+    box-sizing: border-box;
+    padding-right: 10px;
     text-align: right;
+}
+
+.menu-right a {
+    margin: 15px;
 }
 
 .logo {
@@ -394,7 +405,7 @@ td:last-child {
     -ms-interpolation-mode: bicubic;
 }
 
-#darkModeButton {
+.navButton {
     line-height: 1;
     vertical-align: middle;
     width: 30px;
@@ -403,7 +414,7 @@ td:last-child {
     outline: 0;
 }
 
-#darkModeButton:active, #darkModeButton:focus {
+.navButton:active, .navButton:focus {
     outline: 0;
     -moz-outline-style: none;
 }
@@ -472,6 +483,15 @@ td:last-child {
 
 #dropdown-menu-button:hover {
     cursor: default;
+}
+
+#dropdown-buttons {
+    float: right;
+    margin-top: 10px;
+}
+
+#dropdown-buttons a {
+    display: inline;
 }
 
 .ingress {
@@ -860,4 +880,8 @@ body, .wordCard, .menu, .page, .card, #progressBar, #practiceProgress {
 }
 ::-ms-input-placeholder { /* Microsoft Edge */
    color: #8E8E8E;
+}
+
+#exportSuccessOverlay {
+    width: 400px;
 }

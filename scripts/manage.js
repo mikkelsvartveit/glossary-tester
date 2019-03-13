@@ -264,28 +264,6 @@ function addWord() {
     updateStorage();
 }
 
-function showOverlay(id, show) {
-    if(show) {
-        document.getElementById("dim").className = "dim dim-show";
-
-        document.getElementById(id).className = "overlay";
-        setTimeout(function() {document.getElementById(id).className = "overlay overlay-show"}, 50);
-    } else {
-        document.getElementById(id).className = "overlay";
-        setTimeout(function() {document.getElementById(id).className = "overlay hidden"}, 300);
-
-        document.getElementById("dim").className = "dim";
-    }
-}
-
-// Dismisses dialog box when clicking outside it
-document.getElementById("dim").addEventListener("click", function(event) {
-    var elements = document.getElementsByClassName("overlay");
-    for (var i = 0; i < elements.length; i++) {
-        showOverlay(elements[i].getAttribute("id"), false);
-    }
-});
-
 function toggleDropdown() {
     var element = document.getElementById(this.getAttribute("data-dropdown"));
 

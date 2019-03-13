@@ -72,10 +72,6 @@
 
         <div id="wordTable"></div>
 
-        <div id="dim" class="dim">
-            <!-- This dims the viewport to prepare for a dialog box -->
-        </div>
-
         <div class="overlay hidden" id="noInputOverlay">
             <h3>Enter word</h3>
             <p>Enter a word in both text fields!</p>
