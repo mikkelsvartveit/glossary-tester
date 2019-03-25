@@ -18,7 +18,7 @@
 
     <?php
        $path = $_SERVER['DOCUMENT_ROOT'];
-       $path .= "/php/menu.php";
+       $path .= "/php/all.php";
        include_once($path);
     ?>
     
