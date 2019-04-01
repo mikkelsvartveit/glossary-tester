@@ -447,6 +447,7 @@ td:last-child {
     box-sizing: border-box;
     overflow: hidden;
     transition: all 0.4s ease;
+    transition-property: height, padding;
 }
 
 .dropdown-hide {
@@ -746,7 +747,7 @@ td:last-child {
 /* Dark mode */
 
 .dark {
-    background-color: #333333;
+    background-color: #1A2327;
 }
 
 .dark p, .dark h1, .dark h2, .dark h3, .dark b, .dark span, .dark select, .dark input, .dark button, .dark td, .dark .md-dark  {
@@ -754,31 +755,31 @@ td:last-child {
 }
 
 .dark .link {
-    color: #F28200;
+    color: #01B7A6;
 }
 
 .dark .menu {
-    background-color: #444444;
+    background-color: #263238;
 }
 
 .dark #dropdown-menu {
-    background-color: #222222;
+    background-color: #1F292D;
 }
 
 .dark .page {
-    background-color: #444444;
+    background-color: #263238;
     box-shadow: 0px 1px 15px #111111;
     
 }
 
 .dark .card {
-    background-color: #444444;
-    border-color: #F28200;
+    background-color: #263238;
+    border-color: #01B7A6;
     box-shadow: 0px 0px 15px #111111;
 }
 
 .dark .card:hover {
-    background-color: #F28200;
+    background-color: #01B7A6;
 }
 
 .dark .card:hover p, .dark .card:hover h3 {
@@ -786,12 +787,12 @@ td:last-child {
 }
 
 .dark .wordCard {
-    background-color: #444444;
+    background-color: #263238;
     box-shadow: 0px 1px 15px #111111;
 }
 
 .dark select, .dark input, .dark button {
-    border-color: #F28200;
+    border-color: #01B7A6;
 }
 
 .dark select {
@@ -800,12 +801,12 @@ td:last-child {
 
 .dark option {
     color: #EEEEEE;
-    background-color: #444444
+    background-color: #263238;
 }
 
 .dark button:hover {
     color: black;
-    background-color: #F28200;
+    background-color: #01B7A6;
 }
 
 .dark .iconButton:hover, .dark .deleteWordButton:hover {
@@ -814,12 +815,12 @@ td:last-child {
 }
 
 .dark #progressBar {
-    background-color: #433C33;
+    background-color: #334143;
     box-shadow: 0px 1px 15px #111111;
 }
 
 .dark #practiceProgress {
-    background-color: #F28200;
+    background-color: #01B7A6;
 }
 
 .dark #practiceProgress span {
@@ -840,7 +841,7 @@ td:last-child {
 
 .dark .dropdown-content {
     position: absolute;
-    background-color: #444444;
+    background-color: #263238;
     box-shadow: 0px 0px 15px #111111;
 }
 
@@ -853,8 +854,8 @@ td:last-child {
 }
 
 .dark .overlay {
-    background-color: #444444;
-    border-color: #F28200;
+    background-color: #263238;
+    border-color: #01B7A6;
     box-shadow: 0px 1px 15px #111111;
 }
 

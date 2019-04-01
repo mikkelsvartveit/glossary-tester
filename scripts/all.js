@@ -23,7 +23,7 @@ document.getElementById("dim").addEventListener("click", function(event) {
 function darkMode() {
     if (localStorage.getItem("darkMode")) {
         document.body.className = "dark";
-        document.getElementById("theme-color").setAttribute("content", "#F28200");
+        document.getElementById("theme-color").setAttribute("content", "#263238");
     } else {
         document.body.className = "";
         document.getElementById("theme-color").setAttribute("content", "#009DA5");
