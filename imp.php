@@ -59,8 +59,12 @@
                 echo "<p>Key: <b>" . strtoupper($entry['wordlistid']) . "</b></p>";
                 echo "<p>Created on $entry[date]</p>";
                 echo "<button id='importButton'>Import word list</button>";
+            } else if(!$result) {
+                echo "<h1>Error!</h1>";
+                echo "<p>An error occured and we could not access the database. Please try again later. If the issue persists, please contact developer.</p>";
             } else {
-                echo ("<br><p>No word list with the key <b>" . strtoupper($id) . "</b> exists!<p>");
+                echo "<h1>Error!</h1>";
+                echo "<p>No word list with the key <b>" . strtoupper($id) . "</b> exists!<p>";
             }
             ?>
 

@@ -882,6 +882,6 @@ body, .wordCard, .menu, .page, .card, #progressBar, #practiceProgress {
    color: #8E8E8E;
 }
 
-#exportSuccessOverlay {
+#exportSuccessOverlay, #exportErrorOverlay {
     width: 400px;
 }

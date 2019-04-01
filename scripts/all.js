@@ -105,14 +105,18 @@ function exportWordList() {
     
     xhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
-            var id = this.responseText;
-            var link = window.location.hostname + "/imp.php?i=" + id;
-            
-            document.getElementById("wordListName").innerHTML = name;
-            document.getElementById("wordListKey").innerHTML = id.toString().toUpperCase();
-            document.getElementById("exportSuccessOverlayLink").value = link;
-            
-            showOverlay("exportSuccessOverlay", true);
+            if(this.responseText == "ERROR") {
+                showOverlay("exportErrorOverlay", true);
+            } else {
+                var id = this.responseText;
+                var link = window.location.hostname + "/imp.php?i=" + id;
+
+                document.getElementById("wordListName").innerHTML = name;
+                document.getElementById("wordListKey").innerHTML = id.toString().toUpperCase();
+                document.getElementById("exportSuccessOverlayLink").value = link;
+
+                showOverlay("exportSuccessOverlay", true);
+            }
         }
     }
     
@@ -151,4 +155,8 @@ document.getElementById("exportSuccessOverlayCopyButton").addEventListener("clic
 
 document.getElementById("exportSuccessOverlayOkButton").addEventListener("click", function() {
     showOverlay('exportSuccessOverlay', false);
+});
+
+document.getElementById("exportErrorOverlayOkButton").addEventListener("click", function() {
+    showOverlay('exportErrorOverlay', false);
 });

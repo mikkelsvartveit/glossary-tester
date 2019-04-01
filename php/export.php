@@ -34,7 +34,10 @@ $name = $_POST["name"];
 $data = $_POST["data"]; 
 
 $sql = "INSERT INTO wordlist (wordlistid, name, date, data) VALUES('$id', '$name', CURDATE(), '$data')";
-$conn->query($sql);
 
-echo $id;
+if($conn->query($sql)) {
+    echo $id;
+} else {
+    echo "ERROR";
+}
 ?>

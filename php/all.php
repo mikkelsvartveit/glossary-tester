@@ -66,3 +66,9 @@
     <button type="button" id="exportSuccessOverlayCopyButton" class="float-left">Copy link</button>
     <button type="button" id="exportSuccessOverlayOkButton" class="float-right">OK</button>
 </div>
+
+<div class="overlay hidden" id="exportErrorOverlay">
+    <h3>Error</h3>
+    <p>An error occured and we could not export the word list. Please try again later. If the issue persists, please contact developer.</p>
+    <button type="button" id="exportErrorOverlayOkButton" class="float-right">OK</button>
+</div>
