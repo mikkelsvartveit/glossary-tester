@@ -23,19 +23,9 @@
     ?>
     
     <?php
-    if($_SERVER['SERVER_NAME'] == "localhost") {
-        $server = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "glossary-tester";
-    } else {
-        $server = "localhost";
-        $username = "mikkegki_mysql";
-        $password = "p2VEHYe36wem";
-        $dbname = "mikkegki_glossary-tester";
-    }
-    
-    $conn = new mysqli($server, $username, $password, $dbname);
+    $db_config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../private/db_config.ini");
+
+    $conn = new mysqli($db_config["servername"], $db_config["username"], $db_config["password"], $db_config["dbname"]);
     $conn->set_charset('utf8');
 
     if(isset($_GET["i"])) {
