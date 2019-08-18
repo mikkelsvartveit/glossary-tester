@@ -163,44 +163,80 @@ function loadLanguages() {
 function changeLanguage(languageToChange) {
     if (languageToChange == 1) {
         var lang = document.getElementById("langSelect1").value;
-        storage.lang1 = lang;
 
         if (lang == "Other") {
             var otherLang = prompt("Type in your language:");
-            storage.otherLang1 = otherLang;
+            
+            if(otherLang) {
+                storage.lang1 = lang;
+                storage.otherLang1 = otherLang;
 
-            otherLang = storage.otherLang1;
-            node = document.createElement("OPTION");
-            node.innerHTML = otherLang;
-            node.setAttribute("value", otherLang);
-            document.getElementById("langSelect1").appendChild(node);
+                otherLang = storage.otherLang1;
+                node = document.createElement("OPTION");
+                node.innerHTML = otherLang;
+                node.setAttribute("value", otherLang);
+                document.getElementById("langSelect1").appendChild(node);
 
-            document.getElementById("language1").setAttribute("placeholder", otherLang);
-            document.getElementById("langSelect1").value = otherLang;
-            document.getElementById("lang1").innerHTML = otherLang;
+                document.getElementById("language1").setAttribute("placeholder", otherLang);
+                document.getElementById("langSelect1").value = otherLang;
+                document.getElementById("lang1").innerHTML = otherLang;
+            } else {
+                // If the user dismisses the prompt
+                
+                if(storage.lang1) {
+                    if(storage.lang1 == "Other") {
+                        document.getElementById("langSelect1").value = storage.otherLang1;
+                    } else {
+                        document.getElementById("langSelect1").value = storage.lang1;
+                    }
+                } else {
+                    document.getElementById("langSelect1").value = "none";
+                }
+                
+                return false;
+            }
         } else {
+            storage.lang1 = lang;
             document.getElementById("langSelect1").value = lang;
             document.getElementById("language1").setAttribute("placeholder", lang);
             document.getElementById("lang1").innerHTML = lang;
         }
     } else if (languageToChange == 2) {
         var lang = document.getElementById("langSelect2").value;
-        storage.lang2 = lang;
 
         if (lang == "Other") {
             var otherLang = prompt("Type in your language:");
-            storage.otherLang2 = otherLang;
+            
+            if(otherLang) {
+                storage.lang2 = lang;
+                storage.otherLang2 = otherLang;
 
-            otherLang = storage.otherLang2;
-            node = document.createElement("OPTION");
-            node.innerHTML = otherLang;
-            node.setAttribute("value", otherLang);
-            document.getElementById("langSelect2").appendChild(node);
+                otherLang = storage.otherLang2;
+                node = document.createElement("OPTION");
+                node.innerHTML = otherLang;
+                node.setAttribute("value", otherLang);
+                document.getElementById("langSelect2").appendChild(node);
 
-            document.getElementById("language2").setAttribute("placeholder", otherLang);
-            document.getElementById("langSelect2").value = otherLang;
-            document.getElementById("lang2").innerHTML = otherLang;
+                document.getElementById("language2").setAttribute("placeholder", otherLang);
+                document.getElementById("langSelect2").value = otherLang;
+                document.getElementById("lang2").innerHTML = otherLang;
+            } else {
+                // If the user dismisses the prompt
+                
+                if(storage.lang2) {
+                    if(storage.lang2 == "Other") {
+                        document.getElementById("langSelect2").value = storage.otherLang2;
+                    } else {
+                        document.getElementById("langSelect2").value = storage.lang2;
+                    }
+                } else {
+                    document.getElementById("langSelect2").value = "none";
+                }
+                
+                return false;
+            }
         } else {
+            storage.lang2 = lang;
             document.getElementById("langSelect2").value = lang;
             document.getElementById("language2").setAttribute("placeholder", lang)
             document.getElementById("lang2").innerHTML = lang;
