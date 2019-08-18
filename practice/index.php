@@ -89,7 +89,7 @@
 
             <div id="practiceRepeatWord">
                 <p class="word">Type <b id="wordToRepeat"></b></p>
-                <button type="button" class="float-right">Answer</button>
+                <button type="button" id="repeatWordButton" class="float-right">Confirm</button>
                 <span class="fill-width">
                     <input type="text" name="practiceRepeatForm" placeholder="Repeat" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form" id="practiceRepeatForm">
                 </span>
@@ -103,8 +103,15 @@
         <div class="overlay hidden" id="confirmRestartPracticeOverlay">
             <h3>Restart practice</h3>
             <p>Are you sure you want to restart your practice session?</p>
-            <button type="button" id="confirmRestartPracticeOverlayNoButton" class="float-left">No</button>
-            <button type="button" id="confirmRestartPracticeOverlayYesButton" class="float-right">Yes</button>
+            <button type="button" id="confirmRestartPracticeOverlayYesButton" class="float-left">Restart</button>
+            <button type="button" id="confirmRestartPracticeOverlayNoButton" class="float-right">Cancel</button>
+        </div>
+        
+        <div class="overlay hidden" id="wordListModifiedOverlay">
+            <h3>Word list modified</h3>
+            <p>Your word list has been modified since the last practice. Do you want to restart the practice session to include your new words?</p>
+            <button type="button" id="wordListModifiedOverlayYesButton" class="float-left">Yes</button>
+            <button type="button" id="wordListModifiedOverlayNoButton" class="float-right">No</button>
         </div>
     
     </div>

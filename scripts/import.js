@@ -48,7 +48,9 @@ function importNow() {
     if(importStorage.otherLang2) {
         storage.otherLang2 = importStorage.otherLang2;
     }
-
+    
+    storage.wordListIsModified = true;
+    
     updateStorage();
     window.location.href = "/";
 }

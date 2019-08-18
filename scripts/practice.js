@@ -212,6 +212,7 @@ function onLoad() {
         wordString = storage.wordList;
         wordArray = shuffleArray(wordString.split(";"));
         newWordArray = wordArray.slice(0);
+        delete storage.wordListIsModified;
 
         startNewRound();
     }
@@ -226,6 +227,10 @@ function onLoad() {
     }
 
     if (storage.practiceCounter) {
+        if(storage.wordListIsModified) {
+            showOverlay("wordListModifiedOverlay", true);
+        }
+        
         resumePractice();
     } else if (storage.wordList) {
         initializePractice();
@@ -249,16 +254,34 @@ document.getElementById("practiceForm").addEventListener("keydown", function(eve
     }
 });
 
-document.getElementById("practiceRepeatForm").addEventListener("input", typeRepeatWord);
+document.getElementById("repeatWordButton").addEventListener("click", typeRepeatWord);
+
+document.getElementById("practiceRepeatForm").addEventListener("keydown", function(event) {
+    if(event.keyCode == 13) {
+        typeRepeatWord();
+    }
+});
 
 document.getElementById("confirmRestartPracticeOverlayYesButton").addEventListener("click", function() {
     resetPractice();
-    showOverlay('confirmRestartPracticeOverlayYesButton', false);
+    showOverlay('confirmRestartPracticeOverlay', false);
     location.reload();
 });
 
 document.getElementById("confirmRestartPracticeOverlayNoButton").addEventListener("click", function() {
     showOverlay('confirmRestartPracticeOverlay', false);
+});
+
+document.getElementById("wordListModifiedOverlayYesButton").addEventListener("click", function() {
+    resetPractice();
+    showOverlay('wordListModifiedOverlay', false);
+    location.reload();
+});
+
+document.getElementById("wordListModifiedOverlayNoButton").addEventListener("click", function() {
+    delete storage.wordListIsModified;
+    updateStorage();
+    showOverlay('wordListModifiedOverlay', false);
 });
 
 onLoad();

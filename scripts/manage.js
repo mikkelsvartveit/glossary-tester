@@ -221,6 +221,7 @@ function addWord() {
         }
 
         storage.wordList = newWordString;
+        storage.wordListIsModified = true;
     }
 
     function checkLegal(word1, word2) {
@@ -328,9 +329,11 @@ function acceptEditedWord(index) {
 
         newWordString = wordString.replace(wordToEdit, newWord);
         storage.wordList = newWordString;
+        storage.wordListIsModified = true;
 
         loadWordList();
     }
+    
     updateStorage();
 }
 
@@ -353,18 +356,23 @@ function deleteWord(index) {
         // Update storage without the deleted word
         var newWordString = wordString.replace(wordToDelete, "");
         storage.wordList = newWordString;
+        storage.wordListIsModified = true;
     }
 
     updateStorage();
     loadWordList();
 }
 
-function deleteAllWords(prompt) {
-    if(prompt) {
-        delete storage.wordList;
-        updateStorage();
-        loadWordList();
-    }
+function deleteAllWords() {
+    delete storage.wordList;
+    
+    delete storage.practiceRound;
+    delete storage.practiceCounter;
+    delete storage.practiceWordList;
+    delete storage.practiceNewWordList;
+    
+    updateStorage();
+    loadWordList();
 
     showOverlay("clearOverlay", false);
 }
