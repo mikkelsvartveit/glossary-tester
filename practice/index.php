@@ -99,6 +99,13 @@
             <p id="noWords" class="hidden">The word list is empty. <a class="link" href="/manage">Go add some words!</a></p>
 
         </div>
+        
+        <div class="overlay hidden" id="confirmRestartPracticeOverlay">
+            <h3>Restart practice</h3>
+            <p>Are you sure you want to restart your practice session?</p>
+            <button type="button" id="confirmRestartPracticeOverlayNoButton" class="float-left">No</button>
+            <button type="button" id="confirmRestartPracticeOverlayYesButton" class="float-right">Yes</button>
+        </div>
     
     </div>
     

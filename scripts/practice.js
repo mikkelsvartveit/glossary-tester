@@ -238,8 +238,7 @@ function onLoad() {
 // Event listeners:
 
 document.getElementById("startOverButton").addEventListener("click", function() {
-    resetPractice();
-    location.reload();
+    showOverlay("confirmRestartPracticeOverlay", true);
 });
 
 document.getElementById("enterWordButton").addEventListener("click", enterWord);
@@ -251,5 +250,15 @@ document.getElementById("practiceForm").addEventListener("keydown", function(eve
 });
 
 document.getElementById("practiceRepeatForm").addEventListener("input", typeRepeatWord);
+
+document.getElementById("confirmRestartPracticeOverlayYesButton").addEventListener("click", function() {
+    resetPractice();
+    showOverlay('confirmRestartPracticeOverlayYesButton', false);
+    location.reload();
+});
+
+document.getElementById("confirmRestartPracticeOverlayNoButton").addEventListener("click", function() {
+    showOverlay('confirmRestartPracticeOverlay', false);
+});
 
 onLoad();
