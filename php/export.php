@@ -1,5 +1,14 @@
 <?php
-$db_config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../private/db_config.ini");
+if (getenv("DOCKER") == "true") {
+    $db_config = array(
+        "servername" => getenv("DB_SERVER"),
+        "username" => getenv("DB_USER"),
+        "password" => getenv("DB_PASSWORD"),
+        "dbname" => getenv("DB_NAME")
+    );
+} else {
+    $db_config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../private/db_config.ini");
+}
 
 $conn = new mysqli($db_config["servername"], $db_config["username"], $db_config["password"], $db_config["dbname"]);
 $conn->set_charset('utf8');
